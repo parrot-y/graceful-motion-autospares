@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Graceful Motion Autospares</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/pages/product-details.css">
+</head>
+
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <a href="tel:+254712345678"><i class="fas fa-phone"></i> +254 712 345 678</a>
+                    <a href="mailto:info@gracefulmotion.com"><i class="fas fa-envelope"></i> info@gracefulmotion.com</a>
+                </div>
+                <div class="contact-links">
+                    <a href="#">Track Order</a>
+                    <a href="#">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar - Integrated Hub V2 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content-v2">
+                <!-- Branding -->
+                <a href="index.html" class="logo">
+                    <i class="fas fa-car-side"></i>
+                    <span>Graceful Motion</span>
+                </a>
+
+                <!-- Integrated Hub -->
+                <div class="header-hub">
+                    <div class="categories-menu" id="headerCategories">
+                        <button class="categories-btn-v2" id="categoriesBtn">
+                            <i class="fas fa-bars"></i>
+                            <span>CATEGORIES</span>
+                        </button>
+                        <div class="mega-menu" id="categoriesDropdown">
+                            <div class="mega-menu-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="search-centerpiece">
+                        <form action="catalog.html" method="GET" class="search-form">
+                            <input type="text" name="search" class="search-input-v2"
+                                placeholder="Search premium parts...">
+                            <button type="submit" class="search-btn-v2"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="nav-links-v2" id="navLinks">
+                        <a href="catalog.html" class="nav-link-v2">CATALOG</a>
+                        <a href="index.html#deals" class="nav-link-v2">DEALS</a>
+                        <a href="index.html#about-us" class="nav-link-v2">ABOUT</a>
+                    </div>
+                </div>
+
+                <div class="nav-actions-v2">
+                    <button class="nav-icon-btn-v2"><i class="fas fa-shopping-cart"></i><span
+                            class="cart-badge">0</span></button>
+                    <button class="mobile-hamburger" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="product-page-main">
+        <div class="container">
+            <div class="product-detail-wrapper" id="productDetailContent">
+                <!-- Content injected by JS -->
+                <div class="detail-loading">
+                    <div class="shimmer-block" style="height: 400px;"></div>
+                    <div class="info-placeholders">
+                        <div class="shimmer-block" style="height: 40px; width: 60%;"></div>
+                        <div class="shimmer-block" style="height: 100px; margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Sticky Action Bar -->
+    <div class="mobile-sticky-actions" id="mobileStickyBar" style="display: none;">
+        <div class="sticky-product-info">
+            <span id="stickyPrice">KES --,---</span>
+            <span id="stickyName">Product Name</span>
+        </div>
+        <button class="btn btn-primary add-to-cart-action">ADD TO CART</button>
+    </div>
+
+    <!-- Reused Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <h2 class="logo"><i class="fas fa-car-side"></i><span>Graceful Motion</span></h2>
+                    <p class="footer-desc">Engineering excellence since 2010. Your trusted partner for premium
+                        automotive components.</p>
+                </div>
+                <!-- Simplified for brevity, usually matches index.html -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GRACEFUL MOTION AUTOSPARES. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/product-data.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/categories-menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const container = document.getElementById('productDetailContent');
+            const stickyBar = document.getElementById('mobileStickyBar');
+
+            if (!productId || !window.RenovyteProducts) {
+                container.innerHTML = `
+                    <div class="error-state" style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 20px;"></i>
+                        <h3>Product Not Found</h3>
+                        <p>The part you are looking for might have been moved or removed.</p>
+                        <a href="catalog.html" class="btn btn-outline" style="margin-top: 20px;">BACK TO CATALOG</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const product = window.RenovyteProducts.find(p => p.id === productId) || window.RenovyteProducts[0];
+
+            // Render Product Details
+            container.innerHTML = `
+                <div class="product-visuals">
+                    <div class="product-main-image">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/hero/hero-1.png'">
+                    </div>
+                </div>
+                <div class="product-info-panel">
+                    <p class="section-tag">// ${product.subcategory}</p>
+                    <h1 class="product-display-title">${product.name}</h1>
+                    <div class="product-pricing-v2">
+                        <span class="current-price">${product.price}</span>
+                        ${product.oldPrice ? `<span class="old-price">${product.oldPrice}</span>` : ''}
+                    </div>
+                    <p class="product-description">${product.description}</p>
+                    
+                    <div class="product-features">
+                        <h3>KEY FEATURES</h3>
+                        <ul>
+                            ${product.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="product-specs-grid">
+                        ${Object.entries(product.specs).map(([key, val]) => `
+                            <div class="spec-item">
+                                <span class="spec-label">${key}</span>
+                                <span class="spec-value">${val}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="product-action-footer">
+                        <div class="quantity-selector">
+                            <button class="qty-btn" onclick="this.nextElementSibling.stepDown()">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="qty-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            `;
+
+            // Setup Sticky Bar for mobile
+            if (window.innerWidth < 768) {
+                stickyBar.style.display = 'flex';
+                document.getElementById('stickyPrice').textContent = product.price;
+                document.getElementById('stickyName').textContent = product.name;
+            }
+        });
+    </script>
+</body>
+
+</html>

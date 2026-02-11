@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auto Parts | Graceful Motion Autospares</title>
+    <meta name="description"
+        content="Premium auto parts and spares at Graceful Motion. Quality parts for every vehicle at competitive prices.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/hero.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.css">
+    <link rel="stylesheet" href="styles/components/promo-banner.css">
+    <link rel="stylesheet" href="styles/components/dark-sections.css">
+    <link rel="stylesheet" href="styles/components/quick-categories.css">
+    <link rel="stylesheet" href="styles/components/hot-deals.css">
+    <link rel="stylesheet" href="styles/components/companies.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+</head>
+
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="contact-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+254712345678" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 712 345 678</span>
+                    </a>
+                    <a href="mailto:info@gracefulmotion.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@gracefulmotion.com</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/254712345678" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar - Integrated Hub V2 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content-v2">
+                <!-- Branding -->
+                <a href="index.html" class="logo">
+                    <i class="fas fa-car-side"></i>
+                    <span>Graceful Motion</span>
+                </a>
+
+                <!-- Integrated Hub -->
+                <div class="header-hub">
+                    <!-- Categories (Click for Link, Hover for Menu) -->
+                    <div class="categories-menu" id="headerCategories">
+                        <button class="categories-btn-v2" id="categoriesBtn">
+                            <i class="fas fa-bars"></i>
+                            <span>CATEGORIES</span>
+                        </button>
+
+                        <!-- Mega Menu Dropdown -->
+                        <div class="mega-menu" id="categoriesDropdown">
+                            <div class="mega-menu-content">
+                                <!-- Dynamic content via JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search Centerpiece -->
+                    <div class="search-centerpiece">
+                        <form action="catalog.html" method="GET" class="search-form">
+                            <input type="text" name="search" class="search-input-v2"
+                                placeholder="Search premium parts by name or part number...">
+                            <button type="submit" class="search-btn-v2" aria-label="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Main Nav Links -->
+                    <div class="nav-links-v2" id="navLinks">
+                        <a href="catalog.html" class="nav-link-v2">CATALOG</a>
+                        <a href="#deals" class="nav-link-v2">HOT DEALS</a>
+                        <a href="#about" class="nav-link-v2">ABOUT</a>
+
+                        <div class="mobile-contact-info">
+                            <a href="tel:+254712345678" class="nav-link-v2">
+                                <i class="fas fa-phone"></i> +254 712 345 678
+                            </a>
+                            <a href="mailto:info@gracefulmotion.com" class="nav-link-v2">
+                                <i class="fas fa-envelope"></i> info@gracefulmotion.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="nav-actions-v2">
+                    <a href="tel:+254712345678" class="nav-contact-link mobile-hide">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <button class="nav-icon-btn-v2" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </button>
+                    <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-cinematic">
+            <div class="hero-overlay"></div>
+            <img src="assets/images/hero/hero-1.png" alt="Premium Auto Parts" class="hero-bg-image live-effect">
+
+            <div class="hero-content">
+                <div class="hero-title-wrap">
+                    <span class="animated-word reveal-element reveal-fadeInUp">EXPLORE</span>
+                    <span class="animated-word reveal-element reveal-fadeInUp"
+                        style="transition-delay: 0.2s;">CATALOG</span>
+                </div>
+                <p class="hero-subtitle reveal-element reveal-fadeInUp" style="transition-delay: 0.4s;">
+                    PRECISION ENGINEERED • PERFORMANCE DRIVEN
+                </p>
+                <div class="hero-cta-group reveal-element reveal-fadeInUp" style="transition-delay: 0.6s;">
+                    <a href="catalog.html" class="btn btn-primary btn-lg">
+                        <span>VIEW PRODUCTS</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#about" class="btn btn-secondary btn-lg">
+                        <span>LEARN MORE</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text">SCROLL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about-us">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="section-tag">// OUR LEGACY</p>
+                    <h2 class="about-title">ENGINEERING <span class="text-gold">EXCELLENCE</span> SINCE 2010.</h2>
+                    <p class="about-text">Graceful Motion Autospares provides the highest quality automotive components
+                        for enthusiasts who demand perfection. Our parts are sourced from world-class manufacturers to
+                        ensure your vehicle performs above the rest.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15k+</span>
+                            <span class="stat-label">Premium Parts</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-wrap">
+                    <img src="images/about-engine.jpg" alt="High Performance Engine" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner">
+        <div class="promo-container">
+            <div class="promo-left">
+                <span class="promo-text-small">Get the best</span>
+                <span class="promo-badge">Facelift KITS</span>
+            </div>
+            <div class="promo-center">
+                <img src="assets/images/hero/hero-1.png" alt="Facelift Kit" class="promo-car-image">
+            </div>
+            <div class="promo-right">
+                <span class="promo-text-small">Every Mile</span>
+                <span class="promo-script">Specials</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Categories Section -->
+    <section class="quick-categories" id="categories-section">
+        <div class="container">
+            <div class="quick-categories-header">
+                <p class="section-tag">// POPULAR CATEGORIES</p>
+                <h2 class="section-title-v2">QUICK ACCESS</h2>
+            </div>
+
+            <div class="categories-grid">
+                <!-- 1. Body Parts -->
+                <a href="catalog.html?category=body-parts" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-car-side category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Body Parts</span>
+                        <span class="category-meta">1,200+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 2. Engine -->
+                <a href="catalog.html?category=engine" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-microchip category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Engine</span>
+                        <span class="category-meta">850+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 3. Suspension -->
+                <a href="catalog.html?category=suspension" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-gauge-high category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Suspension</span>
+                        <span class="category-meta">450+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 4. Service Parts -->
+                <a href="catalog.html?category=service" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-oil-can category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Service Parts</span>
+                        <span class="category-meta">2,100+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 5. Brake Systems -->
+                <a href="catalog.html?category=braking" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-compact-disc category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Braking</span>
+                        <span class="category-meta">600+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 6. Transmission -->
+                <a href="catalog.html?category=transmission" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-gears category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Transmission</span>
+                        <span class="category-meta">320+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 7. Exhaust -->
+                <a href="catalog.html?category=exhaust" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-wind category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Exhaust</span>
+                        <span class="category-meta">180+ Products</span>
+                    </div>
+                </a>
+
+                <!-- 8. Electrical -->
+                <a href="catalog.html?category=electrical" class="category-card">
+                    <div class="category-icon-wrapper">
+                        <i class="fas fa-bolt category-icon"></i>
+                    </div>
+                    <div class="category-info">
+                        <span class="category-title">Electrical</span>
+                        <span class="category-meta">940+ Products</span>
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-8);">
+                <a href="catalog.html" class="btn btn-secondary btn-lg">VIEW ALL CATEGORIES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Deals Section -->
+    <section class="hot-deals-section" id="deals">
+        <div class="container">
+            <div class="deals-header">
+                <div class="header-info">
+                    <p class="section-tag">// LIMITED TIME</p>
+                    <h2 class="section-title-v2">HOT DEALS</h2>
+                </div>
+                <div class="deals-nav">
+                    <button class="deals-nav-btn prev" aria-label="Previous Deal">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="deals-nav-btn next" aria-label="Next Deal">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="deals-carousel-container">
+                <div class="deals-track">
+                    <!-- Deal 1 -->
+                    <div class="deal-card product-card">
+                        <div class="deal-badge">30% OFF</div>
+                        <div class="deal-image-wrapper">
+                            <img src="images/products/turbo-1.png" alt="High-Flow Turbocharger" class="deal-image">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Turbochargers</span>
+                            <h3 class="deal-title">Precision Gen2 6266 Ball Bearing Turbo</h3>
+                            <div class="deal-pricing">
+                                <span class="current-price">KES 145,000</span>
+                                <span class="old-price">KES 210,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Deal 2 -->
+                    <div class="deal-card product-card">
+                        <div class="deal-badge">15% OFF</div>
+                        <div class="deal-image-wrapper">
+                            <img src="images/products/brake-pads.png" alt="Brembo Brakes" class="deal-image">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Braking</span>
+                            <h3 class="deal-title">Brembo Front Performance Brake Pads</h3>
+                            <div class="deal-pricing">
+                                <span class="current-price">KES 12,500</span>
+                                <span class="old-price">KES 14,800</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div class="deal-actions">
+        <button class="add-cart-btn">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+    </div>
+    </div>
+    </div>
+
+    <!-- Deal 4 -->
+    <div class="deal-card">
+        <span class="deal-badge">SALE</span>
+        <div class="deal-image-wrapper">
+            <img src="assets/images/hero/hero-2.png" alt="Air Filter" class="deal-image">
+        </div>
+        <div class="deal-content">
+            <div class="deal-category">Filters</div>
+            <h3 class="deal-title">K&N High Performance Air Filter</h3>
+            <div class="deal-pricing">
+                <span class="current-price">KES 6,500</span>
+                <span class="old-price">KES 8,000</span>
+            </div>
+            <div class="deal-actions">
+                <button class="add-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brands Section -->
+    <section class="companies-section">
+        <div class="companies-track">
+            <!-- Brand Set 1 -->
+            <div class="company-item"><i class="fab fa-toyota company-logo"></i><span class="company-name">TOYOTA</span>
+            </div>
+            <div class="company-item"><i class="fab fa-nissan company-logo"></i><span class="company-name">NISSAN</span>
+            </div>
+            <div class="company-item"><i class="fab fa-honda company-logo"></i><span class="company-name">HONDA</span>
+            </div>
+            <div class="company-item"><i class="fas fa-car company-logo"></i><span class="company-name">MAZDA</span>
+            </div>
+            <div class="company-item"><i class="fas fa-bolt company-logo"></i><span class="company-name">BMW</span>
+            </div>
+            <!-- Brand Set 2 (Duplicate for Infinite Scroll) -->
+            <div class="company-item"><i class="fab fa-toyota company-logo"></i><span class="company-name">TOYOTA</span>
+            </div>
+            <div class="company-item"><i class="fab fa-nissan company-logo"></i><span class="company-name">NISSAN</span>
+            </div>
+            <div class="company-item"><i class="fab fa-honda company-logo"></i><span class="company-name">HONDA</span>
+            </div>
+            <div class="company-item"><i class="fas fa-car company-logo"></i><span class="company-name">MAZDA</span>
+            </div>
+            <div class="company-item"><i class="fas fa-bolt company-logo"></i><span class="company-name">BMW</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-col footer-brand">
+                    <h2 class="logo">
+                        <i class="fas fa-car-side"></i>
+                        <span>Graceful Motion</span>
+                    </h2>
+                    <p class="footer-desc">
+                        Engineering excellence since 2010. Your trusted partner for premium automotive components.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254712345678" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h3>EXPLORE</h3>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="#deals">Hot Deals</a></li>
+                        <li><a href="#about-us">Our Story</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-col">
+                    <h3>SUPPORT</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-col footer-newsletter">
+                    <h3>NEWSLETTER</h3>
+                    <p>Subcribe for exclusive performance updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address">
+                        <button type="submit" class="btn btn-primary">JOIN</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 GRACEFUL MOTION AUTOSPARES. ALL RIGHTS RESERVED.</p>
+                <div class="footer-legal">
+                    <a href="#">PRIVACY</a>
+                    <a href="#">TERMS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/product-data.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/categories-menu.js"></script>
+    <script src="scripts/product-carousel.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/promo-banner.js"></script>
+</body>
+
+</html>

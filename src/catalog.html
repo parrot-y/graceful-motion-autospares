@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog - Graceful Motion Autospares</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/pages/catalog.css">
+</head>
+
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="contact-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+254712345678" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 712 345 678</span>
+                    </a>
+                    <a href="mailto:info@gracefulmotion.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@gracefulmotion.com</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/254712345678" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar - Integrated Hub V2 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content-v2">
+                <!-- Branding -->
+                <a href="index.html" class="logo">
+                    <i class="fas fa-car-side"></i>
+                    <span>Graceful Motion</span>
+                </a>
+
+                <!-- Integrated Hub -->
+                <div class="header-hub">
+                    <!-- Categories (Click for Link, Hover for Menu) -->
+                    <div class="categories-menu" id="headerCategories">
+                        <button class="categories-btn-v2" id="categoriesBtn">
+                            <i class="fas fa-bars"></i>
+                            <span>CATEGORIES</span>
+                        </button>
+
+                        <!-- Mega Menu Dropdown -->
+                        <div class="mega-menu" id="categoriesDropdown">
+                            <div class="mega-menu-content">
+                                <!-- Dynamic content via JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search Centerpiece -->
+                    <div class="search-centerpiece">
+                        <form action="catalog.html" method="GET" class="search-form">
+                            <input type="text" name="search" class="search-input-v2"
+                                placeholder="Search premium parts by name or part number...">
+                            <button type="submit" class="search-btn-v2" aria-label="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Main Nav Links -->
+                    <div class="nav-links-v2" id="navLinks">
+                        <a href="catalog.html" class="nav-link-v2">CATALOG</a>
+                        <a href="#deals" class="nav-link-v2">HOT DEALS</a>
+                        <a href="#about-us" class="nav-link-v2">ABOUT</a>
+
+                        <div class="mobile-contact-info">
+                            <a href="tel:+254712345678" class="nav-link-v2">
+                                <i class="fas fa-phone"></i> +254 712 345 678
+                            </a>
+                            <a href="mailto:info@gracefulmotion.com" class="nav-link-v2">
+                                <i class="fas fa-envelope"></i> info@gracefulmotion.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="nav-actions-v2">
+                    <button class="nav-icon-btn-v2" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </button>
+                    <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Catalog Content -->
+    <div class="catalog-container">
+        <!-- Sidebar Filters -->
+        <aside class="catalog-sidebar">
+            <div class="filter-section">
+                <h4 class="filter-header">Filter Products</h4>
+
+                <!-- 1. Category -->
+                <div class="filter-group">
+                    <label class="filter-label">Category</label>
+                    <select class="filter-select" id="filterCategory">
+                        <option value="">Select Category</option>
+                        <option value="body-parts">Body Parts</option>
+                        <option value="engine">Engine & Components</option>
+                        <option value="suspension">Suspension & Steering</option>
+                        <option value="service">Service Parts</option>
+                        <option value="tyres">Tyres & Wheels</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="braking">Braking System</option>
+                        <option value="lighting">Lighting</option>
+                    </select>
+                </div>
+
+                <!-- 2. Make -->
+                <div class="filter-group">
+                    <label class="filter-label">Select Make</label>
+                    <select class="filter-select" id="filterMake">
+                        <option value="">Select Make</option>
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <!-- 3. Model -->
+                <div class="filter-group">
+                    <label class="filter-label">Select Model</label>
+                    <select class="filter-select" id="filterModel" disabled>
+                        <option value="">Select Model</option>
+                        <!-- Populated by JS based on Make -->
+                    </select>
+                </div>
+
+                <!-- 4. Year -->
+                <div class="filter-group">
+                    <label class="filter-label">Select Year</label>
+                    <select class="filter-select" id="filterYear" disabled>
+                        <option value="">Select Year</option>
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <!-- 5. Engine Capacity -->
+                <div class="filter-group">
+                    <label class="filter-label">Engine Capacity</label>
+                    <select class="filter-select" id="filterEngine" disabled>
+                        <option value="">Select Capacity</option>
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" id="findPartsBtn" style="width: 100%; margin-top: 15px;">
+                    <i class="fas fa-search"></i> Find Parts
+                </button>
+                <button class="btn btn-outline" id="resetFiltersBtn"
+                    style="width: 100%; margin-top: 10px; border: 1px solid #ddd;">
+                    Reset Filters
+                </button>
+            </div>
+
+            <div class="filter-section">
+                <h4 class="filter-header">Categories</h4>
+                <ul class="subcategory-list">
+                    <li class="subcategory-item"><a href="catalog.html?category=body-parts"
+                            class="subcategory-link">Body Parts <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=engine" class="subcategory-link">Engine
+                            & Components <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=suspension"
+                            class="subcategory-link">Suspension & Bearings <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=service"
+                            class="subcategory-link">Service Parts <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=tyres" class="subcategory-link">Tyre and
+                            Wheels <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=accessories"
+                            class="subcategory-link">Car Accessories <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=braking"
+                            class="subcategory-link">Braking Systems <i class="fas fa-chevron-right"></i></a></li>
+                    <li class="subcategory-item"><a href="catalog.html?category=lighting"
+                            class="subcategory-link">Lighting <i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content (unchanged) -->
+        <main class="catalog-main">
+            <!-- Header & Search -->
+            <div class="catalog-header">
+                <div class="breadcrumbs">
+                    <span class="breadcrumb-item"><a href="index.html">Home</a></span>
+                    <span class="breadcrumb-item">Catalog</span>
+                    <span class="breadcrumb-item active">Accessory</span>
+                </div>
+
+                <div class="search-part-number">
+                    <input type="text" placeholder="Search item by Part Number..." class="search-part-input">
+                    <button class="btn btn-primary" style="padding: 8px 16px; border-radius: 4px;">Search</button>
+                </div>
+
+                <div class="view-options">
+                    <button class="view-btn active"><i class="fas fa-th-large"></i></button>
+                    <button class="view-btn"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Product 1: Engine Oil (Service Parts) -->
+                <div class="product-card" data-make="Toyota" data-model="Land Cruiser" data-category="service"
+                    data-item="Engine Oil" data-year="2022">
+                    <span class="product-badge badge-offer">15% OFF</span>
+                    <a href="product-details.html?id=1&category=service&item=Engine%20Oil"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/service-parts/service-1.jpg" alt="Engine Oil"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=1&category=service&item=Engine%20Oil">Engine Oil (Toyota
+                                Land Cruiser)</a></h3>
+                        <div class="product-price">
+                            KES 2,500 <span class="original-price">KES 2,950</span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Xenon/LED Headlights (Lighting) -->
+                <div class="product-card" data-make="Toyota" data-model="Fielder" data-category="lighting"
+                    data-item="Xenon/LED Headlights" data-year="2018">
+                    <span class="product-badge badge-new">NEW</span>
+                    <a href="product-details.html?id=2&category=lighting&item=Xenon/LED%20Headlights"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/lighting/lighting-1.jpg" alt="Xenon/LED Headlights"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=2&category=lighting&item=Xenon/LED%20Headlights">Xenon/LED
+                                Headlights (Toyota Fielder)</a></h3>
+                        <div class="product-price">
+                            KES 18,000
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Brake Pads (Braking System) -->
+                <div class="product-card" data-make="Subaru" data-model="Forester" data-category="braking"
+                    data-item="Brake Pads" data-year="2019">
+                    <a href="product-details.html?id=3&category=braking&item=Brake%20Pads"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/braking-system/braking-1.jpg" alt="Brake Pads"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=3&category=braking&item=Brake%20Pads">Brake Pads (Subaru
+                                Forester)</a></h3>
+                        <div class="product-price">
+                            KES 4,500
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Spark Plugs (Engine & Components) -->
+                <div class="product-card" data-make="Universal" data-model="Universal" data-category="engine"
+                    data-item="Spark Plugs" data-year="2024">
+                    <a href="product-details.html?id=4&category=engine&item=Spark%20Plugs"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/engine-components/engine-1.jpg" alt="Spark Plugs"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=4&category=engine&item=Spark%20Plugs">Spark Plugs
+                                (NGK)</a></h3>
+                        <div class="product-price">
+                            KES 3,200
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5: Side Mirror (Body Parts) -->
+                <div class="product-card" data-make="Mazda" data-model="Demio" data-category="body-parts"
+                    data-item="Side Mirror" data-year="2017">
+                    <a href="product-details.html?id=5&category=body-parts&item=Side%20Mirror"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/body-parts/body-1.jpg" alt="Side Mirror" class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=5&category=body-parts&item=Side%20Mirror">Side Mirror
+                                (Mazda Demio)</a></h3>
+                        <div class="product-price">
+                            KES 7,500
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Shocks (Suspension) -->
+                <div class="product-card" data-make="Nissan" data-model="X-Trail" data-category="suspension"
+                    data-item="Shocks" data-year="2020">
+                    <span class="product-badge badge-offer">HOT</span>
+                    <a href="product-details.html?id=6&category=suspension&item=Shocks" class="product-image-wrapper">
+                        <img src="assets/images/products/suspension-steering/suspension-1.jpg" alt="Shocks"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=6&category=suspension&item=Shocks">Shocks (Nissan
+                                X-Trail)</a></h3>
+                        <div class="product-price">
+                            KES 8,500
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 7: Air Filter (Service Parts) -->
+                <div class="product-card" data-make="Universal" data-model="Universal" data-category="service"
+                    data-item="Air Filter" data-year="2024">
+                    <a href="product-details.html?id=7&category=service&item=Air%20Filter"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/service-parts/service-2.jpg" alt="Air Filter"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=7&category=service&item=Air%20Filter">Air Filter (High
+                                Performance)</a></h3>
+                        <div class="product-price">
+                            KES 5,000
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 8: Bumper (Body Parts) -->
+                <div class="product-card" data-make="Toyota" data-model="Vitz" data-category="body-parts"
+                    data-item="Bumper (Front & Rear)" data-year="2016">
+                    <a href="product-details.html?id=8&category=body-parts&item=Bumper%20(Front%20&%20Rear)"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/body-parts/body-2.jpg" alt="Bumper" class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=8&category=body-parts&item=Bumper%20(Front%20&%20Rear)">Bumper
+                                (Front & Rear) - Toyota Vitz</a></h3>
+                        <div class="product-price">
+                            KES 12,000
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 9: Car Perfume (Exterior Accessories) -->
+                <div class="product-card" data-make="Universal" data-model="Universal"
+                    data-category="exterior-accessories" data-item="Car Perfume" data-year="2024">
+                    <a href="product-details.html?id=9&category=exterior-accessories&item=Car%20Perfume"
+                        class="product-image-wrapper">
+                        <img src="assets/images/products/exterior-accessories/acc-1.jpg" alt="Car Perfume"
+                            class="product-image">
+                    </a>
+                    <div class="product-details">
+                        <h3 class="product-title"><a
+                                href="product-details.html?id=9&category=exterior-accessories&item=Car%20Perfume">Car
+                                Perfume (Ocean Breeze)</a></h3>
+                        <div class="product-price">
+                            KES 800
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-grid">
+                    <!-- Brand -->
+                    <div class="footer-col footer-brand">
+                        <h2>
+                            <i class="fas fa-car-side" style="color: var(--accent-color);"></i>
+                            Graceful Motion
+                        </h2>
+                        <p class="footer-desc">
+                            Your trusted partner for genuine auto spares and accessories.
+                            Quality you can drive on.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="catalog.html">Full Catalog</a></li>
+                            <li><a href="#deals">Hot Deals</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact Support</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="footer-col">
+                        <h3>Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="catalog.html?category=body-parts">Body Parts</a></li>
+                            <li><a href="catalog.html?category=engine">Engine Parts</a></li>
+                            <li><a href="catalog.html?category=suspension">Suspension</a></li>
+                            <li><a href="catalog.html?category=electrical">Electrical</a></li>
+                            <li><a href="catalog.html?category=service">Service Kits</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                <div class="contact-text">
+                                    <span>Location</span>
+                                    <p>Kerugoya Town, Central Kenya<br>Opposite KCB Bank</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt contact-icon"></i>
+                                <div class="contact-text">
+                                    <span>Call Us</span>
+                                    <a href="tel:+254712345678">+254 712 345 678</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <div class="contact-text">
+                                    <span>Email</span>
+                                    <a href="mailto:info@gracefulmotion.com">info@gracefulmotion.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">&copy; 2024 Graceful Motion Autospares. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/product-data.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/categories-menu.js"></script>
+    <script src="scripts/catalog-filter.js"></script>
+</body>
+
+</html>

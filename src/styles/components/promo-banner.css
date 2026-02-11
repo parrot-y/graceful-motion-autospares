@@ -1,0 +1,184 @@
+/* ================================
+   Promotional Banner - Happy Patrons Style
+   ================================ */
+
+.promo-banner {
+    position: relative;
+    width: 100%;
+    background: #2b281d !important;
+    /* Deep Olive Brown (Happy Patrons) */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    box-shadow: none;
+    /* Flat elegant look */
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Classes */
+.promo-container.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Left Section */
+.promo-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.promo-text-small {
+    font-family: 'Helvetica Neue', sans-serif;
+    /* Clean Sans */
+    font-weight: 300;
+    /* Thin */
+    font-size: 1.5rem;
+    /* Smaller, elegant */
+    color: #FFFFFF;
+    text-transform: uppercase;
+    /* ALL CAPS */
+    letter-spacing: 2px;
+    /* Tracked out */
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.promo-badge {
+    background: transparent;
+    /* No block background, just text */
+    color: #FFFFFF;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    /* Regular weight */
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 0;
+    transform: none;
+    /* Remove skew */
+    box-shadow: none;
+    display: inline-block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /* Subtle underline */
+}
+
+/* Center Section */
+.promo-center {
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.promo-car-image {
+    height: 140px;
+    /* Slightly smaller for elegance */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    transform: none;
+    /* No initial scale */
+    transition: transform 0.5s ease;
+}
+
+.promo-banner:hover .promo-car-image {
+    transform: scale(1.05);
+    /* Subtle zoom */
+}
+
+/* Right Section */
+.promo-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.promo-script {
+    font-family: 'Helvetica Neue', sans-serif;
+    /* Match main font (clean look) */
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    line-height: 1;
+    transform: none;
+    /* No rotation */
+    text-shadow: none;
+    margin-left: 0;
+    letter-spacing: 1px;
+    font-style: italic;
+    /* Subtle italic for distinction */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .promo-container {
+        gap: 20px;
+    }
+
+    .promo-text-small,
+    .promo-badge {
+        font-size: 1.8rem;
+    }
+
+    .promo-script {
+        font-size: 3.5rem;
+    }
+
+    .promo-car-image {
+        height: 120px;
+    }
+}
+
+@media (max-width: 968px) {
+    .promo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 40px 20px;
+    }
+
+    .promo-left,
+    .promo-right {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .promo-text-small {
+        font-size: 1.5rem;
+    }
+
+    .promo-badge {
+        font-size: 2rem;
+        transform: skewX(-5deg);
+    }
+
+    .promo-script {
+        font-size: 3rem;
+        margin-left: 0;
+        transform: rotate(-2deg);
+    }
+
+    .promo-car-image {
+        height: 140px;
+        margin: 10px 0;
+    }
+}
