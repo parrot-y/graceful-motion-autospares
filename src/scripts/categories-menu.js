@@ -10,47 +10,114 @@ class CategoriesMenu {
         this.content = this.dropdown?.querySelector('.mega-menu-content');
 
         this.isOpen = false;
-        this.currentCategory = 'engine'; // Default
+        this.currentCategory = 'service'; // Default
 
         this.categoryData = {
+            'service': {
+                title: 'Service Parts',
+                icon: 'fa-oil-can',
+                items: [
+                    { name: 'Air Filter', icon: 'fa-wind' },
+                    { name: 'Oil Filter', icon: 'fa-filter' },
+                    { name: 'Cabin Filter', icon: 'fa-fan' },
+                    { name: 'Fuel Filter', icon: 'fa-gas-pump' },
+                    { name: 'Gear Oil', icon: 'fa-bottle-droplet' },
+                    { name: 'Engine Oil', icon: 'fa-oil-can' },
+                    { name: 'Coolants', icon: 'fa-snowflake' },
+                    { name: 'Brake Fluid', icon: 'fa-droplet' }
+                ]
+            },
+            'tyres': {
+                title: 'Tyres & Wheels',
+                icon: 'fa-circle-notch',
+                items: [
+                    { name: 'Tyres', icon: 'fa-circle' },
+                    { name: 'Rims', icon: 'fa-life-ring' },
+                    { name: 'Lock Nuts', icon: 'fa-lock' },
+                    { name: 'Wheel Tyres', icon: 'fa-truck-monster' },
+                    { name: 'Wheel Caps', icon: 'fa-bullseye' },
+                    { name: 'Emergency Kit', icon: 'fa-kit-medical' }
+                ]
+            },
+            'braking': {
+                title: 'Braking System',
+                icon: 'fa-stop-circle',
+                items: [
+                    { name: 'Brake Shoes', icon: 'fa-shoe-prints' },
+                    { name: 'Brake Linings', icon: 'fa-layer-group' },
+                    { name: 'Brake Pads', icon: 'fa-pause' },
+                    { name: 'Brake Disc', icon: 'fa-compact-disc' }
+                ]
+            },
+            'lighting': {
+                title: 'Lighting',
+                icon: 'fa-lightbulb',
+                items: [
+                    { name: 'Xenon/LED Headlights', icon: 'fa-eye' },
+                    { name: 'Bi-LED Projectors', icon: 'fa-bullseye' },
+                    { name: 'LED Bulbs', icon: 'fa-lightbulb' },
+                    { name: 'Fog Bulbs', icon: 'fa-cloud' },
+                    { name: 'Tail Lights', icon: 'fa-traffic-light' },
+                    { name: 'Corner Lights', icon: 'fa-angle-right' },
+                    { name: 'Grille Lights', icon: 'fa-bars' }
+                ]
+            },
+            'exterior': {
+                title: 'Exterior Accessories',
+                icon: 'fa-spray-can',
+                items: [
+                    { name: 'Engine Additives', icon: 'fa-flask' },
+                    { name: 'Car Perfume', icon: 'fa-wind' },
+                    { name: 'Android Radio', icon: 'fa-music' },
+                    { name: 'GPS Tracker', icon: 'fa-location-dot' },
+                    { name: 'Door Visors', icon: 'fa-umbrella' },
+                    { name: 'Steering Covers', icon: 'fa-circle-notch' },
+                    { name: 'Dashcam', icon: 'fa-video' },
+                    { name: 'Floor Mats', icon: 'fa-rug' },
+                    { name: 'Seat Covers', icon: 'fa-chair' }
+                ]
+            },
+            'body': {
+                title: 'Body Parts',
+                icon: 'fa-car-side',
+                items: [
+                    { name: 'Bonnet', icon: 'fa-angle-up' },
+                    { name: 'Bumper (Front & Rear)', icon: 'fa-minus' },
+                    { name: 'Fender', icon: 'fa-shield-halved' },
+                    { name: 'Tail Gate', icon: 'fa-door-open' },
+                    { name: 'Side Mirror', icon: 'fa-magnifying-glass' },
+                    { name: 'Grille Guards', icon: 'fa-bars' },
+                    { name: 'Headlights', icon: 'fa-lightbulb' }
+                ]
+            },
             'engine': {
                 title: 'Engine & Components',
                 icon: 'fa-engine',
                 items: [
-                    { name: 'Pistons', icon: 'fa-circle-notch' },
-                    { name: 'Crankshaft', icon: 'fa-infinity' },
-                    { name: 'Turbochargers', icon: 'fa-wind' },
+                    { name: 'Cylinder Head Gasket', icon: 'fa-ring' },
+                    { name: 'Top Valve Gaskets', icon: 'fa-circle' },
+                    { name: 'Timing Belt', icon: 'fa-rotate' },
+                    { name: 'Crankshaft', icon: 'fa-gears' },
+                    { name: 'Water Pump', icon: 'fa-pump-soap' },
                     { name: 'Spark Plugs', icon: 'fa-bolt' },
-                    { name: 'Timing Belts', icon: 'fa-loop' },
-                    { name: 'Gaskets', icon: 'fa-ring' }
+                    { name: 'Piston Rings', icon: 'fa-circle-notch' },
+                    { name: 'Fuel Pump', icon: 'fa-gas-pump' },
+                    { name: 'Coils', icon: 'fa-car-battery' }
                 ]
             },
             'suspension': {
                 title: 'Suspension & Steering',
-                icon: 'fa-shuttle-space',
+                icon: 'fa-gauge-high',
                 items: [
-                    { name: 'Shock Absorbers', icon: 'fa-angles-down' },
-                    { name: 'Control Arms', icon: 'fa-hand-holding' },
-                    { name: 'Steering Racks', icon: 'fa-gear' },
-                    { name: 'Bushes', icon: 'fa-circle' }
-                ]
-            },
-            'braking': {
-                title: 'Braking Systems',
-                icon: 'fa-stop-circle',
-                items: [
-                    { name: 'Brake Pads', icon: 'fa-pause' },
-                    { name: 'Brake Discs', icon: 'fa-compact-disc' },
-                    { name: 'Calipers', icon: 'fa-clapperboard' }
-                ]
-            },
-            'service': {
-                title: 'Service Parts',
-                icon: 'fa-tools',
-                items: [
-                    { name: 'Oil Filters', icon: 'fa-oil-can' },
-                    { name: 'Air Filters', icon: 'fa-wind' },
-                    { name: 'Engine Oil', icon: 'fa-droplet' }
+                    { name: 'CV Boot', icon: 'fa-shoe-prints' },
+                    { name: 'Bearings', icon: 'fa-spinner' },
+                    { name: 'Stabilizer Links', icon: 'fa-link' },
+                    { name: 'Shocks', icon: 'fa-up-down' },
+                    { name: 'Rack Ends', icon: 'fa-left-right' },
+                    { name: 'CV Joints', icon: 'fa-joint' },
+                    { name: 'Bushes', icon: 'fa-circle' },
+                    { name: 'Tie Rods', icon: 'fa-arrows-left-right-to-line' },
+                    { name: 'Ball Joints', icon: 'fa-bowling-ball' }
                 ]
             }
         };
