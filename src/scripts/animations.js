@@ -17,7 +17,7 @@ class RenovyteAnimations {
     }
 
     init() {
-        // Intersection Observer for reveals
+        // Generic Reveal Logic for any element with .reveal-element
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -30,13 +30,17 @@ class RenovyteAnimations {
             rootMargin: '0px 0px -50px 0px'
         });
 
-        // Setup elements
-        this.revealConfigs.forEach(config => {
-            document.querySelectorAll(config.selector).forEach((el, index) => {
-                el.classList.add('reveal-element', `reveal-${config.animation}`);
-                el.style.transitionDelay = `${index * 0.1}s`;
-                observer.observe(el);
-            });
+        // Trigger Hero Elements Immediately on Load
+        document.querySelectorAll('.hero-section .reveal-element').forEach((el, index) => {
+            // Add a small staggered delay for hero items specifically
+            setTimeout(() => {
+                el.classList.add('reveal-active');
+            }, 100 + (index * 200));
+        });
+
+        // Observe remaining elements
+        document.querySelectorAll('.reveal-element:not(.hero-section *)').forEach(el => {
+            observer.observe(el);
         });
 
         this.parallaxHero();

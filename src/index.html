@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/components/contact-bar.css">
     <link rel="stylesheet" href="styles/components/navigation.css">
-    <link rel="stylesheet" href="styles/components/hero.css">
+    <link rel="stylesheet" href="styles/components/hero.css?v=2.7">
     <link rel="stylesheet" href="styles/components/categories-menu.css">
     <link rel="stylesheet" href="styles/components/promo-banner.css">
     <link rel="stylesheet" href="styles/components/dark-sections.css">
@@ -123,6 +123,12 @@
 
                 <!-- Actions -->
                 <div class="nav-actions-v2">
+                    <!-- Theme Toggle Switch -->
+                    <div class="theme-toggle-wrapper">
+                        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
                     <a href="tel:+254712345678" class="nav-contact-link mobile-hide">
                         <i class="fas fa-phone"></i>
                     </a>
@@ -139,36 +145,78 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero">
         <div class="hero-cinematic">
+            <!-- Photorealistic Smoke Overlay -->
             <div class="hero-overlay"></div>
-            <img src="assets/images/hero/hero-1.png" alt="Premium Auto Parts" class="hero-bg-image live-effect">
 
-            <div class="hero-content">
-                <div class="hero-title-wrap">
-                    <span class="animated-word reveal-element reveal-fadeInUp">EXPLORE</span>
-                    <span class="animated-word reveal-element reveal-fadeInUp"
-                        style="transition-delay: 0.2s;">CATALOG</span>
-                </div>
-                <p class="hero-subtitle reveal-element reveal-fadeInUp" style="transition-delay: 0.4s;">
-                    PRECISION ENGINEERED • PERFORMANCE DRIVEN
-                </p>
-                <div class="hero-cta-group reveal-element reveal-fadeInUp" style="transition-delay: 0.6s;">
-                    <a href="catalog.html" class="btn btn-primary btn-lg">
-                        <span>VIEW PRODUCTS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#about" class="btn btn-secondary btn-lg">
-                        <span>LEARN MORE</span>
-                    </a>
+            <!-- Reference UI: Top Right Search -->
+            <div class="hero-ui-top-right">
+                <div class="hero-search-glass">
+                    <input type="text" placeholder="Search">
+                    <i class="fas fa-search"></i>
                 </div>
             </div>
 
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
+            <div class="hero-split-layout">
+                <div class="hero-content hero-text-left">
+                    <div class="hero-title-wrap">
+                        <span class="animated-word hero-main-title reveal-element reveal-fadeInUp">PREMIUM</span>
+                        <span class="animated-word hero-main-title reveal-element reveal-fadeInUp"
+                            style="transition-delay: 0.2s;">AUTO PARTS</span>
+                    </div>
+                    <p class="hero-subtitle reveal-element reveal-fadeInUp" style="transition-delay: 0.4s;">
+                        ELEVATE YOUR DRIVE WITH GRACEFUL MOTION.
+                    </p>
+                    <div class="hero-cta-group reveal-element reveal-fadeInUp" style="transition-delay: 0.6s;">
+                        <a href="catalog.html" class="btn-hero-outline hero-cta-btn">
+                            <span>SHOP NOW</span>
+                        </a>
+                    </div>
                 </div>
-                <span class="scroll-text">SCROLL</span>
+
+                <!-- Right Side: Rotating Product Carousel -->
+                <div class="hero-visual reveal-element reveal-fadeInRight" style="transition-delay: 0.4s;">
+                    <div class="hero-carousel" id="heroProductCarousel">
+                        <!-- Slides -->
+                        <div class="hero-slide active">
+                            <img src="assets/images/products/isolated/hero_turbo.png" alt="Turbocharger"
+                                class="hero-product-img floating-anim">
+                        </div>
+                        <div class="hero-slide">
+                            <img src="assets/images/products/isolated/hero_bumper.png" alt="Carbon Bumper"
+                                class="hero-product-img floating-anim">
+                        </div>
+                        <div class="hero-slide">
+                            <img src="assets/images/products/isolated/hero_brake.png" alt="Performance Brake"
+                                class="hero-product-img floating-anim">
+                        </div>
+                    </div>
+
+                    <!-- Reference UI: Right Vertical Pagination -->
+                    <div class="hero-indicators-vertical">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference UI: Bottom Badges -->
+            <div class="hero-ui-bottom">
+                <div class="hero-badge badge-left">
+                    <div class="badge-icons">
+                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <span class="badge-text">Premium Auto Parts</span>
+                </div>
+                <div class="hero-badge badge-right">
+                    <div class="badge-check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="badge-text">TRUSTED BY<br><strong>ENTHUSIASTS</strong></span>
+                </div>
             </div>
         </div>
     </section>
@@ -504,6 +552,7 @@
     <script src="scripts/navigation.js"></script>
     <script src="scripts/categories-menu.js"></script>
     <script src="scripts/product-carousel.js"></script>
+    <script src="scripts/hero-carousel.js"></script>
     <script src="scripts/animations.js"></script>
     <script src="scripts/cart.js"></script>
     <script src="scripts/promo-banner.js"></script>

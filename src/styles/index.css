@@ -3,28 +3,10 @@
    ================================ */
 
 :root {
-    /* Colors - Renovyte Master Palette */
-    --bg-primary: #0A0A0A;
-    --bg-surface: #141414;
-    --accent-primary: #FFD700;
-    --accent-secondary: #B8860B;
-    --text-primary: #FFFFFF;
-    --text-secondary: #A3A3A3;
-    --status-danger: #CC0000;
-
-    /* Legacy variable compatibility */
-    --primary-color: var(--bg-primary);
-    --accent-color: var(--accent-primary);
-    --accent-dark: var(--accent-secondary);
-    --dark: var(--bg-primary);
-    --light: #FFFFFF;
-    --grey-100: var(--text-secondary);
-
-    /* Typography */
-    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Outfit', sans-serif;
-    --font-weight-bold: 800;
-    --font-weight-semi: 600;
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     /* 8px Spacing System */
     --space-1: 8px;
@@ -36,15 +18,42 @@
     --space-10: 80px;
     --space-15: 120px;
 
-    /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Typography */
+    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-weight-bold: 800;
+    --font-weight-semi: 600;
 
-    /* Shadows */
+    /* Base Shadows */
     --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Theme (Default) */
+[data-theme='dark'],
+:root:not([data-theme='light']) {
+    --bg-primary: #0A0A0A;
+    --bg-surface: #141414;
+    --accent-primary: #FFD700;
+    --accent-secondary: #B8860B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A3A3A3;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Theme */
+[data-theme='light'] {
+    --bg-primary: #F2F2F7;
+    --bg-surface: #FFFFFF;
+    --accent-primary: #B8860B;
+    /* Slightly darker gold for light mode */
+    --accent-secondary: #8B6508;
+    --text-primary: #1C1C1E;
+    --text-secondary: #636366;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 /* Reset & Base Styles */

@@ -8,18 +8,20 @@ class Navigation {
         this.mobileToggle = document.getElementById('mobileMenuBtn');
         this.navLinks = document.getElementById('navLinks');
         this.links = document.querySelectorAll('.nav-link-v2');
+        this.themeToggle = document.getElementById('themeToggleBtn');
 
         this.init();
     }
 
     init() {
+        this.initTheme();
         // Mobile menu toggle
         this.mobileToggle?.addEventListener('click', () => this.toggleMobileMenu());
 
         // Close mobile menu when link is clicked
         this.links.forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 992) {
                     this.closeMobileMenu();
                 }
             });
@@ -27,7 +29,7 @@ class Navigation {
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 &&
+            if (window.innerWidth <= 992 &&
                 !this.navbar.contains(e.target) &&
                 this.navLinks.classList.contains('active')) {
                 this.closeMobileMenu();
@@ -92,6 +94,27 @@ class Navigation {
                 });
             }
         });
+    }
+
+    initTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        this.updateThemeIcon(savedTheme);
+
+        this.themeToggle?.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            this.updateThemeIcon(newTheme);
+        });
+    }
+
+    updateThemeIcon(theme) {
+        const icon = this.themeToggle?.querySelector('i');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        }
     }
 }
 
