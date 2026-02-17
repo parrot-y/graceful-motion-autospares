@@ -31,10 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
+    const searchParam = urlParams.get('search');
+    const subcategoryParam = urlParams.get('item'); // Mapped from 'item' in menu
+
     if (categoryParam) {
         categorySelect.value = categoryParam;
-        applyFilters();
     }
+
+    // Apply initial filters (category + search)
+    applyFilters(searchParam);
 
     // --- Core Functions ---
 
@@ -59,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'product-card';
             card.innerHTML = `
                 <div class="product-image-wrapper">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='assets/images/hero/hero-1.png'">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='assets/images/hero/hero-1.webp'">
                 </div>
                 <div class="product-details">
                     <p class="product-category">${product.category}</p>
@@ -76,18 +81,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function applyFilters() {
+    function applyFilters(searchQuery = '') {
         const filters = {
             category: categorySelect.value,
             make: makeSelect.value,
             model: modelSelect.value
         };
 
+        // If called from button click, update search query from input if exists
+        // (For now, we just rely on the passed searchQuery or the form inputs if we had a search input on page)
+
         const filtered = (window.RenovyteProducts || []).filter(p => {
             const matchCategory = !filters.category || p.category === filters.category;
             const matchMake = !filters.make || p.make === 'Universal' || p.make === filters.make;
             const matchModel = !filters.model || p.model === 'Universal' || p.model === filters.model;
-            return matchCategory && matchMake && matchModel;
+
+            let matchSearch = true;
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                matchSearch = p.name.toLowerCase().includes(q) ||
+                    p.description.toLowerCase().includes(q) ||
+                    p.subcategory?.toLowerCase().includes(q) ||
+                    p.id.toLowerCase().includes(q);
+            }
+
+            // Subcategory filter (exact match if passed via URL)
+            const matchSubcategory = !subcategoryParam || (p.subcategory && p.subcategory === subcategoryParam);
+
+            return matchCategory && matchMake && matchModel && matchSearch && matchSubcategory;
         });
 
         renderProducts(filtered);

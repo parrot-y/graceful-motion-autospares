@@ -28,7 +28,7 @@
     height: 100%;
     background-image:
         radial-gradient(circle at center, transparent 30%, #000 100%),
-        url('../../assets/images/hero/hero_smoke_v2.png');
+        url('../../assets/images/hero/hero_smoke_v2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -599,7 +599,7 @@
     filter: grayscale(0.5) brightness(1.2);
     background-image:
         radial-gradient(circle at center, transparent 30%, #f8f8fa 100%),
-        url('../../assets/images/hero/hero_smoke_v2.png');
+        url('../../assets/images/hero/hero_smoke_v2.webp');
 }
 
 [data-theme='light'] .hero-main-title,

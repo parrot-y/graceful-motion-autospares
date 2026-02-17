@@ -20,28 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             leftText: "Get the best",
             badge: "Facelift KITS",
-            image: "assets/images/hero/hero-1.png",
+            image: "assets/images/hero/hero-1.webp",
             rightText: "Smooth Motion",
             script: "Specials"
         },
         {
             leftText: "Upgrade to",
             badge: "Premium OIL",
-            image: "assets/images/hero/hero-2.png", // Assuming hero-2 is engine/oil related
+            image: "assets/images/hero/hero-2.webp", // Assuming hero-2 is engine/oil related
             rightText: "for your engine",
             script: "Performance"
         },
         {
             leftText: "Secure your",
             badge: "Brake PADS",
-            image: "assets/images/hero/hero-3.png", // Assuming hero-3 is diff part
+            image: "assets/images/hero/hero-3.webp", // Assuming hero-3 is diff part
             rightText: "safety first",
             script: "Reliability"
         },
         {
             leftText: "Ride smooth",
             badge: "Suspension",
-            image: "assets/images/hero/hero-1.png", // Cycle back or use new image
+            image: "assets/images/hero/hero-1.webp", // Cycle back or use new image
             rightText: "on every road",
             script: "Comfort"
         }

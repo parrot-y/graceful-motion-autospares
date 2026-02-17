@@ -118,120 +118,98 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(drawer);
 
+        // Checkout Modal
+        const modal = document.createElement('div');
+        modal.id = 'checkoutModal';
+        modal.className = 'checkout-modal';
+        modal.innerHTML = `
+            <div class="checkout-modal-content">
+                <div class="checkout-header">
+                    <h3>Complete Your Order</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="checkout-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="customerName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Location</label>
+                        <textarea id="customerLocation" placeholder="e.g. Nairobi, Westlands, Delta Towers" rows="2" required></textarea>
+                    </div>
+                </div>
+                <div class="checkout-footer">
+                    <button class="btn-confirm-order"><i class="fab fa-whatsapp"></i> Send Order</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
         // Add Styles
         const style = document.createElement('style');
         style.textContent = `
-            .cart-drawer {
+            /* ... previous styles ... */
+            .checkout-modal {
                 position: fixed;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 10000;
-                visibility: hidden;
-                pointer-events: none;
-            }
-            .cart-drawer.active {
-                visibility: visible;
-                pointer-events: all;
-            }
-            .cart-drawer-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.5);
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8);
                 backdrop-filter: blur(5px);
-                opacity: 0;
+                z-index: 20000;
+                display: flex; justify-content: center; align-items: center;
+                opacity: 0; pointer-events: none;
                 transition: opacity 0.3s ease;
             }
-            .cart-drawer.active .cart-drawer-overlay {
-                opacity: 1;
-            }
-            .cart-drawer-content {
-                position: absolute;
-                top: 0;
-                right: -400px;
-                width: 400px;
-                max-width: 100%;
-                height: 100%;
-                background: var(--bg-surface, #141414);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-                display: flex;
-                flex-direction: column;
-                transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            .checkout-modal.active { opacity: 1; pointer-events: all; }
+            .checkout-modal-content {
+                background: #1a1a1a;
+                width: 90%; max-width: 400px;
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 12px;
+                box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+                transform: translateY(20px);
+                transition: transform 0.3s ease;
                 color: white;
             }
-            .cart-drawer.active .cart-drawer-content {
-                right: 0;
+            .checkout-modal.active .checkout-modal-content { transform: translateY(0); }
+            .checkout-header {
+                padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
+                display:flex; justify-content:space-between; align-items:center;
             }
-            .cart-header {
-                padding: 24px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+            .checkout-body { padding: 20px; }
+            .form-group { margin-bottom: 15px; }
+            .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #ccc; }
+            .form-group input, .form-group textarea {
+                width: 100%; padding: 12px;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 6px; color: white;
+                font-family: inherit;
             }
-            .cart-header h3 { font-family: var(--font-display); font-size: 1.25rem; }
-            .close-cart { background: none; border: none; color: white; font-size: 1.25rem; cursor: pointer; }
-            .cart-items-list {
-                flex: 1;
-                overflow-y: auto;
-                padding: 24px;
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
+            .checkout-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+            .btn-confirm-order {
+                width: 100%; padding: 14px;
+                background: #25D366; color: white;
+                border: none; border-radius: 8px;
+                font-weight: 700; cursor: pointer;
+                transition: background 0.2s;
+                display:flex; align-items:center; justify-content:center; gap:10px;
             }
-            .cart-item {
-                display: flex;
-                gap: 16px;
-                align-items: center;
-                background: rgba(255,255,255,0.02);
-                padding: 12px;
-                border-radius: 8px;
-            }
-            .cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
-            .cart-item-info { flex: 1; }
-            .cart-item-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
-            .cart-item-price { color: var(--accent-primary, #FFD700); font-weight: 800; font-size: 0.85rem; }
-            .cart-item-remove { background: none; border: none; color: #ff4444; font-size: 0.8rem; cursor: pointer; padding: 0; margin-top: 4px; }
-            .cart-footer {
-                padding: 24px;
-                border-top: 1px solid rgba(255,255,255,0.05);
-                background: rgba(255,255,255,0.02);
-            }
-            .cart-total {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 20px;
-                font-size: 1.1rem;
-                font-weight: 700;
-            }
-            .total-amount { color: var(--accent-primary, #FFD700); }
-            .whatsapp-checkout-btn {
-                width: 100%;
-                background: #25D366;
-                color: white;
-                border: none;
-                padding: 16px;
-                border-radius: 8px;
-                font-weight: 800;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                cursor: pointer;
-                transition: transform 0.2s ease, background 0.2s ease;
-            }
-            .whatsapp-checkout-btn:hover { background: #128C7E; transform: scale(1.02); }
+            .btn-confirm-order:hover { background: #128C7E; }
+            .close-modal { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; }
         `;
         document.head.appendChild(style);
 
         // Events
         drawer.querySelector('.close-cart').onclick = toggleCartDrawer;
         drawer.querySelector('.cart-drawer-overlay').onclick = toggleCartDrawer;
-        drawer.querySelector('.whatsapp-checkout-btn').onclick = handleCheckout;
+        drawer.querySelector('.whatsapp-checkout-btn').onclick = openCheckoutModal; // Changed handler
+
+        // Modal Events
+        modal.querySelector('.close-modal').onclick = closeCheckoutModal;
+        modal.querySelector('.btn-confirm-order').onclick = finalizeCheckout;
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCheckoutModal();
+        });
 
         updateCartDrawer();
     }
@@ -286,40 +264,74 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartDrawer();
     }
 
-    function handleCheckout() {
+    // Expose for inline onclick handlers
+    window.updateItemQty = function (index, change) {
+        const item = cart[index];
+        if (!item) return;
+
+        item.quantity += change;
+
+        if (item.quantity <= 0) {
+            removeItem(index);
+            return;
+        }
+
+        saveCart();
+        updateCartBadges();
+        updateCartDrawer();
+    };
+
+    function openCheckoutModal() {
         if (cart.length === 0) {
             showToast('Your basket is empty');
             return;
         }
+        document.getElementById('checkoutModal').classList.add('active');
+        toggleCartDrawer(); // Close drawer
+    }
+
+    function closeCheckoutModal() {
+        document.getElementById('checkoutModal').classList.remove('active');
+    }
+
+    function finalizeCheckout() {
+        const name = document.getElementById('customerName').value.trim();
+        const location = document.getElementById('customerLocation').value.trim();
+
+        if (!name || !location) {
+            showToast('Please fill in all details');
+            return;
+        }
 
         // GRACEFUL MOTION WHATSAPP ORDER FORMATTER
-        const businessNumber = "25412345678"; // Replace with actual business number
-        let message = `*NEW ORDER - GRACEFUL MOTION*\n\n`;
+        const businessNumber = "254712345678"; // Replace with actual business number
+        let message = `*NEW ORDER - GRACEFUL MOTION*\n`;
+        message += `------------------\n`;
+        message += `*Customer:* ${name}\n`;
+        message += `*Location:* ${location}\n\n`;
+        message += `*ORDER DETAILS:*\n`;
 
         let total = 0;
         cart.forEach((item, i) => {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
-            message += `${i + 1}. *${item.title}*\n`;
-            message += `   Qty: ${item.quantity}\n`;
-            message += `   Price: KSh ${item.price.toLocaleString()}\n\n`;
+            message += `${i + 1}. ${item.title}\n`;
+            message += `   Qty: ${item.quantity} | Total: KSh ${itemTotal.toLocaleString()}\n\n`;
         });
 
         message += `------------------\n`;
-        message += `*TOTAL: KSh ${total.toLocaleString()}*\n\n`;
-        message += `Please confirm availability for these parts. Thank you!`;
+        message += `*GRAND TOTAL: KSh ${total.toLocaleString()}*\n`;
+        message += `------------------\n`;
+        message += `Please confirm availability and delivery cost. Thank you!`;
 
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${businessNumber}?text=${encodedMessage}`;
 
         window.open(whatsappUrl, '_blank');
+        closeCheckoutModal();
 
-        // Optional: clear cart after checkout
-        // cart = [];
-        // saveCart();
-        // updateCartBadges();
-        // updateCartDrawer();
-        // toggleCartDrawer();
+        // Optional: clear cart here? 
+        // For now, keep it so user can reference it until they manually clear or pay.
     }
 
     function showToast(message) {

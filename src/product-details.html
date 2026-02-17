@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/components/contact-bar.css">
-    <link rel="stylesheet" href="styles/components/navigation.css">
-    <link rel="stylesheet" href="styles/components/categories-menu.css">
-    <link rel="stylesheet" href="styles/components/footer.css">
-    <link rel="stylesheet" href="styles/pages/product-details.css">
+    <link rel="stylesheet" href="styles/index.min.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.min.css">
+    <link rel="stylesheet" href="styles/components/navigation.min.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.min.css">
+    <link rel="stylesheet" href="styles/components/footer.min.css">
+    <link rel="stylesheet" href="styles/pages/product-details.min.css">
 </head>
 
 <body>
@@ -131,9 +131,11 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="scripts/product-data.js"></script>
-    <script src="scripts/navigation.js"></script>
-    <script src="scripts/categories-menu.js"></script>
+    <script src="scripts/product-data.min.js"></script>
+    <script src="scripts/navigation.min.js"></script>
+    <script src="scripts/categories-menu.min.js"></script>
+    <script src="scripts/cart.min.js"></script>
+    <script src="scripts/search-autocomplete.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -156,35 +158,50 @@
             const product = window.RenovyteProducts.find(p => p.id === productId) || window.RenovyteProducts[0];
 
             // Render Product Details
+            let variantsHtml = '';
+            if (product.variants && product.variants.length > 0) {
+                variantsHtml = `
+                    <div class="product-variants" style="margin-bottom: 20px;">
+                        <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-secondary);">Select Option:</label>
+                        <select id="variantSelect" style="width:100%; padding:10px; border-radius:4px; background:rgba(255,255,255,0.05); color:white; border:1px solid rgba(255,255,255,0.1);">
+                            ${product.variants.map(v => `<option value="${v.id}" data-price="${v.price}" data-name="${v.name}">${v.name} - ${v.price}</option>`).join('')}
+                        </select>
+                    </div>
+                `;
+            }
+
             container.innerHTML = `
                 <div class="product-visuals">
                     <div class="product-main-image">
-                        <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/hero/hero-1.png'">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/images/hero/hero-1.webp'">
                     </div>
                 </div>
-                <div class="product-info-panel">
+                <div class="product-info-panel product-card"> <!-- Added product-card class for cart.js hook -->
                     <p class="section-tag">// ${product.subcategory}</p>
-                    <h1 class="product-display-title">${product.name}</h1>
+                    <h1 class="product-display-title product-title">${product.name}</h1>
                     <div class="product-pricing-v2">
-                        <span class="current-price">${product.price}</span>
+                        <span class="current-price product-price">${product.price}</span>
                         ${product.oldPrice ? `<span class="old-price">${product.oldPrice}</span>` : ''}
                     </div>
+                    
+                    ${variantsHtml}
+
                     <p class="product-description">${product.description}</p>
                     
                     <div class="product-features">
                         <h3>KEY FEATURES</h3>
                         <ul>
-                            ${product.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                            ${product.features ? product.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('') : ''}
                         </ul>
                     </div>
 
                     <div class="product-specs-grid">
-                        ${Object.entries(product.specs).map(([key, val]) => `
+                        ${product.specs ? Object.entries(product.specs).map(([key, val]) => `
                             <div class="spec-item">
                                 <span class="spec-label">${key}</span>
                                 <span class="spec-value">${val}</span>
                             </div>
-                        `).join('')}
+                        `).join('') : ''}
                     </div>
 
                     <div class="product-action-footer">
@@ -197,6 +214,36 @@
                     </div>
                 </div>
             `;
+
+            // Variant Logic
+            const variantSelect = document.getElementById('variantSelect');
+            if (variantSelect) {
+                const titleEl = container.querySelector('.product-display-title');
+                const priceEl = container.querySelector('.current-price');
+                const baseName = product.name;
+
+                // Initial update check (if first variant is selected by default)
+                // Actually standard select picks first. Let's update explicitly.
+                const updateVariant = () => {
+                    const selected = variantSelect.options[variantSelect.selectedIndex];
+                    const price = selected.getAttribute('data-price');
+                    const variantName = selected.getAttribute('data-name');
+
+                    priceEl.innerText = price;
+                    titleEl.innerText = `${baseName} (${variantName})`;
+
+                    // Update Mobile Sticky
+                    if (window.innerWidth < 768) {
+                        document.getElementById('stickyPrice').textContent = price;
+                        document.getElementById('stickyName').textContent = `${baseName} (${variantName})`;
+                    }
+                };
+
+                variantSelect.addEventListener('change', updateVariant);
+                // Trigger once to set initial state if needed, or leave base state.
+                // Better to trigger to show specific variant details immediately.
+                updateVariant();
+            }
 
             // Setup Sticky Bar for mobile
             if (window.innerWidth < 768) {

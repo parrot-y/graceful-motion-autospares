@@ -19,17 +19,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/components/contact-bar.css">
-    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/index.min.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.min.css">
+    <link rel="stylesheet" href="styles/components/navigation.min.css">
     <link rel="stylesheet" href="styles/components/hero.css?v=2.7">
-    <link rel="stylesheet" href="styles/components/categories-menu.css">
-    <link rel="stylesheet" href="styles/components/promo-banner.css">
-    <link rel="stylesheet" href="styles/components/dark-sections.css">
-    <link rel="stylesheet" href="styles/components/quick-categories.css">
-    <link rel="stylesheet" href="styles/components/hot-deals.css">
-    <link rel="stylesheet" href="styles/components/companies.css">
-    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.min.css">
+    <link rel="stylesheet" href="styles/components/promo-banner.min.css">
+    <link rel="stylesheet" href="styles/components/dark-sections.min.css">
+    <link rel="stylesheet" href="styles/components/quick-categories.min.css">
+    <link rel="stylesheet" href="styles/components/hot-deals.min.css">
+    <link rel="stylesheet" href="styles/components/companies.min.css">
+    <link rel="stylesheet" href="styles/components/footer.min.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker Registered'))
+                    .catch(err => console.log('Service Worker Error:', err));
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -180,15 +190,15 @@
                     <div class="hero-carousel" id="heroProductCarousel">
                         <!-- Slides -->
                         <div class="hero-slide active">
-                            <img src="assets/images/products/isolated/hero_turbo.png" alt="Turbocharger"
+                            <img src="assets/images/products/isolated/hero_turbo.webp" alt="Turbocharger"
                                 class="hero-product-img floating-anim">
                         </div>
                         <div class="hero-slide">
-                            <img src="assets/images/products/isolated/hero_bumper.png" alt="Carbon Bumper"
+                            <img src="assets/images/products/isolated/hero_bumper.webp" alt="Carbon Bumper"
                                 class="hero-product-img floating-anim">
                         </div>
                         <div class="hero-slide">
-                            <img src="assets/images/products/isolated/hero_brake.png" alt="Performance Brake"
+                            <img src="assets/images/products/isolated/hero_brake.webp" alt="Performance Brake"
                                 class="hero-product-img floating-anim">
                         </div>
                     </div>
@@ -245,8 +255,8 @@
                 <div class="about-visual-container">
                     <div class="glass-backdrop"></div>
                     <div class="headlight-glow"></div>
-                    <img src="assets/images/about/floating_headlight.png" alt="Precision LED Headlight"
-                        class="about-img floating-headlight">
+                    <img src="assets/images/about/floating_headlight.webp" alt="Precision LED Headlight"
+                        class="about-img" loading="lazy"" loading=" lazy" floating-headlight">
                 </div>
             </div>
         </div>
@@ -397,7 +407,8 @@
                     <div class="deal-card product-card">
                         <div class="deal-badge">30% OFF</div>
                         <div class="deal-image-wrapper">
-                            <img src="images/products/turbo-1.png" alt="High-Flow Turbocharger" class="deal-image">
+                            <img src="images/products/turbo-1.png" alt="High-Flow Turbocharger" class="deal-image"
+                                loading="lazy">
                         </div>
                         <div class="deal-content">
                             <span class="deal-category">Turbochargers</span>
@@ -412,7 +423,8 @@
                     <div class="deal-card product-card">
                         <div class="deal-badge">15% OFF</div>
                         <div class="deal-image-wrapper">
-                            <img src="images/products/brake-pads.png" alt="Brembo Brakes" class="deal-image">
+                            <img src="images/products/brake-pads.png" alt="Brembo Brakes" class="deal-image"
+                                loading="lazy">
                         </div>
                         <div class="deal-content">
                             <span class="deal-category">Braking</span>
@@ -441,7 +453,7 @@
     <div class="deal-card">
         <span class="deal-badge">SALE</span>
         <div class="deal-image-wrapper">
-            <img src="assets/images/hero/hero-2.png" alt="Air Filter" class="deal-image">
+            <img src="assets/images/hero/hero-2.png" alt="Air Filter" class="deal-image" loading="lazy">
         </div>
         <div class="deal-content">
             <div class="deal-category">Filters</div>
@@ -551,14 +563,15 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="scripts/product-data.js"></script>
-    <script src="scripts/navigation.js"></script>
-    <script src="scripts/categories-menu.js"></script>
-    <script src="scripts/product-carousel.js"></script>
-    <script src="scripts/hero-carousel.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script src="scripts/cart.js"></script>
-    <script src="scripts/promo-banner.js"></script>
+    <script src="scripts/product-data.min.js"></script>
+    <script src="scripts/navigation.min.js"></script>
+    <script src="scripts/categories-menu.min.js"></script>
+    <script src="scripts/product-carousel.min.js"></script>
+    <script src="scripts/hero-carousel.min.js"></script>
+    <script src="scripts/animations.min.js"></script>
+    <script src="scripts/cart.min.js"></script>
+    <script src="scripts/promo-banner.min.js"></script>
+    <script src="scripts/search-autocomplete.min.js"></script>
 </body>
 
 </html>

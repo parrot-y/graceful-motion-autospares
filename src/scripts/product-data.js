@@ -4,6 +4,7 @@
  */
 
 window.RenovyteProducts = [
+    // --- ENGINE ---
     {
         id: "turbo-1",
         name: "Precision Gen2 6266 Ball Bearing Turbo",
@@ -11,23 +12,43 @@ window.RenovyteProducts = [
         subcategory: "Turbochargers",
         price: "KES 145,000",
         oldPrice: "KES 210,000",
-        image: "images/products/turbo-1.png",
-        description: "The Precision Gen2 6266 CEA® turbocharger is a powerhouse of performance. Renowned for its efficiency and durability, it's the perfect upgrade for high-performance builds demanding maximum airflow and rapid spool.",
-        features: [
-            "Point-milled Billet CEA® compressor wheel",
-            "Dual Ball Bearing center section for rapid spool",
-            "Capable of supporting 800+ Horsepower",
-            "High-temperature stainless steel turbine housing"
-        ],
-        specs: {
-            "Compressor Inducer": "62.66mm",
-            "Bearing Type": "Dual Ceramic Ball Bearing",
-            "Housing Option": "T4 Divided 0.84 A/R",
-            "Max HP Rating": "800 - 850 HP"
-        },
+        image: "assets/images/products/isolated/hero_turbo.webp",
+        description: "The Precision Gen2 6266 CEA® turbocharger is a powerhouse of performance. Renowned for its efficiency and durability.",
         make: "Universal",
-        model: "Universal"
+        model: "Universal",
+        rating: 4.8,
+        variants: [
+            { id: "t-1-62", name: "62mm Inducer", price: "KES 145,000" },
+            { id: "t-1-66", name: "66mm Inducer", price: "KES 155,000" }
+        ]
     },
+    {
+        id: "engine-spark-1",
+        name: "NGK Iridium IX Spark Plugs (Set of 4)",
+        category: "engine",
+        subcategory: "Ignition",
+        price: "KES 3,200",
+        oldPrice: "KES 4,500",
+        image: "assets/images/products/engine-components/engine-1.webp",
+        description: "Designed specifically for the performance enthusiast. Iridium IX offers extreme ignitability, improved throttle response and superior anti-fouling.",
+        make: "Universal",
+        model: "Universal",
+        rating: 4.9
+    },
+    {
+        id: "engine-belt-1",
+        name: "Gates Racing Timing Belt",
+        category: "engine",
+        subcategory: "Belts & Pulleys",
+        price: "KES 8,500",
+        image: "assets/images/products/engine-components/engine-1.webp", // Placeholder
+        description: "Incredibly strong, extremely heat resistant. Tough enough to take the worst you can dish out.",
+        make: "Subaru",
+        model: "Impreza",
+        rating: 4.7
+    },
+
+    // --- BRAKING ---
     {
         id: "brake-pads-1",
         name: "Brembo Front Performance Brake Pads",
@@ -35,45 +56,178 @@ window.RenovyteProducts = [
         subcategory: "Brake Pads",
         price: "KES 12,500",
         oldPrice: "KES 14,800",
-        image: "images/products/brake-pads.png",
-        description: "Brembo ceramic brake pads are engineered for superior stopping power and significantly reduced brake dust. Ideal for both spirited street driving and performance enthusiasts who demand consistency.",
-        features: [
-            "Low-dust ceramic compound specifically for performance cars",
-            "OE-matched chamfers and slots for noise reduction",
-            "Premium multi-layer shims for vibration damping",
-            "Exceptional thermal stability under high-speed braking"
-        ],
-        specs: {
-            "Material": "High-Performance Ceramic",
-            "Placement": "Front Axle",
-            "FMSI Number": "D1351",
-            "Wear Sensor": "Integrated Acoustic"
-        },
+        image: "assets/images/products/isolated/hero_brake.webp",
+        description: "Brembo ceramic brake pads are engineered for superior stopping power and significantly reduced brake dust.",
         make: "Toyota",
-        model: "Camry"
+        model: "Camry",
+        rating: 4.9
     },
     {
-        id: "oil-filter-1",
-        name: "Royal Purple Extended Life Oil Filter",
+        id: "brake-discs-1",
+        name: "EBC Slotted Brake Rotors (Pair)",
+        category: "braking",
+        subcategory: "Brake Discs",
+        price: "KES 28,000",
+        image: "assets/images/products/braking-system/braking-1.webp",
+        description: "Wide aperture slots draw cool air into the braking contact area and reduce temperatures preventing brake fade.",
+        make: "Subaru",
+        model: "Forester",
+        rating: 4.8
+    },
+
+    // --- SUSPENSION ---
+    {
+        id: "suspension-shocks-1",
+        name: "KYB Excel-G Shock Absorbers (Rear)",
+        category: "suspension",
+        subcategory: "Shocks",
+        price: "KES 8,500",
+        image: "assets/images/products/suspension-steering/suspension-1.webp",
+        description: "Restore your vehicle's original ride and handling capabilities.",
+        make: "Nissan",
+        model: "X-Trail",
+        rating: 4.6
+    },
+    {
+        id: "suspension-coilovers-1",
+        name: "Tein Flex Z Coilovers",
+        category: "suspension",
+        subcategory: "Coilovers",
+        price: "KES 115,000",
+        image: "assets/images/products/suspension-steering/suspension-2.webp",
+        description: "Full-length ride height adjustment feature with twin-tube system.",
+        make: "Toyota",
+        model: "GT86",
+        rating: 5.0
+    },
+
+    // --- SERVICE ---
+    {
+        id: "service-oil-1",
+        name: "Royal Purple 5W-30 Synthetic Oil (5L)",
+        category: "service",
+        subcategory: "Engine Oil",
+        price: "KES 8,500",
+        image: "assets/images/products/service-parts/service-1.webp",
+        description: "Increases horsepower and torque, saves fuels and reduces heat, wear, and emissions.",
+        make: "Universal",
+        model: "Universal",
+        rating: 4.9
+    },
+    {
+        id: "service-filter-1",
+        name: "K&N Performance Oil Filter",
         category: "service",
         subcategory: "Oil Filters",
         price: "KES 2,400",
-        oldPrice: "KES 3,200",
-        image: "images/products/oil-filter.png",
-        description: "Royal Purple oil filters provide superior particle removal and high-flow characteristics for maximum performance and longer engine life.",
-        features: [
-            "100% synthetic micro-glass media",
-            "99% filtration efficiency at 25 microns",
-            "Heavy-duty shell for extreme durability",
-            "High-performance silicone anti-drainback valve"
-        ],
-        specs: {
-            "Efficiency": "99% @ 25 Microns",
-            "Shell Construction": "Thick-wall Steel",
-            "Gasket Material": "High-temp Nitrile",
-            "Bypass Valve": "Internal 20 PSI"
-        },
+        image: "assets/images/products/service-parts/service-2.webp",
+        description: "High flow rates, exceptional filtration, and durable construction.",
         make: "Nissan",
-        model: "X-Trail"
+        model: "Navara",
+        rating: 4.8
+    },
+
+    // --- BODY PARTS ---
+    {
+        id: "body-bumper-1",
+        name: "Carbon Fiber Front Splitter",
+        category: "body-parts",
+        subcategory: "Bumpers",
+        price: "KES 25,000",
+        image: "assets/images/products/isolated/hero_bumper.webp",
+        description: "Add downforce and aggression to your front end.",
+        make: "Toyota",
+        model: "Supra",
+        rating: 4.7
+    },
+    {
+        id: "body-mirror-1",
+        name: "M-Style Wing Mirror Covers",
+        category: "body-parts",
+        subcategory: "Mirrors",
+        price: "KES 7,500",
+        image: "assets/images/products/body-parts/body-1.webp",
+        description: "Gloss black replacement mirror covers for a sporty look.",
+        make: "BMW",
+        model: "3 Series",
+        rating: 4.5
+    },
+
+    // --- LIGHTING ---
+    {
+        id: "light-led-1",
+        name: "Philips X-tremeUltinon LED Headlights",
+        category: "lighting",
+        subcategory: "Headlights",
+        price: "KES 18,000",
+        image: "assets/images/products/lighting/lighting-1.webp",
+        description: "Get 200% brighter light for superior visibility.",
+        make: "Universal",
+        model: "Universal",
+        rating: 4.8
+    },
+    {
+        id: "light-bar-1",
+        name: "Rigid Industries 20-inch Light Bar",
+        category: "lighting",
+        subcategory: "Light Bars",
+        price: "KES 45,000",
+        image: "assets/images/products/lighting/lighting-2.webp",
+        description: "The most popular light bar on the market. Indestructible.",
+        make: "Universal",
+        model: "Universal",
+        rating: 4.9
+    },
+
+    // --- EXTERIOR ACCESSORIES ---
+    {
+        id: "acc-perfume-1",
+        name: "Air Spencer CS-X3 Squash Scent",
+        category: "exterior-accessories",
+        subcategory: "Air Fresheners",
+        price: "KES 1,200",
+        image: "assets/images/products/exterior-accessories/acc-1.webp",
+        description: "The famous Japanese JDM air freshener.",
+        make: "Universal",
+        model: "Universal",
+        rating: 4.9
+    },
+    {
+        id: "acc-mats-1",
+        name: "WeatherTech Floor Liners (Front Pair)",
+        category: "exterior-accessories",
+        subcategory: "Floor Mats",
+        price: "KES 18,500",
+        image: "assets/images/products/exterior-accessories/acc-2.webp",
+        description: "Laser measured for a perfect fit.",
+        make: "Toyota",
+        model: "Prado",
+        rating: 4.8
+    },
+
+    // --- TYRES & WHEELS ---
+    {
+        id: "tyre-michelin-1",
+        name: "Michelin Pilot Sport 4S (245/40R18)",
+        category: "tyres",
+        subcategory: "Tyres",
+        price: "KES 35,000",
+        image: "assets/images/products/tyres-wheels/tyres-1.webp",
+        description: "Genuine Passion. Exceptional Drive.",
+        make: "Universal",
+        model: "Universal",
+        rating: 5.0
+    },
+    {
+        id: "wheel-rays-1",
+        name: "Volk Racing TE37 (18x9.5)",
+        category: "tyres",
+        subcategory: "Rims",
+        price: "KES 85,000",
+        image: "assets/images/products/tyres-wheels/tyres-2.webp",
+        description: "The benchmark of forged sports wheels.",
+        make: "Universal",
+        model: "Universal",
+        rating: 5.0
     }
 ];
