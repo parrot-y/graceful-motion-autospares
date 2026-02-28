@@ -51,19 +51,33 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
+html,
 body {
     font-family: var(--font-primary);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Prevent horizontal drag/scroll on mobile */
+    position: relative;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure all images are responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve tap targets for small buttons globally if not otherwise specified */
+button,
+.btn,
+.nav-link-v2,
+.hdr-contact-btn {
+    min-height: 44px;
+    min-width: 44px;
 }
 
 /* Container */

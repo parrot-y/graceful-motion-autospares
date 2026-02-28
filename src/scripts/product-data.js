@@ -4,11 +4,11 @@
  */
 
 window.RenovyteProducts = [
-    // --- SERVICE & MAINTAINANCE ---
+    // --- SERVICE & MAINTENANCE ---
     {
         id: "service-oil-1",
         name: "Royal Purple 5W-30 Synthetic Oil (5L)",
-        category: "Service & Maintainance",
+        category: "Service & Maintenance",
         subcategory: "Engine Oils",
         price: "KES 8,500",
         image: "assets/images/products/service-parts/service-1.webp",
@@ -18,14 +18,14 @@ window.RenovyteProducts = [
             "assets/images/products/service-parts/service-3.webp"
         ],
         description: "Increases horsepower and torque, saves fuels and reduces heat, wear, and emissions.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.9
     },
     {
         id: "service-filter-1",
         name: "K&N Performance Oil Filter",
-        category: "Service & Maintainance",
+        category: "Service & Maintenance",
         subcategory: "Oil Filters",
         price: "KES 2,400",
         image: "assets/images/products/service-parts/service-2.webp",
@@ -33,13 +33,13 @@ window.RenovyteProducts = [
         make: "NISSAN",
         model: "Navara",
         year: "2018",
-        engine: "2500cc Diesel",
+        engine: "2500cc",
         rating: 4.8
     },
     {
         id: "service-plug-1",
         name: "NGK Iridium IX Spark Plugs (Set of 4)",
-        category: "Service & Maintainance",
+        category: "Service & Maintenance",
         subcategory: "Spark plugs",
         price: "KES 3,200",
         image: "assets/images/products/service-parts/service-3.webp",
@@ -47,7 +47,7 @@ window.RenovyteProducts = [
         make: "TOYOTA",
         model: "Corolla",
         year: "2021",
-        engine: "1.8L",
+        engine: "1800cc",
         rating: 4.9
     },
 
@@ -60,7 +60,7 @@ window.RenovyteProducts = [
         price: "KES 35,000",
         image: "assets/images/products/tyres-wheels/tyres-1.webp",
         description: "Genuine Passion. Exceptional Drive. High performance summer tyre.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         year: "All Years",
         engine: "Universal",
@@ -77,7 +77,7 @@ window.RenovyteProducts = [
         make: "SUBARU",
         model: "Impreza",
         year: "2020",
-        engine: "2.0L",
+        engine: "2000cc",
         rating: 5.0
     },
     {
@@ -88,7 +88,7 @@ window.RenovyteProducts = [
         price: "KES 1,500",
         image: "assets/images/products/tyres-wheels/tyres-3.webp",
         description: "Professional mounting and high-speed precision balancing using state-of-the-art machinery.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.8
     },
@@ -102,10 +102,10 @@ window.RenovyteProducts = [
         price: "KES 12,500",
         image: "assets/images/products/braking-system/braking-1.webp",
         description: "Brembo ceramic brake pads are engineered for superior stopping power.",
-        make: "Toyota",
+        make: "TOYOTA",
         model: "Land Cruiser",
         year: "2022",
-        engine: "3300cc Diesel",
+        engine: "3300cc",
         rating: 4.9
     },
     {
@@ -130,7 +130,7 @@ window.RenovyteProducts = [
         price: "KES 185,000",
         image: "assets/images/products/braking-system/braking-3.webp",
         description: "Complete professional-grade braking conversion kit with oversized rotors and 6-piston calipers.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "High Performance",
         rating: 5.0
     },
@@ -144,7 +144,7 @@ window.RenovyteProducts = [
         price: "KES 18,000",
         image: "assets/images/products/lighting/lighting-1.webp",
         description: "Get 200% brighter light for superior visibility and style.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.8
     },
@@ -159,7 +159,7 @@ window.RenovyteProducts = [
         make: "FORD",
         model: "Ranger",
         year: "2021",
-        engine: "3.2L",
+        engine: "3200cc",
         rating: 4.9
     },
     {
@@ -185,7 +185,7 @@ window.RenovyteProducts = [
         price: "KES 1,200",
         image: "assets/images/products/exterior-accessories/acc-1.webp",
         description: "The famous Japanese JDM air freshener with a clean squash scent.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.9
     },
@@ -200,7 +200,7 @@ window.RenovyteProducts = [
         make: "TOYOTA",
         model: "Prado",
         year: "2019",
-        engine: "3.0L",
+        engine: "3000cc",
         rating: 4.8
     },
 
@@ -252,7 +252,7 @@ window.RenovyteProducts = [
         price: "KES 38,000",
         image: "assets/images/products/body-parts/boot-2.png",
         description: "Precision-crafted trunk lid featuring a sleek, aerodynamic design.",
-        make: "Audi",
+        make: "AUDI",
         model: "A6",
         year: "2023",
         rating: 4.7
@@ -273,7 +273,7 @@ window.RenovyteProducts = [
         make: "BMW",
         model: "5 Series",
         year: "2022",
-        engine: "3.0L",
+        engine: "3000cc",
         rating: 4.7
     },
     {
@@ -284,7 +284,7 @@ window.RenovyteProducts = [
         price: "KES 48,000",
         image: "assets/images/products/body-parts/bumper-2.png",
         description: "Robust front bumper designed for maximum protection and elegant aesthetics.",
-        make: "LANDROVER",
+        make: "LAND ROVER",
         model: "Sport",
         year: "2023",
         rating: 4.9
@@ -297,7 +297,7 @@ window.RenovyteProducts = [
         price: "KES 52,000",
         image: "assets/images/products/body-parts/bumper-3.png",
         description: "Aerodynamic rear bumper with integrated carbon fiber diffuser.",
-        make: "Porsche",
+        make: "PORSCHE",
         model: "911",
         year: "2024",
         rating: 5.0
@@ -323,7 +323,7 @@ window.RenovyteProducts = [
         price: "KES 65,000",
         image: "assets/images/products/body-parts/skirt-2.png",
         description: "Performance-oriented carbon fiber side skirts for high-speed stability.",
-        make: "Lamborghini",
+        make: "LAMBORGHINI",
         model: "Huracan",
         year: "2024",
         rating: 5.0
@@ -336,7 +336,7 @@ window.RenovyteProducts = [
         price: "KES 4,500",
         image: "assets/images/products/body-parts/slides-1.png",
         description: "High-precision bumper slides for secure mounting and alignment.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.6
     },
@@ -348,7 +348,7 @@ window.RenovyteProducts = [
         price: "KES 3,200",
         image: "assets/images/products/body-parts/slides-2.png",
         description: "OEM equivalent bumper mounting clips and slides for easy installation.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.5
     },
@@ -360,7 +360,7 @@ window.RenovyteProducts = [
         price: "KES 6,500",
         image: "assets/images/products/body-parts/horn-1.png",
         description: "Powerful dual-tone horns with a premium chrome finish for maximum clarity.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.9
     },
@@ -372,7 +372,7 @@ window.RenovyteProducts = [
         price: "KES 3,800",
         image: "assets/images/products/body-parts/horn-2.png",
         description: "Discreet and powerful electric horn with a weather-resistant black finish.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.7
     },
@@ -397,7 +397,7 @@ window.RenovyteProducts = [
         price: "KES 8,500",
         image: "assets/images/products/body-parts/door-motor-2.png",
         description: "High-torque actuator motor for secure central locking performance.",
-        make: "Volkswagen",
+        make: "VOLKSWAGEN",
         model: "Golf",
         year: "2022",
         rating: 4.7
@@ -413,7 +413,7 @@ window.RenovyteProducts = [
         make: "MERCEDES",
         model: "C-Class",
         year: "2020",
-        engine: "2.0L",
+        engine: "2000cc",
         rating: 4.5
     },
     {
@@ -424,7 +424,7 @@ window.RenovyteProducts = [
         price: "KES 18,500",
         image: "assets/images/products/body-parts/drive-shaft-1.png",
         description: "Heavy-duty drive shaft assembly for smooth power transmission.",
-        make: "Toyota",
+        make: "TOYOTA",
         model: "Hilux",
         year: "2021",
         rating: 4.8
@@ -515,7 +515,7 @@ window.RenovyteProducts = [
         price: "KES 65,000",
         image: "assets/images/products/body-parts/hood-2.png",
         description: "OEM-style lightweight aluminum hood for weight reduction.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Model 3",
         year: "2023",
         rating: 4.8
@@ -528,7 +528,7 @@ window.RenovyteProducts = [
         price: "KES 8,500",
         image: "assets/images/products/body-parts/ignition-1.png",
         description: "Secure ignition lock cylinder with two encoded master keys.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.7
     },
@@ -553,7 +553,7 @@ window.RenovyteProducts = [
         price: "KES 24,000",
         image: "assets/images/products/body-parts/radiator-1.png",
         description: "Dual-core aluminum radiator for maximum cooling efficiency.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.9
     },
@@ -617,7 +617,7 @@ window.RenovyteProducts = [
         price: "KES 45,000",
         image: "assets/images/products/body-parts/rear-wing-2.png",
         description: "Adjustable high-downforce GT wing for track-day performance.",
-        make: "Porsche",
+        make: "PORSCHE",
         model: "Cayman",
         year: "2023",
         rating: 4.9
@@ -630,7 +630,7 @@ window.RenovyteProducts = [
         price: "KES 18,500",
         image: "assets/images/products/body-parts/roof-rack-1.png",
         description: "Universal aluminum crossbars with aerodynamic profile and locking system.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.7
     },
@@ -642,7 +642,7 @@ window.RenovyteProducts = [
         price: "KES 350,000",
         image: "assets/images/products/body-parts/body-3.webp",
         description: "Full exotic wide-body kit featuring aero-optimized panels and aggressive styling.",
-        make: "Ferrari",
+        make: "FERRARI",
         model: "488 / F8",
         year: "2019-2023",
         rating: 5.0
@@ -681,7 +681,7 @@ window.RenovyteProducts = [
         price: "KES 245,000",
         image: "assets/images/products/accessories/android-radio-1.png",
         description: "World-class engine management system with drive-by-wire and dual-channel knock control.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Performance Tuned",
         rating: 5.0
     },
@@ -693,7 +693,7 @@ window.RenovyteProducts = [
         price: "KES 65,000",
         image: "assets/images/products/service-parts/service-2.webp",
         description: "Set of 6 high-impedance fuel injectors with exceptional spray atomization.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "High Flow",
         rating: 4.9
     },
@@ -741,7 +741,7 @@ window.RenovyteProducts = [
         price: "KES 145,000",
         image: "assets/images/products/engine-components/engine-1.webp",
         description: "The Precision Gen2 6266 CEA turbocharger is a powerhouse of performance.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.8
     },
@@ -753,10 +753,10 @@ window.RenovyteProducts = [
         price: "KES 8,500",
         image: "assets/images/products/engine-components/engine-1.webp",
         description: "Incredibly strong, extremely heat resistant timing belt for racing.",
-        make: "Mitsubishi",
+        make: "MITSUBISHI",
         model: "Lancer Evolution",
         year: "2015",
-        engine: "2.0L",
+        engine: "2000cc",
         rating: 4.7
     },
 
@@ -772,7 +772,7 @@ window.RenovyteProducts = [
         make: "TOYOTA",
         model: "Supra",
         year: "2021",
-        engine: "3.0L",
+        engine: "3000cc",
         rating: 5.0
     },
     {
@@ -783,10 +783,10 @@ window.RenovyteProducts = [
         price: "KES 8,500",
         image: "assets/images/products/suspension-steering/suspension-2.webp",
         description: "Restore your vehicle's original ride and handling capabilities.",
-        make: "Nissan",
+        make: "NISSAN",
         model: "X-Trail",
         year: "2020",
-        engine: "2.0L",
+        engine: "2000cc",
         rating: 4.6
     },
 
@@ -811,7 +811,7 @@ window.RenovyteProducts = [
         price: "KES 285,000",
         image: "assets/images/products/suspension-steering/suspension-1.webp",
         description: "State-of-the-art motorsports technology for individual bump and rebound adjustment.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "911 (991)",
         rating: 5.0
     },
@@ -847,7 +847,7 @@ window.RenovyteProducts = [
         price: "KES 12,000",
         image: "assets/images/products/suspension-steering/suspension-2.webp",
         description: "Reinforced greaseable ball joints for durable, precise steering response.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "High Duty",
         rating: 4.7
     },
@@ -859,7 +859,7 @@ window.RenovyteProducts = [
         price: "KES 145,000",
         image: "assets/images/products/suspension-steering/suspension-1.webp",
         description: "30 levels of damping adjustment with full-length ride height adjustability.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "All Performance",
         rating: 4.9
     },
@@ -871,7 +871,7 @@ window.RenovyteProducts = [
         price: "KES 48,000",
         image: "assets/images/products/suspension-steering/suspension-3.webp",
         description: "World-class suspension technology offering unmatched dampening control and ride quality.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 5.0
     },
@@ -978,7 +978,7 @@ window.RenovyteProducts = [
         subcategory: "Android Radios",
         image: "assets/images/products/accessories/android-radio-1.png",
         description: "High-resolution Android touchscreen with GPS navigation, Bluetooth, and Apple CarPlay.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -990,7 +990,7 @@ window.RenovyteProducts = [
         subcategory: "Android Radios",
         image: "assets/images/products/accessories/android-radio-2.png",
         description: "Tesla-style vertical Android screen designed for modern SUV dashboards.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "SUV/Truck",
         year: "2024",
         rating: 4.9
@@ -1002,7 +1002,7 @@ window.RenovyteProducts = [
         subcategory: "Dashcams",
         image: "assets/images/products/accessories/dashcam-1.png",
         description: "Crystal clear front and rear recording with night vision and G-sensor.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1014,7 +1014,7 @@ window.RenovyteProducts = [
         subcategory: "Dashcams",
         image: "assets/images/products/accessories/dashcam-2.png",
         description: "Integrates directly into your rearview mirror with a full HD touchscreen display.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.8
@@ -1026,7 +1026,7 @@ window.RenovyteProducts = [
         subcategory: "Floor Mats",
         image: "assets/images/products/accessories/floor-mats-1.png",
         description: "Premium synthetic leather floor mats with luxury diamond stitching.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 5.0
@@ -1038,7 +1038,7 @@ window.RenovyteProducts = [
         subcategory: "Floor Mats",
         image: "assets/images/products/accessories/floor-mats-2.png",
         description: "Durable deep-dish rubber mats for maximum interior floor protection.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.6
@@ -1050,7 +1050,7 @@ window.RenovyteProducts = [
         subcategory: "Body Parts",
         image: "assets/images/products/accessories/body-kit-1.png",
         description: "Complete wide-body conversion kit with front bumper, rear diffuser, and side skirts.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Sport Sedan",
         year: "2024",
         rating: 4.9
@@ -1062,7 +1062,7 @@ window.RenovyteProducts = [
         subcategory: "Body Parts",
         image: "assets/images/products/accessories/body-kit-2.png",
         description: "Elegant bumper extensions and lip spoilers for a subtle yet aggressive look.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1074,7 +1074,7 @@ window.RenovyteProducts = [
         subcategory: "Car Alarms",
         image: "assets/images/products/accessories/car-alarm-1.png",
         description: "Advanced 2-way alarm system with LCD remote pager and long-range connectivity.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1086,7 +1086,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/car-cover-1.png",
         description: "Heavy-duty 5-layer waterproof and UV-resistant outdoor car cover.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.8
@@ -1098,7 +1098,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/car-cover-2.png",
         description: "Soft, breathable indoor cover to protect from dust and minor scratches.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.9
@@ -1110,7 +1110,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/gps-tracker-1.png",
         description: "Global tracking with mobile app alerts, geo-fencing, and history playback.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1122,7 +1122,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/gps-tracker-2.png",
         description: "Compact plug-and-play GPS tracker that installs into the OBD-II port.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1134,7 +1134,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/jump-starter-1.png",
         description: "Powerful jump starter power bank for up to 8.0L gas and 6.0L diesel engines.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 5.0
@@ -1146,7 +1146,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/jump-starter-2.png",
         description: "Professional grade heavy-duty booster cables with reinforced clamps.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.6
@@ -1158,7 +1158,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/polish-1.png",
         description: "Advanced hydrophobic ceramic spray for long-lasting shine and protection.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1170,7 +1170,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/polish-2.png",
         description: "Cleans and protects interior surfaces while restoring a factory finish.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1182,7 +1182,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/speakers-1.png",
         description: "High-fidelity door speakers with external crossovers and silk dome tweeters.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.9
@@ -1194,7 +1194,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/speakers-2.png",
         description: "Powerful rear parcel shelf speakers for deep bass and clear highs.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1206,7 +1206,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/subwoofer-1.png",
         description: "Space-saving powered subwoofer that fits under the front seat for punchy bass.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1218,7 +1218,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/subwoofer-2.png",
         description: "High-output subwoofer box for maximum bass levels in larger vehicles.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.9
@@ -1230,7 +1230,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/amplifier-1.png",
         description: "High-performance multi-channel amplifier for powering speakers and subwoofers.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1242,7 +1242,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/amplifier-2.png",
         description: "Dedicated high-efficiency digital amp for driving large subwoofers.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2023",
         rating: 4.7
@@ -1254,7 +1254,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/stereo-1.png",
         description: "Modern car stereo with Bluetooth, USB, and hands-free calling support.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.6
@@ -1266,7 +1266,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/stereo-2.png",
         description: "Touchscreen head unit with Android Auto, Apple CarPlay, and rear camera support.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1278,7 +1278,7 @@ window.RenovyteProducts = [
         subcategory: "Car Accessories",
         image: "assets/images/products/accessories/shark-fin-1.png",
         description: "Aerodynamic shark fin antenna with integrated signal booster and gloss black finish.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Multiple",
         year: "2024",
         rating: 4.8
@@ -1291,7 +1291,7 @@ window.RenovyteProducts = [
         price: "KES 6,500",
         image: "assets/images/products/exterior-accessories/acc-3.webp",
         description: "Hand-stitched premium Alcantara wrap for ultimate grip and interior luxury.",
-        make: "Universal",
+        make: "UNIVERSAL",
         model: "Universal",
         rating: 4.9
     }

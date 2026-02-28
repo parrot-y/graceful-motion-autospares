@@ -164,31 +164,38 @@ document.addEventListener('DOMContentLoaded', () => {
             .cart-drawer {
                 position: fixed;
                 top: 0; right: 0; width: 100%; height: 100%;
+                max-width: 100vw;
                 z-index: 10000;
                 pointer-events: none;
                 visibility: hidden;
                 transition: visibility 0.4s;
+                overflow: hidden; /* Prevent internal spill */
             }
             .cart-drawer.active { visibility: visible; pointer-events: all; }
             .cart-drawer-overlay {
                 position: absolute;
                 top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(255, 255, 255, 0.4);
+                background: rgba(0, 0, 0, 0.4); /* Darker for focus */
                 backdrop-filter: blur(10px);
                 opacity: 0;
                 transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                max-width: 100vw;
             }
             .cart-drawer.active .cart-drawer-overlay { opacity: 1; }
             .cart-drawer-content {
                 position: absolute;
                 top: 0; right: 0; width: 100%; max-width: 450px; height: 100%;
                 background: #FFFFFF;
-                box-shadow: -20px 0 60px rgba(0, 0, 0, 0.1);
-                transform: translateX(100%);
-                transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+                box-shadow: -20px 0 60px rgba(0, 0, 0, 0.2);
+                transform: translateX(105%); /* Position completely off-screen */
+                visibility: hidden;
+                transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.5s;
                 display: flex; flex-direction: column;
             }
-            .cart-drawer.active .cart-drawer-content { transform: translateX(0); }
+            .cart-drawer.active .cart-drawer-content { 
+                transform: translateX(0); 
+                visibility: visible;
+            }
             
             .cart-header {
                 padding: 30px; border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -386,7 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // GRACEFUL MOTION WHATSAPP ORDER FORMATTER
-        const businessNumber = "254723699157"; // Updated to user's contact number
         let total = 0;
         let itemsList = "";
 
@@ -397,6 +403,12 @@ document.addEventListener('DOMContentLoaded', () => {
             itemsList += `   Qty: ${item.quantity} | Total: KES ${itemTotal.toLocaleString()}\n\n`;
         });
 
+        // Vehicle Metadata (Soft capture from filters if on catalog page)
+        const vMake = document.getElementById('filterMake')?.value || 'Not specified';
+        const vModel = document.getElementById('filterModel')?.value || 'Not specified';
+        const vYear = document.getElementById('filterYear')?.value || 'Not specified';
+        const vEngine = document.getElementById('filterEngine')?.value || 'Not specified';
+
         const invoiceId = `INV-${Math.floor(Math.random() * 9000) + 1000}`;
         const date = new Date().toLocaleDateString('en-GB');
 
@@ -406,16 +418,25 @@ document.addEventListener('DOMContentLoaded', () => {
         message += `👤 *Customer:* ${name}\n`;
         message += `📍 *Delivery:* ${location}\n`;
         message += `--------------------------------\n\n`;
+
+        // Vehicle Context
+        if (vMake !== 'Not specified' || vModel !== 'Not specified') {
+            message += `🚗 *VEHICLE DETAILS:*\n`;
+            message += `• Make: ${vMake}\n`;
+            message += `• Model: ${vModel}\n`;
+            message += `• Year: ${vYear}\n`;
+            message += `• Engine: ${vEngine}\n`;
+            message += `--------------------------------\n\n`;
+        }
+
         message += `*ORDERED ITEMS:*\n${itemsList}`;
         message += `--------------------------------\n`;
         message += `💰 *GRAND TOTAL: KES ${total.toLocaleString()}*\n`;
         message += `--------------------------------\n\n`;
+        message += `⚠️ *Kindly confirm compatibility for this vehicle.*\n\n`;
         message += `_Please acknowledge this order to proceed with delivery. Thank you for shopping with Graceful Motion Autospares!_`;
 
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${businessNumber}?text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank');
+        window.BusinessConfig.openWhatsApp(message);
         closeCheckoutModal();
 
         // Optional: clear cart here? 

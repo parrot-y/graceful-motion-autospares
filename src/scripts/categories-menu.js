@@ -14,7 +14,7 @@ class CategoriesMenu {
 
         this.categoryData = {
             'service': {
-                title: 'Service & Maintainance',
+                title: 'Service & Maintenance',
                 icon: 'fa-oil-can',
                 items: [
                     { name: 'Air Filters', icon: 'fa-wind' },

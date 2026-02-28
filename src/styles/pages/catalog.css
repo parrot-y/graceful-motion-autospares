@@ -268,12 +268,13 @@
 
 .btn-filter-toggle {
     width: 100%;
-    padding: 12px;
+    height: 48px;
+    /* Standard 48px tap target */
     background: var(--text-primary);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: 1px;
     display: flex;
@@ -290,8 +291,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2500;
+    /* Between trigger and drawer */
     backdrop-filter: blur(4px);
 }
 
@@ -319,20 +321,47 @@
     .catalog-sidebar {
         position: fixed;
         top: 0;
-        left: -320px;
-        /* Hidden by default */
-        width: 300px;
+        left: -350px;
+        /* Wider hide to be safe */
+        width: 320px;
+        max-width: 85vw;
         height: 100vh;
-        z-index: 1001;
+        z-index: 3000;
         background: white;
-        padding: var(--space-6) var(--space-4);
-        box-shadow: 20px 0 50px rgba(0, 0, 0, 0.1);
+        padding: var(--space-10) var(--space-4) var(--space-4);
+        box-shadow: 20px 0 50px rgba(0, 0, 0, 0.15);
         transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         overflow-y: auto;
+        visibility: hidden;
     }
 
     .catalog-sidebar.active {
-        transform: translateX(320px);
+        transform: translateX(350px);
+        visibility: visible;
+    }
+
+    .filter-close-btn {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 1.2rem;
+        transition: all 0.2s;
+    }
+
+    .filter-close-btn:hover {
+        background: var(--accent-primary);
+        color: white;
     }
 
     .catalog-main {
@@ -343,12 +372,23 @@
 @media (max-width: 576px) {
     .product-grid {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .product-card {
         border-radius: 0;
         border-right: none;
         border-left: none;
+        width: 100%;
+        max-width: 100%;
+        /* Prevent overflow */
+    }
+
+    .catalog-container {
+        padding: 0;
+        /* Flat on mobile */
     }
 }
 
@@ -847,4 +887,93 @@
 .clear-all-filters:hover {
     background: rgba(231, 76, 60, 0.08);
     border-color: #e74c3c;
+}
+
+/* ================================
+   Compatibility Banner
+   ================================ */
+.compat-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 25px;
+    border-radius: 16px;
+    margin-bottom: var(--space-6);
+    animation: slideInDown 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border: 1px solid transparent;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.compat-banner i:first-child {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.compat-banner--info {
+    background: rgba(184, 134, 11, 0.05);
+    border-color: rgba(184, 134, 11, 0.2);
+    color: var(--text-primary);
+}
+
+.compat-banner--info i:first-child {
+    color: var(--accent-primary);
+}
+
+.compat-banner--warning {
+    background: rgba(192, 57, 43, 0.04);
+    border-color: rgba(192, 57, 43, 0.15);
+    color: #c0392b;
+}
+
+.compat-banner--warning i:first-child {
+    color: #c0392b;
+}
+
+.compat-banner div {
+    flex: 1;
+}
+
+.compat-banner a {
+    color: inherit;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.compat-banner a:hover {
+    color: var(--accent-primary);
+    opacity: 0.8;
+}
+
+.compat-banner--warning strong {
+    font-weight: 900;
+    display: block;
+    margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+    .compat-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px;
+        font-size: 0.85rem;
+    }
 }

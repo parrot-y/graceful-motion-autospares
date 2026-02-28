@@ -8,23 +8,29 @@
 }
 
 /* Mega Menu Dropdown */
+/* Mega Menu Base Styles */
 .mega-menu {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 500px;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
-    opacity: 0;
+    background: #fff;
+    z-index: 1000;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    display: none;
+    /* Hidden on mobile by default */
+}
+
+@media (min-width: 993px) {
+    .mega-menu {
+        display: block;
+        min-width: 1200px;
+    }
 }
 
 .mega-menu.active {

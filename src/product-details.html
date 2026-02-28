@@ -48,10 +48,10 @@
             </div>
         </div>
         <div class="header-contacts-col">
-            <a href="tel:+254712345678" class="hdr-contact-btn phone" title="Call Us"><i class="fas fa-phone"></i></a>
-            <a href="https://wa.me/254712345678" class="hdr-contact-btn whatsapp" title="WhatsApp" target="_blank"
+            <a href="tel:+254723699157" class="hdr-contact-btn phone" title="Call Us"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/254723699157" class="hdr-contact-btn whatsapp" title="WhatsApp" target="_blank"
                 rel="noopener"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:info@gracefulmotion.com" class="hdr-contact-btn email" title="Email Us"><i
+            <a href="mailto:gracefulmotionauto@gmail.com" class="hdr-contact-btn email" title="Email Us"><i
                     class="fas fa-envelope"></i></a>
         </div>
     </div>
@@ -136,11 +136,11 @@
                 <div class="footer-col">
                     <h4 class="footer-heading">Contact Us</h4>
                     <ul class="footer-links">
-                        <li><a href="tel:+254712345678"><i class="fas fa-phone fa-xs"></i> +254 712 345 678</a></li>
-                        <li><a href="https://wa.me/254712345678" target="_blank"><i class="fab fa-whatsapp fa-xs"></i>
+                        <li><a href="tel:+254723699157"><i class="fas fa-phone fa-xs"></i> +254 723 699 157</a></li>
+                        <li><a href="https://wa.me/254723699157" target="_blank"><i class="fab fa-whatsapp fa-xs"></i>
                                 WhatsApp Order</a></li>
-                        <li><a href="mailto:info@gracefulmotion.com"><i class="fas fa-envelope fa-xs"></i>
-                                info@gracefulmotion.com</a></li>
+                        <li><a href="mailto:gracefulmotionauto@gmail.com"><i class="fas fa-envelope fa-xs"></i>
+                                gracefulmotionauto@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -153,6 +153,7 @@
     </footer>
 
     <!-- ===== SCRIPTS ===== -->
+    <script src="scripts/business-config.js"></script>
     <script src="scripts/product-data.js"></script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/categories-menu.js"></script>
@@ -411,7 +412,7 @@
                     `🔢 *Quantity:* ${qty}\n` +
                     `🆔 *Part ID:* GM-${product.id.substring(0, 8).toUpperCase()}\n\n` +
                     `Could you please confirm availability and delivery details to my location? Thank you!`;
-                window.open(`https://wa.me/254712345678?text=${encodeURIComponent(message)}`, '_blank');
+                window.BusinessConfig.openWhatsApp(message);
             };
 
             document.addEventListener('click', (e) => {
@@ -463,15 +464,19 @@
                 }).join('');
             }
 
-            // Mobile sticky bar — show always on mobile after scroll
-            if (window.innerWidth <= 768) {
-                pdStickyBar.classList.add('active');
-            }
-            window.addEventListener('scroll', () => {
+            // Mobile sticky bar — show immediately on mobile
+            const updateStickyBar = () => {
                 if (window.innerWidth <= 768) {
                     pdStickyBar.classList.add('active');
+                } else {
+                    pdStickyBar.classList.remove('active');
                 }
-            }, { passive: true });
+            };
+
+            updateStickyBar();
+            window.addEventListener('resize', updateStickyBar);
+            // Also show on scroll as a backup/reinforcement
+            window.addEventListener('scroll', updateStickyBar, { passive: true });
         });
     </script>
 

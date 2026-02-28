@@ -62,69 +62,17 @@
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
-    </div>
 
-    <!-- Category Navbar (Solid for non-hero pages) -->
-    <nav class="navbar navbar-solid" id="navbar">
-        <div class="container">
-            <div class="nav-content-v2">
-                <!-- Categories Button -->
-                <div class="categories-menu" id="headerCategories">
-                    <button class="categories-btn-v2" id="categoriesBtn">
-                        <i class="fas fa-bars"></i>
-                        <span>CATEGORIES</span>
-                    </button>
-
-                    <!-- Mega Menu Dropdown -->
-                    <div class="mega-menu" id="categoriesDropdown">
-                        <div class="mega-menu-content">
-                            <!-- Dynamic content via categories-menu.js -->
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- Right Actions -->
-                <div class="nav-actions-v2">
-                    <button class="nav-icon-btn-v2" aria-label="Cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-badge">0</span>
-                    </button>
-                    <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+        <!-- Actions Column (Cart & Mobile Menu) -->
+        <div class="header-actions-col">
+            <button class="hdr-action-btn nav-icon-btn-v2 cart-btn" aria-label="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </button>
+            <button class="mobile-hamburger" id="catalogFilterBtn" aria-label="Filters">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-
-        <!-- Mobile slide-out menu -->
-        <div class="nav-links-v2" id="navLinks">
-            <a href="catalog.html?category=service" class="nav-link-v2">Service & Maintainance</a>
-            <a href="catalog.html?category=tyres" class="nav-link-v2">Tire and Wheels</a>
-            <a href="catalog.html?category=braking" class="nav-link-v2">Braking System</a>
-            <a href="catalog.html?category=lighting" class="nav-link-v2">Car Lighting</a>
-            <a href="catalog.html?category=body" class="nav-link-v2">Body Parts</a>
-            <a href="catalog.html?category=suspension" class="nav-link-v2">Suspension & Bearings</a>
-            <a href="catalog.html" class="nav-link-v2">All Catalog</a>
-            <a href="index.html#deals" class="nav-link-v2">Hot Deals</a>
-            <a href="index.html#about-us" class="nav-link-v2">About</a>
-            <div class="mobile-contact-info">
-                <a href="tel:+254723699157" class="nav-link-v2">
-                    <i class="fas fa-phone"></i> +254 723 699 157
-                </a>
-                <a href="mailto:gracefulmotionauto@gmail.com" class="nav-link-v2">
-                    <i class="fas fa-envelope"></i> gracefulmotionauto@gmail.com
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Filter Trigger (Sticky) -->
-    <div class="mobile-filter-trigger" id="mobileFilterTrigger">
-        <button class="btn-filter-toggle">
-            <i class="fas fa-filter"></i> SHOW FILTERS
-        </button>
     </div>
 
     <!-- Mobile Filter Backdrop (for drawer) -->
@@ -134,6 +82,11 @@
     <div class="catalog-container">
         <!-- Sidebar Filters -->
         <aside class="catalog-sidebar">
+            <!-- Mobile Close Button -->
+            <button class="filter-close-btn" id="closeFiltersBtn" aria-label="Close filters">
+                <i class="fas fa-times"></i>
+            </button>
+
             <div class="filter-section">
                 <h4 class="filter-header">Filter Products</h4>
 
@@ -145,7 +98,7 @@
                         <option value="Body Parts">Body Parts</option>
                         <option value="Engine &amp; Components">Engine &amp; Components</option>
                         <option value="Suspension &amp; Bearings">Suspension &amp; Bearings</option>
-                        <option value="Service &amp; Maintainance">Service &amp; Maintainance</option>
+                        <option value="Service &amp; Maintenance">Service &amp; Maintenance</option>
                         <option value="Tire and Wheels">Tire and Wheels</option>
                         <option value="Car Accessories">Car Accessories</option>
                         <option value="Braking System">Braking System</option>
@@ -209,7 +162,7 @@
                             class="subcategory-link">Suspension &amp; Bearings <i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="subcategory-item"><a href="catalog.html?category=service"
-                            class="subcategory-link">Service &amp; Maintainance <i class="fas fa-chevron-right"></i></a>
+                            class="subcategory-link">Service &amp; Maintenance <i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="subcategory-item"><a href="catalog.html?category=tyres" class="subcategory-link">Tire and
                             Wheels <i class="fas fa-chevron-right"></i></a></li>
@@ -334,11 +287,11 @@
                     <div class="footer-col">
                         <h3>Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="catalog.html?category=body-parts">Body Parts</a></li>
+                            <li><a href="catalog.html?category=body">Body Parts</a></li>
                             <li><a href="catalog.html?category=engine">Engine Parts</a></li>
                             <li><a href="catalog.html?category=suspension">Suspension</a></li>
-                            <li><a href="catalog.html?category=electrical">Electrical</a></li>
-                            <li><a href="catalog.html?category=service">Service Kits</a></li>
+                            <li><a href="catalog.html?category=lighting">Car Lighting</a></li>
+                            <li><a href="catalog.html?category=service">Service & Maintenance</a></li>
                         </ul>
                     </div>
 
@@ -386,6 +339,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="scripts/business-config.js"></script>
     <script src="scripts/product-data.js"></script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/cart.js"></script>

@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const findPartsBtn = document.getElementById('findPartsBtn');
     const resetBtn = document.getElementById('resetFiltersBtn');
     const productGrid = document.getElementById('productGrid');
-    const mobileFilterTrigger = document.getElementById('mobileFilterTrigger');
+    // Mobile Filter Logic
+    const catalogFilterBtn = document.getElementById('catalogFilterBtn');
     const catalogSidebar = document.querySelector('.catalog-sidebar');
     const filterBackdrop = document.getElementById('filterBackdrop');
 
-    // Mobile Filter Logic
-    mobileFilterTrigger?.addEventListener('click', () => {
+    catalogFilterBtn?.addEventListener('click', () => {
         catalogSidebar?.classList.add('active');
         filterBackdrop?.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent scroll
@@ -31,25 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     filterBackdrop?.addEventListener('click', closeFilterDrawer);
+    document.getElementById('closeFiltersBtn')?.addEventListener('click', closeFilterDrawer);
+
+    // Close on action buttons for mobile
+    findPartsBtn?.addEventListener('click', () => {
+        if (window.innerWidth <= 992) closeFilterDrawer();
+    });
+    resetBtn?.addEventListener('click', () => {
+        if (window.innerWidth <= 992) closeFilterDrawer();
+    });
 
     // Vehicle Data
+    // Vehicle Data — Normalized (ALL CAPS)
     const carData = {
         'AUDI': { models: ['All Models', 'A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8'] },
         'BMW': { models: ['All Models', '1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', '8 Series', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'M3', 'M4', 'M5'] },
         'CADILLAC': { models: ['All Models', 'ATS', 'CTS', 'CT4', 'CT5', 'CT6', 'Escalade', 'XT4', 'XT5', 'XT6'] },
         'CHEVROLET': { models: ['All Models', 'Aveo', 'Captiva', 'Cruze', 'Malibu', 'Optra', 'Spark', 'Tahoe', 'Trailblazer', 'Trax'] },
         'DAIHATSU': { models: ['All Models', 'Boon', 'Hijet', 'Mira', 'Move', 'Rocky', 'Tanto', 'Terios', 'Thor'] },
-        'DODGER': { models: ['All Models', 'Challenger', 'Charger', 'Durango', 'Journey', 'Ram'] },
+        'DODGE': { models: ['All Models', 'Challenger', 'Charger', 'Durango', 'Journey', 'Ram'] },
         'FORD': { models: ['All Models', 'Everest', 'Explorer', 'F-150', 'Fiesta', 'Focus', 'Mustang', 'Ranger', 'Transit'] },
         'HINO': { models: ['All Models', '300 Series', '500 Series', '700 Series', 'Dutro', 'Profia', 'Ranger'] },
         'HONDA': { models: ['All Models', 'Accord', 'Civic', 'CR-V', 'Fit', 'HR-V', 'Insight', 'Jade', 'Odyssey', 'Pilot', 'Stream', 'Vezel'] },
         'HYUNDAI': { models: ['All Models', 'Accent', 'Creta', 'Elantra', 'Ioniq', 'Kona', 'Santa Fe', 'Sonata', 'Tucson', 'Venue'] },
-        'INFINITY': { models: ['All Models', 'Q50', 'Q60', 'Q70', 'QX50', 'QX60', 'QX70', 'QX80'] },
+        'INFINITI': { models: ['All Models', 'Q50', 'Q60', 'Q70', 'QX50', 'QX60', 'QX70', 'QX80'] },
         'ISUZU': { models: ['All Models', 'D-Max', 'DQR', 'Elf', 'Forward', 'Giga', 'Mu-X', 'NKR', 'NPR', 'Trooper'] },
         'JAGUAR': { models: ['All Models', 'E-Pace', 'F-Pace', 'F-Type', 'I-Pace', 'XE', 'XF', 'XJ'] },
         'JEEP': { models: ['All Models', 'Cherokee', 'Compass', 'Gladiator', 'Grand Cherokee', 'Renegade', 'Wrangler'] },
         'KIA': { models: ['All Models', 'Carnival', 'Cerato', 'Picanto', 'Rio', 'Seltos', 'Sorento', 'Soul', 'Sportage', 'Stinger'] },
-        'LANDROVER': { models: ['All Models', 'Defender', 'Discovery', 'Discovery Sport', 'Evoque', 'Range Rover', 'Range Rover Sport', 'Range Rover Velar', 'Vogue'] },
+        'LAND ROVER': { models: ['All Models', 'Defender', 'Discovery', 'Discovery Sport', 'Evoque', 'Range Rover', 'Range Rover Sport', 'Range Rover Velar', 'Vogue'] },
         'LEXUS': { models: ['All Models', 'ES', 'GS', 'GX', 'IS', 'LS', 'LX', 'NX', 'RX', 'UX'] },
         'MAZDA': { models: ['All Models', 'Atenza', 'Axela', 'BT-50', 'CX-3', 'CX-30', 'CX-5', 'CX-8', 'CX-9', 'Demio', 'MX-5'] },
         'MERCEDES': { models: ['All Models', 'A-Class', 'B-Class', 'C-Class', 'CLA', 'CLS', 'E-Class', 'G-Wagon', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'S-Class', 'SL', 'V-Class'] },
@@ -68,12 +78,47 @@ document.addEventListener('DOMContentLoaded', () => {
         'Universal': { models: ['All Models'] }
     };
 
-    const engineSizes = ['Select Option', '600', '660', '800', '1.2', '1.3', '1.5L', '1.6', '1.8L', '2.0L', '2.2L', '2.4L', '2.5L', '2.5 Turbo', '2.7L', '3.0L', '4.7L', '5.6L'];
+    const engineSizes = ['Select Option', '600cc', '660cc', '800cc', '1000cc', '1200cc', '1300cc', '1500cc', '1600cc', '1800cc', '2000cc', '2200cc', '2400cc', '2500cc', '2700cc', '3000cc', '3200cc', '3300cc', '4700cc', '5600cc'];
+
+    // Data Normalization Utility
+    const normalizeValue = (type, val) => {
+        if (!val || val === 'Universal') return val;
+        let s = val.toString().trim();
+
+        if (type === 'make') {
+            s = s.toUpperCase();
+            // Backward compatibility for common typos
+            if (s === 'DODGER') return 'DODGE';
+            if (s === 'INFINITY') return 'INFINITI';
+            if (s === 'LANDROVER') return 'LAND ROVER';
+            return s;
+        }
+
+        if (type === 'engine') {
+            s = s.toLowerCase();
+            // 1.8L -> 1800cc
+            if (s.includes('l')) {
+                const num = parseFloat(s);
+                if (!isNaN(num)) return (num * 1000) + 'cc';
+            }
+            // 3.2 -> 3200cc
+            if (!s.includes('cc')) {
+                const num = parseFloat(s);
+                if (!isNaN(num)) {
+                    if (num < 10) return (num * 1000) + 'cc';
+                    return num + 'cc';
+                }
+            }
+            return s.split(' ')[0]; // Handle "2500cc Diesel" -> "2500cc"
+        }
+        return s;
+    };
 
     // Slug to Category Name mapping — covers all URL forms used across the site
     const categoryMap = {
-        'service': 'Service & Maintainance',
-        'service-parts': 'Service & Maintainance',
+        'service': 'Service & Maintenance',
+        'service-parts': 'Service & Maintenance',
+        'service-maintenance': 'Service & Maintenance',
         'tyres': 'Tire and Wheels',
         'tyres-wheels': 'Tire and Wheels',
         'tire-and-wheels': 'Tire and Wheels',
@@ -89,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'body-parts': 'Body Parts',
         'engine': 'Engine & Components',
         'engine-components': 'Engine & Components',
+        'electrical': 'Engine & Components',
         'suspension': 'Suspension & Bearings',
         'suspension-steering': 'Suspension & Bearings',
         'suspension-bearings': 'Suspension & Bearings'
@@ -113,11 +159,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsCountEl = document.getElementById('resultsCount');
     const sortBySelect = document.getElementById('sortBy');
 
+    // Parse other vehicle URL parameters
+    const makeParam = urlParams.get('make');
+    const modelParam = urlParams.get('model');
+    const yearParam = urlParams.get('year');
+    const engineParam = urlParams.get('engine');
+
     // Sort-by listener
     sortBySelect?.addEventListener('change', () => applyFilters(searchParam, subcategoryParam));
 
     initMakeDropdown();
     initYearAndEngineDropdowns();
+
+    // Apply URL vehicle filters if present
+    if (makeParam) {
+        const normMake = normalizeValue('make', makeParam);
+        if (carData[normMake]) {
+            makeSelect.value = normMake;
+            // Trigger model update
+            const models = carData[normMake].models || ['All Models'];
+            populateDropdown(modelSelect, models);
+            if (modelParam) modelSelect.value = modelParam;
+        }
+    }
+    if (yearParam) yearSelect.value = yearParam;
+    if (engineParam) {
+        const normEngine = normalizeValue('engine', engineParam);
+        // Find existing option that matches or just try to set it
+        engineSelect.value = normEngine;
+    }
+
     applyFilters(searchParam, subcategoryParam);
 
     // Live search wiring — catalog search input
@@ -256,6 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
             engine: engineSelect.value
         };
 
+        const vehicleFiltersActive = filters.make || filters.model || filters.year || filters.engine;
+
         // Render active filter chips
         const activeFiltersEl = document.getElementById('activeFilters');
         const chipsEl = document.getElementById('activeFilterChips');
@@ -288,16 +361,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const activeSubcat = subcatOverride || subcategoryParam;
+        const allProducts = window.RenovyteProducts || [];
 
-        const filtered = (window.RenovyteProducts || []).filter(p => {
+        // --- PHASE 1: Strict filters (category, search, subcategory) ---
+        const strictFiltered = allProducts.filter(p => {
             const matchCategory = !filters.category || p.category === filters.category;
-            const matchMake = !filters.make || p.make === 'Universal' || p.make === filters.make;
-            const matchModel = !filters.model || p.model === 'Universal' || p.model === filters.model;
-            const matchYear = !filters.year || p.year === 'All Years' || p.year === filters.year;
-
-            // Allow partial match for engine (e.g., "2000cc" matches "2000cc Turbo")
-            const matchEngine = !filters.engine || p.engine === 'Universal' ||
-                (p.engine && p.engine.toLowerCase().includes(filters.engine.toLowerCase()));
 
             let matchSearch = true;
             if (actualSearchQuery) {
@@ -308,17 +376,91 @@ document.addEventListener('DOMContentLoaded', () => {
                     (p.id && p.id.toLowerCase().includes(q));
             }
 
-            // Subcategory filter
             let matchSubcategory = true;
             if (activeSubcat) {
                 const subQ = activeSubcat.toLowerCase().replace(/-/g, ' ');
                 matchSubcategory = p.subcategory && p.subcategory.toLowerCase().includes(subQ);
             }
 
-            return matchCategory && matchMake && matchModel && matchYear && matchEngine && matchSearch && matchSubcategory;
+            return matchCategory && matchSearch && matchSubcategory;
         });
 
-        renderProducts(filtered);
+        // --- PHASE 2: Soft vehicle filters (Make/Model/Year/Engine) ---
+        let finalResults;
+        let isFallback = false;
+
+        if (vehicleFiltersActive) {
+            const vehicleFiltered = strictFiltered.filter(p => {
+                const matchMake = !filters.make || p.make === 'Universal' ||
+                    normalizeValue('make', p.make) === normalizeValue('make', filters.make);
+                const matchModel = !filters.model || p.model === 'Universal' || p.model === filters.model;
+                const matchYear = !filters.year || p.year === 'All Years' || p.year === filters.year;
+                const matchEngine = !filters.engine || p.engine === 'Universal' ||
+                    (p.engine && normalizeValue('engine', p.engine) === normalizeValue('engine', filters.engine));
+                return matchMake && matchModel && matchYear && matchEngine;
+            });
+
+            if (vehicleFiltered.length > 0) {
+                finalResults = vehicleFiltered;
+            } else {
+                // Fallback: show all strict-category results instead of dead-end
+                finalResults = strictFiltered;
+                isFallback = true;
+            }
+        } else {
+            finalResults = strictFiltered;
+        }
+
+        // --- Compatibility notice banner ---
+        showCompatibilityBanner(vehicleFiltersActive, isFallback);
+
+        renderProducts(finalResults);
+    }
+
+    /**
+     * Show/hide compatibility notice banner.
+     * Appears when vehicle filters are active — either as an info note,
+     * or as a stronger warning when no exact matches were found (fallback).
+     */
+    function showCompatibilityBanner(vehicleFiltersActive, isFallback) {
+        let banner = document.getElementById('compatibilityBanner');
+
+        if (!vehicleFiltersActive) {
+            if (banner) banner.remove();
+            return;
+        }
+
+        if (!banner) {
+            banner = document.createElement('div');
+            banner.id = 'compatibilityBanner';
+            // Insert before product grid
+            productGrid.parentNode.insertBefore(banner, productGrid);
+        }
+
+        if (isFallback) {
+            banner.className = 'compat-banner compat-banner--warning';
+            banner.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>No exact vehicle match found</strong> — showing all products in this category.
+                    <br>Please confirm compatibility with your vehicle via
+                    <a href="${window.BusinessConfig?.whatsappLink() || '#'}" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a> before purchase.
+                </div>
+            `;
+        } else {
+            banner.className = 'compat-banner compat-banner--info';
+            banner.innerHTML = `
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    Confirm compatibility with your vehicle via
+                    <a href="${window.BusinessConfig?.whatsappLink() || '#'}" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a> before purchase.
+                </div>
+            `;
+        }
     }
 
     // --- Dropdown Management ---
