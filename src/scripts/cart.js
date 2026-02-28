@@ -42,7 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
             imgSrc = card.querySelector('img')?.src || '';
         }
 
-        const price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
+        let price = 0;
+        if (priceText.toLowerCase().includes('contact') || priceText.toLowerCase().includes('price')) {
+            price = 0; // Value for math
+        } else {
+            price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
+        }
 
         addItemToCart({
             id,
@@ -115,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createCartDrawer() {
+        if (document.getElementById('cartDrawer')) return;
+
         // Create Drawer Structure
         const drawer = document.createElement('div');
         drawer.id = 'cartDrawer';
