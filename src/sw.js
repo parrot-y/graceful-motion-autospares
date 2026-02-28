@@ -1,14 +1,15 @@
-const CACHE_NAME = 'renovyte-v1';
+const CACHE_NAME = 'renovyte-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
     './catalog.html',
-    './styles/index.min.css',
-    './styles/components/navigation.min.css',
-    './styles/components/footer.min.css',
-    './styles/components/hero.min.css',
-    './scripts/navigation.min.js',
-    './scripts/cart.min.js',
+    './product-details.html',
+    './styles/index.css',
+    './styles/components/navigation.css',
+    './styles/components/footer.css',
+    './styles/components/hero.css',
+    './scripts/navigation.js',
+    './scripts/cart.js',
     './assets/images/hero/hero_smoke_v2.webp'
 ];
 

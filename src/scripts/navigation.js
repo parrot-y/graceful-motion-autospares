@@ -97,24 +97,13 @@ class Navigation {
     }
 
     initTheme() {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        this.updateThemeIcon(savedTheme);
-
-        this.themeToggle?.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            this.updateThemeIcon(newTheme);
-        });
+        // Light-only theme — remove any stored dark mode preference
+        localStorage.removeItem('theme');
+        document.documentElement.removeAttribute('data-theme');
     }
 
     updateThemeIcon(theme) {
-        const icon = this.themeToggle?.querySelector('i');
-        if (icon) {
-            icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-        }
+        // No-op — theme toggle removed
     }
 }
 

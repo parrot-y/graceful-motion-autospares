@@ -5,55 +5,63 @@
 
 class RenovyteAnimations {
     constructor() {
-        this.revealConfigs = [
-            { selector: '.category-card', animation: 'fadeInUp' },
-            { selector: '.deal-card', animation: 'fadeInUp' },
-            { selector: '.about-content', animation: 'fadeInLeft' },
-            { selector: '.about-image-wrap', animation: 'fadeInRight' },
-            { selector: '.section-title-v2', animation: 'fadeIn' }
-        ];
-
         this.init();
     }
 
     init() {
-        // Generic Reveal Logic for any element with .reveal-element
-        const observer = new IntersectionObserver((entries) => {
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                    observer.unobserve(entry.target);
+                    const el = entry.target;
+
+                    // Apply delay if specified, or auto-delay for children of a grid
+                    const delay = el.dataset.delay || 0;
+                    if (delay) {
+                        el.style.transitionDelay = `${delay}ms`;
+                    }
+
+                    el.classList.add('reveal-active');
+                    revealObserver.unobserve(el);
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        }, observerOptions);
+
+        // Apply automatic staggering to grid items that are reveal elements
+        document.querySelectorAll('.featured-grid, .categories-grid').forEach(grid => {
+            const items = grid.querySelectorAll('.reveal-element, .category-card');
+            items.forEach((item, index) => {
+                if (!item.dataset.delay) {
+                    item.dataset.delay = index * 100;
+                }
+                revealObserver.observe(item);
+            });
         });
 
-        // Trigger Hero Elements Immediately on Load
-        document.querySelectorAll('.hero-section .reveal-element').forEach((el, index) => {
-            // Add a small staggered delay for hero items specifically
-            setTimeout(() => {
-                el.classList.add('reveal-active');
-            }, 100 + (index * 200));
-        });
-
-        // Observe remaining elements
-        document.querySelectorAll('.reveal-element:not(.hero-section *)').forEach(el => {
-            observer.observe(el);
+        // Target remaining individual reveal elements
+        document.querySelectorAll('.reveal-element').forEach(el => {
+            revealObserver.observe(el);
         });
 
         this.parallaxHero();
     }
 
     parallaxHero() {
-        const heroBg = document.querySelector('.hero-bg-image');
-        if (!heroBg) return;
+        const heroSlides = document.querySelectorAll('.hero-bg-slide');
+        if (!heroSlides.length) return;
 
         window.addEventListener('scroll', () => {
             const scroll = window.pageYOffset;
-            heroBg.style.transform = `scale(1.1) translateY(${scroll * 0.4}px)`;
-        });
+            heroSlides.forEach(slide => {
+                if (slide.classList.contains('active')) {
+                    slide.style.backgroundPositionY = `${scroll * 0.4}px`;
+                }
+            });
+        }, { passive: true });
     }
 }
 

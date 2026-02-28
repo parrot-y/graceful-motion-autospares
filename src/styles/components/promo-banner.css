@@ -105,6 +105,106 @@
     /* Subtle zoom */
 }
 
+/* Wide Animated Promo Banner */
+.wide-promo-banner {
+    width: 100%;
+    height: 180px;
+    background: radial-gradient(circle at center, #d32f2f 0%, #000033 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin: var(--space-20) 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.wide-banner-col {
+    width: 100%;
+    padding: 0 var(--space-12);
+}
+
+#wideBannerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: opacity 0.4s ease;
+}
+
+#wideBannerInner.banner-fade-out {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+#wideBannerInner.banner-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wide-promo-banner .banner-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.wide-promo-banner .banner-prefix {
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.wide-promo-banner .banner-part-name {
+    font-size: 3.5rem;
+    color: #FFD700;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.wide-promo-banner .banner-img-wrap {
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.wide-promo-banner img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: lighten;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    transform: rotate(-5deg);
+}
+
+.wide-promo-banner .banner-specials-tag {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5rem;
+    color: #fff;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .wide-promo-banner {
+        height: auto;
+        padding: var(--space-8) 0;
+    }
+
+    #wideBannerInner {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    .wide-promo-banner .banner-part-name {
+        font-size: 2rem;
+    }
+
+    .wide-promo-banner .banner-specials-tag {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
 /* Right Section */
 .promo-right {
     display: flex;

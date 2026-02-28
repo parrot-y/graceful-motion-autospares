@@ -19,17 +19,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/index.min.css">
-    <link rel="stylesheet" href="styles/components/contact-bar.min.css">
-    <link rel="stylesheet" href="styles/components/navigation.min.css">
-    <link rel="stylesheet" href="styles/components/hero.css?v=2.7">
-    <link rel="stylesheet" href="styles/components/categories-menu.min.css">
-    <link rel="stylesheet" href="styles/components/promo-banner.min.css">
-    <link rel="stylesheet" href="styles/components/dark-sections.min.css">
-    <link rel="stylesheet" href="styles/components/quick-categories.min.css">
-    <link rel="stylesheet" href="styles/components/hot-deals.min.css">
-    <link rel="stylesheet" href="styles/components/companies.min.css">
-    <link rel="stylesheet" href="styles/components/footer.min.css">
+    <link rel="stylesheet" href="styles/index.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/contact-bar.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/navigation.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/hero.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/top-cat-banner.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/categories-menu.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/promo-banner.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/dark-sections.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/quick-categories.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/hot-deals.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/companies.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/featured-products.css?v=4.1">
+    <link rel="stylesheet" href="styles/components/footer.css?v=4.1">
     <link rel="manifest" href="manifest.json">
     <script>
         if ('serviceWorker' in navigator) {
@@ -44,51 +46,54 @@
 
 <body>
 
-    <!-- Top Contact Bar -->
-    <div class="contact-bar">
-        <div class="container">
-            <div class="contact-bar-content">
-                <div class="contact-info">
-                    <a href="tel:+254712345678" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+254 712 345 678</span>
-                    </a>
-                    <a href="mailto:info@gracefulmotion.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@gracefulmotion.com</span>
-                    </a>
+    <!-- ===== NEW HEADER TOP BAR ===== -->
+    <div class="header-top-bar">
+
+        <!-- Logo Column -->
+        <a href="index.html" class="header-logo-col" aria-label="Graceful Motion Autotech Home">
+            <img src="assets/images/logo.png" alt="Graceful Motion Autotech" loading="eager">
+        </a>
+
+        <!-- Animated Banner Column -->
+        <div class="header-banner-col" id="headerBanner">
+            <div id="headerBannerInner">
+                <div class="banner-text-group">
+                    <span class="banner-prefix">Get the best</span>
+                    <span class="banner-part-name" id="bannerPartName">BODY PARTS</span>
                 </div>
-                <div class="social-links">
-                    <a href="https://wa.me/254712345678" class="social-icon" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+
+                <div class="banner-img-wrap">
+                    <img id="bannerPartImg" src="assets/images/products/isolated/hero_bumper.webp" alt="Car Bumper"
+                        loading="eager">
                 </div>
+
+                <span class="banner-specials-tag">March Specials</span>
             </div>
         </div>
+
+        <div class="header-contacts-col">
+            <a href="tel:+254723699157" class="hdr-contact-btn phone" title="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/254723699157" class="hdr-contact-btn whatsapp" title="WhatsApp" target="_blank"
+                rel="noopener">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:gracefulmotionauto@gmail.com" class="hdr-contact-btn email" title="Email Us">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
     </div>
 
-    <!-- Navigation Bar - Integrated Hub V2 -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-content-v2">
-                <!-- Branding -->
-                <a href="index.html" class="logo">
-                    <i class="fas fa-car-side"></i>
-                    <span>Graceful Motion</span>
-                </a>
+    <!-- Hero Section (contains navbar overlay) -->
+    <section class="hero-section" id="hero">
 
-                <!-- Integrated Hub -->
-                <div class="header-hub">
-                    <!-- Categories (Click for Link, Hover for Menu) -->
+        <!-- Transparent Category Navbar (overlays hero) -->
+        <nav class="navbar" id="navbar">
+            <div class="container">
+                <div class="nav-content-v2">
+                    <!-- Categories Button (mega-menu hover stays) -->
                     <div class="categories-menu" id="headerCategories">
                         <button class="categories-btn-v2" id="categoriesBtn">
                             <i class="fas fa-bars"></i>
@@ -98,183 +103,284 @@
                         <!-- Mega Menu Dropdown -->
                         <div class="mega-menu" id="categoriesDropdown">
                             <div class="mega-menu-content">
-                                <!-- Dynamic content via JS -->
+                                <!-- Dynamic content via categories-menu.js -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Search Centerpiece -->
-                    <div class="search-centerpiece">
-                        <form action="catalog.html" method="GET" class="search-form">
+                    <!-- Inline Category Links (JamesEdition style) -->
+                    <div class="nav-cat-links" id="navCatLinks">
+                        <a href="catalog.html?category=service" class="nav-cat-link">Service & Maintainance</a>
+                        <a href="catalog.html?category=tyres" class="nav-cat-link">Tire and Wheels</a>
+                        <a href="catalog.html?category=braking" class="nav-cat-link">Braking System</a>
+                        <a href="catalog.html?category=lighting" class="nav-cat-link">Car Lighting</a>
+                        <a href="catalog.html?category=body" class="nav-cat-link">Body Parts</a>
+                        <a href="catalog.html?category=suspension" class="nav-cat-link">Suspension & Bearings</a>
+                    </div>
+
+                    <!-- Search Bar V2 -->
+                    <div class="nav-search-v2">
+                        <form action="catalog.html" method="GET" class="search-form-v2">
                             <input type="text" name="search" class="search-input-v2"
-                                placeholder="Search premium parts by name or part number...">
-                            <button type="submit" class="search-btn-v2" aria-label="Search">
-                                <i class="fas fa-search"></i>
-                            </button>
+                                placeholder="Search by part name or category..." autocomplete="off">
+                            <button type="submit" class="search-submit-v2"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
 
-                    <!-- Main Nav Links -->
-                    <div class="nav-links-v2" id="navLinks">
-                        <a href="catalog.html" class="nav-link-v2">CATALOG</a>
-                        <a href="#deals" class="nav-link-v2">HOT DEALS</a>
-                        <a href="#about" class="nav-link-v2">ABOUT</a>
-
-                        <div class="mobile-contact-info">
-                            <a href="tel:+254712345678" class="nav-link-v2">
-                                <i class="fas fa-phone"></i> +254 712 345 678
-                            </a>
-                            <a href="mailto:info@gracefulmotion.com" class="nav-link-v2">
-                                <i class="fas fa-envelope"></i> info@gracefulmotion.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Actions -->
-                <div class="nav-actions-v2">
-                    <!-- Theme Toggle Switch -->
-                    <div class="theme-toggle-wrapper">
-                        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
-                            <i class="fas fa-moon"></i>
+                    <!-- Right Actions -->
+                    <div class="nav-actions-v2">
+                        <button class="nav-icon-btn-v2" aria-label="Cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">0</span>
+                        </button>
+                        <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Menu">
+                            <i class="fas fa-bars"></i>
                         </button>
                     </div>
-                    <a href="tel:+254712345678" class="nav-contact-link mobile-hide">
-                        <i class="fas fa-phone"></i>
+                </div>
+            </div>
+
+            <!-- Mobile slide-out menu -->
+            <div class="nav-links-v2" id="navLinks">
+                <a href="catalog.html?category=service" class="nav-link-v2">Service & Maintainance</a>
+                <a href="catalog.html?category=tyres" class="nav-link-v2">Tire and Wheels</a>
+                <a href="catalog.html?category=braking" class="nav-link-v2">Braking System</a>
+                <a href="catalog.html?category=lighting" class="nav-link-v2">Car Lighting</a>
+                <a href="catalog.html?category=body" class="nav-link-v2">Body Parts</a>
+                <a href="catalog.html?category=suspension" class="nav-link-v2">Suspension & Bearings</a>
+                <a href="catalog.html" class="nav-link-v2">All Catalog</a>
+                <a href="#deals" class="nav-link-v2">Hot Deals</a>
+                <a href="#about-us" class="nav-link-v2">About</a>
+                <div class="mobile-contact-info">
+                    <a href="tel:+254723699157" class="nav-link-v2">
+                        <i class="fas fa-phone"></i> +254 723 699 157
                     </a>
-                    <button class="nav-icon-btn-v2" aria-label="Cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-badge">0</span>
-                    </button>
-                    <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                    <a href="mailto:gracefulmotionauto@gmail.com" class="nav-link-v2">
+                        <i class="fas fa-envelope"></i> gracefulmotionauto@gmail.com
+                    </a>
                 </div>
+            </div>
+        </nav>
+
+        <!-- Background Video Slides -->
+        <div class="hero-slides" id="heroSlides">
+            <!-- Video Slide 1 -->
+            <div class="hero-bg-slide hero-video-slide active">
+                <video class="hero-video" muted autoplay loop playsinline preload="metadata">
+                    <source src="assets/videos/hero-video-1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- Video Slide 2 -->
+            <div class="hero-bg-slide hero-video-slide">
+                <video class="hero-video" muted loop playsinline preload="metadata">
+                    <source src="assets/videos/hero-video-2.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="hero-cinematic">
-            <!-- Photorealistic Smoke Overlay -->
-            <div class="hero-overlay"></div>
+        <!-- Dark gradient overlay for text readability -->
+        <div class="hero-gradient-overlay"></div>
 
-            <!-- Reference UI: Top Right Search -->
-            <div class="hero-ui-top-right">
-                <div class="hero-search-glass">
-                    <input type="text" placeholder="Search">
-                    <i class="fas fa-search"></i>
-                </div>
+        <!-- Bottom-left text overlay -->
+        <div class="hero-bottom-content">
+            <h1 class="hero-title-je">Premium<br>Auto Parts</h1>
+            <p class="hero-stats-line">QUALITY PARTS &bull; 15,000+ PRODUCTS &bull; TRUSTED SELLERS &bull; NATIONWIDE
+                DELIVERY</p>
+            <a href="catalog.html" class="hero-cta-btn">SHOP NOW</a>
+        </div>
+
+        <!-- Bottom-right pagination -->
+        <div class="hero-pagination">
+            <div class="hero-dots" id="heroDots">
+                <span class="hero-dot active" data-slide="0"></span>
+                <span class="hero-dot" data-slide="1"></span>
             </div>
-
-            <div class="hero-split-layout">
-                <div class="hero-content hero-text-left">
-                    <div class="hero-title-wrap">
-                        <span class="animated-word hero-main-title reveal-element reveal-fadeInUp">PREMIUM</span>
-                        <span class="animated-word hero-main-title reveal-element reveal-fadeInUp"
-                            style="transition-delay: 0.2s;">AUTO PARTS</span>
-                    </div>
-                    <p class="hero-subtitle reveal-element reveal-fadeInUp" style="transition-delay: 0.4s;">
-                        ELEVATE YOUR DRIVE WITH GRACEFUL MOTION.
-                    </p>
-                    <div class="hero-cta-group reveal-element reveal-fadeInUp" style="transition-delay: 0.6s;">
-                        <a href="catalog.html" class="btn-hero-outline hero-cta-btn">
-                            <span>SHOP NOW</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Side: Rotating Product Carousel -->
-                <div class="hero-visual reveal-element reveal-fadeInRight" style="transition-delay: 0.4s;">
-                    <div class="hero-carousel" id="heroProductCarousel">
-                        <!-- Slides -->
-                        <div class="hero-slide active">
-                            <img src="assets/images/products/isolated/hero_turbo.webp" alt="Turbocharger"
-                                class="hero-product-img floating-anim">
-                        </div>
-                        <div class="hero-slide">
-                            <img src="assets/images/products/isolated/hero_bumper.webp" alt="Carbon Bumper"
-                                class="hero-product-img floating-anim">
-                        </div>
-                        <div class="hero-slide">
-                            <img src="assets/images/products/isolated/hero_brake.webp" alt="Performance Brake"
-                                class="hero-product-img floating-anim">
-                        </div>
-                    </div>
-
-                    <!-- Reference UI: Right Vertical Pagination -->
-                    <div class="hero-indicators-vertical">
-                        <span class="dot active" data-slide="0"></span>
-                        <span class="dot" data-slide="1"></span>
-                        <span class="dot" data-slide="2"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reference UI: Bottom Badges -->
-            <div class="hero-ui-bottom">
-                <div class="hero-badge badge-left">
-                    <div class="badge-icons">
-                        <i class="fas fa-globe"></i>
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <span class="badge-text">Premium Auto Parts</span>
-                </div>
-                <div class="hero-badge badge-right">
-                    <div class="badge-check">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <span class="badge-text">TRUSTED BY<br><strong>ENTHUSIASTS</strong></span>
-                </div>
+            <div class="hero-arrows">
+                <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="hero-arrow" id="heroNext" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
+
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-section" id="about-us">
+
+    <!-- Featured Products Section (Replaces Our Legacy) -->
+    <section class="featured-products" id="featured-products">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <p class="section-tag">// OUR LEGACY</p>
-                    <h2 class="about-title">ENGINEERING <span class="text-gold">EXCELLENCE</span> SINCE 2010.</h2>
-                    <p class="about-text">Graceful Motion Autospares provides the highest quality automotive components
-                        for enthusiasts who demand perfection. Our parts are sourced from world-class manufacturers to
-                        ensure your vehicle performs above the rest.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">15k+</span>
-                            <span class="stat-label">Premium Parts</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10k+</span>
-                            <span class="stat-label">Happy Clients</span>
-                        </div>
+            <div class="featured-header reveal-element reveal-from-bottom">
+                <p class="section-tag">// PREMIUM SELECTION</p>
+                <h2 class="section-title-v2">FEATURED PRODUCTS</h2>
+            </div>
+
+            <div class="featured-grid">
+                <!-- 1. Car Cover -->
+                <div class="featured-card reveal-element reveal-from-left" data-delay="0">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/car-cover.png" alt="All-Weather Car Cover">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Premium Car Cover</h3>
+                        <p>All-weather protection</p>
                     </div>
                 </div>
-                <div class="about-visual-container">
-                    <div class="glass-backdrop"></div>
-                    <div class="headlight-glow"></div>
-                    <img src="assets/images/about/floating_headlight.webp" alt="Precision LED Headlight"
-                        class="about-img" loading="lazy"" loading=" lazy" floating-headlight">
+
+                <!-- 2. Windshield Repair -->
+                <div class="featured-card reveal-element reveal-from-bottom" data-delay="100">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/windshield-repair.jpg" alt="Windshield Repair Kit">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Pro Repair Kit</h3>
+                        <p>Windshield chip & crack fix</p>
+                    </div>
                 </div>
+
+                <!-- 3. Ignition Coil -->
+                <div class="featured-card reveal-element reveal-from-right" data-delay="200">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/ignition-coil.png" alt="Ignition Coil">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Ignition Coil</h3>
+                        <p>OEM High Performance</p>
+                    </div>
+                </div>
+
+                <!-- 4. CV Boot -->
+                <div class="featured-card reveal-element reveal-zoom-in" data-delay="300">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/cv-boot.png" alt="CV Boot Kit">
+                    </div>
+                    <div class="featured-info">
+                        <h3>CV Boot Kit</h3>
+                        <p>Durable rubber protection</p>
+                    </div>
+                </div>
+
+                <!-- 5. Solar Helicopter -->
+                <div class="featured-card reveal-element reveal-from-left" data-delay="0">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/solar-helicopter.jpg" alt="Solar Helicopter Freshener">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Solar Helicopter</h3>
+                        <p>Advanced Air Freshener</p>
+                    </div>
+                </div>
+
+                <!-- 6. Stabilizer Link -->
+                <div class="featured-card reveal-element reveal-from-top" data-delay="100">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/stabilizer-link.png" alt="Stabilizer Link">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Stabilizer Link</h3>
+                        <p>Precision Steering</p>
+                    </div>
+                </div>
+
+                <!-- 7. Mirror Dashcam -->
+                <div class="featured-card reveal-element reveal-from-right" data-delay="200">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/mirror-dashcam.png" alt="Mirror Dashcam">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Smart Mirror Cam</h3>
+                        <p>4K Front & Rear Recording</p>
+                    </div>
+                </div>
+
+                <!-- 8. Steering Covers -->
+                <div class="featured-card reveal-element reveal-zoom-in" data-delay="300">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/steering-covers.png" alt="Steering Wheel Covers">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Steering Covers</h3>
+                        <p>Luxury Synthetic Leather</p>
+                    </div>
+                </div>
+
+                <!-- 9. Solar Red Spinner -->
+                <div class="featured-card reveal-element reveal-from-left" data-delay="0">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/solar-red-spinner.png" alt="Solar Red Spin Freshener">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Red Spin Solar</h3>
+                        <p>Dynamic Kinetic Refresh</p>
+                    </div>
+                </div>
+
+                <!-- 10. Tie Rod End -->
+                <div class="featured-card reveal-element reveal-from-bottom" data-delay="100">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/tie-rod-end.png" alt="Tie Rod End">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Tie Rod End</h3>
+                        <p>Heavy Duty Suspension</p>
+                    </div>
+                </div>
+
+                <!-- 11. Brake Shoes -->
+                <div class="featured-card reveal-element reveal-from-right" data-delay="200">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/brake-shoes.png" alt="ASIMCO Brake Shoes">
+                    </div>
+                    <div class="featured-info">
+                        <h3>ASIMCO Brake Shoes</h3>
+                        <p>Quiet & Durable Braking</p>
+                    </div>
+                </div>
+
+                <!-- 12. Projector Lens -->
+                <div class="featured-card reveal-element reveal-zoom-in" data-delay="300">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/projector-lens.png" alt="Projector Lens Kit">
+                    </div>
+                    <div class="featured-info">
+                        <h3>BI-LED Projectors</h3>
+                        <p>Crystal Clear Vision</p>
+                    </div>
+                </div>
+
+                <!-- 13. Bumper Lip -->
+                <div class="featured-card reveal-element reveal-from-bottom" data-delay="400">
+                    <div class="featured-img-wrap">
+                        <img src="assets/images/featured/bumper-lip.png" alt="Bumper Lip Spoiler">
+                    </div>
+                    <div class="featured-info">
+                        <h3>Dynamic Bumper Lip</h3>
+                        <p>GTI Style Sporty Look</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more-container reveal-element reveal-from-bottom">
+                <a href="catalog.html" class="btn btn-secondary btn-lg">VIEW ALL PRODUCTS</a>
             </div>
         </div>
     </section>
 
-    <!-- Promotional Banner -->
-    <section class="promo-banner">
-        <div class="promo-container">
-            <div class="promo-left">
-                <span class="promo-text-small">Get the best</span>
-                <span class="promo-badge">Facelift KITS</span>
-            </div>
-            <div class="promo-center">
-                <img src="assets/images/hero/hero-1.png" alt="Facelift Kit" class="promo-car-image">
-            </div>
-            <div class="promo-right">
-                <span class="promo-text-small">Every Mile</span>
-                <span class="promo-script">Specials</span>
+    <!-- Wide Promotional Banner (Header Style) -->
+    <section class="wide-promo-banner reveal-element reveal-from-bottom">
+        <div class="wide-banner-col" id="wideBanner">
+            <div id="wideBannerInner">
+                <div class="banner-text-group">
+                    <span class="banner-prefix">Explore our</span>
+                    <span class="banner-part-name" id="widePartName">BODY PARTS</span>
+                </div>
+
+                <div class="banner-img-wrap">
+                    <img id="widePartImg" src="assets/images/products/isolated/hero_bumper.webp" alt="Car Bumper">
+                </div>
+
+                <span class="banner-specials-tag">Available Now</span>
             </div>
         </div>
     </section>
@@ -282,7 +388,7 @@
     <!-- Quick Categories Section -->
     <section class="quick-categories" id="categories-section">
         <div class="container">
-            <div class="quick-categories-header">
+            <div class="quick-categories-header reveal-element reveal-from-bottom">
                 <p class="section-tag">// POPULAR CATEGORIES</p>
                 <h2 class="section-title-v2">QUICK ACCESS</h2>
             </div>
@@ -332,14 +438,14 @@
                     </div>
                 </a>
 
-                <!-- 5. Exterior Accessories -->
-                <a href="catalog.html?category=exterior" class="category-card">
+                <!-- 5. Car Accessories -->
+                <a href="catalog.html?category=accessories" class="category-card">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-spray-can category-icon"></i>
                     </div>
                     <div class="category-info">
-                        <span class="category-title">Accessories</span>
-                        <span class="category-meta">Exterior & Interior</span>
+                        <span class="category-title">Car Accessories</span>
+                        <span class="category-meta">Exterior &amp; Interior</span>
                     </div>
                 </a>
 
@@ -357,7 +463,7 @@
                 <!-- 7. Engine & Components -->
                 <a href="catalog.html?category=engine" class="category-card">
                     <div class="category-icon-wrapper">
-                        <i class="fas fa-engine category-icon"></i>
+                        <i class="fas fa-gears category-icon"></i>
                     </div>
                     <div class="category-info">
                         <span class="category-title">Engine</span>
@@ -383,19 +489,19 @@
         </div>
     </section>
 
-    <!-- Hot Deals Section -->
-    <section class="hot-deals-section" id="deals">
+    <!-- Hot Deals Section V3 — Light & Carousel -->
+    <section class="hot-deals-section reveal-element reveal-from-bottom" id="deals">
         <div class="container">
             <div class="deals-header">
                 <div class="header-info">
-                    <p class="section-tag">// LIMITED TIME</p>
+                    <p class="section-tag">// MARCH SPECIALS</p>
                     <h2 class="section-title-v2">HOT DEALS</h2>
                 </div>
                 <div class="deals-nav">
-                    <button class="deals-nav-btn prev" aria-label="Previous Deal">
+                    <button class="deals-nav-btn deals-nav-prev" aria-label="Previous Deal">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="deals-nav-btn next" aria-label="Next Deal">
+                    <button class="deals-nav-btn deals-nav-next" aria-label="Next Deal">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -403,35 +509,117 @@
 
             <div class="deals-carousel-container">
                 <div class="deals-track">
-                    <!-- Deal 1 -->
-                    <div class="deal-card product-card">
-                        <div class="deal-badge">30% OFF</div>
+                    <!-- Deal 1: Brembo Brake Kit -->
+                    <div class="deal-card">
+                        <div class="deal-badge">15% OFF</div>
                         <div class="deal-image-wrapper">
-                            <img src="images/products/turbo-1.png" alt="High-Flow Turbocharger" class="deal-image"
-                                loading="lazy">
+                            <img src="assets/images/products/braking-system/braking-1.webp" alt="Brembo Brake Kit"
+                                class="deal-image" loading="lazy">
                         </div>
                         <div class="deal-content">
-                            <span class="deal-category">Turbochargers</span>
+                            <span class="deal-category">Braking System</span>
+                            <h3 class="deal-title">Brembo Front Performance Brake Kit</h3>
+                            <div class="deal-pricing">
+                                <span class="current-price">KES 12,500</span>
+                                <span class="old-price">KES 14,800</span>
+                            </div>
+                            <div class="deal-actions">
+                                <a href="product-details.html?id=brake-brembo-1" class="add-cart-btn">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 2: KW V3 Coilovers -->
+                    <div class="deal-card">
+                        <div class="deal-badge">20% OFF</div>
+                        <div class="deal-image-wrapper">
+                            <img src="assets/images/products/suspension-steering/suspension-1.webp"
+                                alt="KW V3 Coilovers" class="deal-image" loading="lazy">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Suspension</span>
+                            <h3 class="deal-title">KW V3 Inox-line Coilover Kit</h3>
+                            <div class="deal-pricing">
+                                <span class="current-price">KES 72,000</span>
+                                <span class="old-price">KES 90,000</span>
+                            </div>
+                            <div class="deal-actions">
+                                <a href="product-details.html?id=susp-kw-v3-1" class="add-cart-btn">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 3: LED Light Bar -->
+                    <div class="deal-card">
+                        <div class="deal-badge">25% OFF</div>
+                        <div class="deal-image-wrapper">
+                            <img src="assets/images/products/lighting/lighting-2.webp" alt="Rigid Light Bar"
+                                class="deal-image" loading="lazy">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Lighting</span>
+                            <h3 class="deal-title">Rigid Industries 20" Spot/Flood Combo Bar</h3>
+                            <div class="deal-pricing">
+                                <span class="current-price">KES 33,750</span>
+                                <span class="old-price">KES 45,000</span>
+                            </div>
+                            <div class="deal-actions">
+                                <a href="product-details.html?id=light-bar-rigid-1" class="add-cart-btn">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deal 4: High-Flow Turbo -->
+                    <div class="deal-card">
+                        <div class="deal-badge">30% OFF</div>
+                        <div class="deal-image-wrapper">
+                            <img src="assets/images/products/engine-components/engine-1.webp" alt="Precision Turbo"
+                                class="deal-image" loading="lazy">
+                        </div>
+                        <div class="deal-content">
+                            <span class="deal-category">Engine Parts</span>
                             <h3 class="deal-title">Precision Gen2 6266 Ball Bearing Turbo</h3>
                             <div class="deal-pricing">
                                 <span class="current-price">KES 145,000</span>
                                 <span class="old-price">KES 210,000</span>
                             </div>
+                            <div class="deal-actions">
+                                <a href="product-details.html?id=engine-turbo-gen2" class="add-cart-btn">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
                         </div>
                     </div>
-                    <!-- Deal 2 -->
-                    <div class="deal-card product-card">
-                        <div class="deal-badge">15% OFF</div>
+
+                    <!-- Deal 5: Alloy Wheels -->
+                    <div class="deal-card">
+                        <div class="deal-badge">10% OFF</div>
                         <div class="deal-image-wrapper">
-                            <img src="images/products/brake-pads.png" alt="Brembo Brakes" class="deal-image"
-                                loading="lazy">
+                            <img src="assets/images/products/tyres-wheels/tyres-1.webp" alt="Sport Alloy Wheels"
+                                class="deal-image" loading="lazy">
                         </div>
                         <div class="deal-content">
-                            <span class="deal-category">Braking</span>
-                            <h3 class="deal-title">Brembo Front Performance Brake Pads</h3>
+                            <span class="deal-category">Tyres & Wheels</span>
+                            <h3 class="deal-title">18" Sport Alloy Rims — 5x114.3 PCD</h3>
                             <div class="deal-pricing">
-                                <span class="current-price">KES 12,500</span>
-                                <span class="old-price">KES 14,800</span>
+                                <span class="current-price">KES 32,400</span>
+                                <span class="old-price">KES 36,000</span>
+                            </div>
+                            <div class="deal-actions">
+                                <a href="product-details.html?id=wheels-sport-18" class="add-cart-btn">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -439,62 +627,43 @@
             </div>
         </div>
     </section>
-    </div>
-    <div class="deal-actions">
-        <button class="add-cart-btn">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-        </button>
-        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-    </div>
-    </div>
-    </div>
-
-    <!-- Deal 4 -->
-    <div class="deal-card">
-        <span class="deal-badge">SALE</span>
-        <div class="deal-image-wrapper">
-            <img src="assets/images/hero/hero-2.png" alt="Air Filter" class="deal-image" loading="lazy">
-        </div>
-        <div class="deal-content">
-            <div class="deal-category">Filters</div>
-            <h3 class="deal-title">K&N High Performance Air Filter</h3>
-            <div class="deal-pricing">
-                <span class="current-price">KES 6,500</span>
-                <span class="old-price">KES 8,000</span>
-            </div>
-            <div class="deal-actions">
-                <button class="add-cart-btn">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                </button>
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            </div>
-        </div>
-    </div>
 
     <!-- Brands Section -->
-    <section class="companies-section">
-        <div class="companies-track">
-            <!-- Brand Set 1 -->
-            <div class="company-item"><i class="fab fa-toyota company-logo"></i><span class="company-name">TOYOTA</span>
+    <section class="companies-section reveal-element reveal-from-bottom">
+        <div class="companies-container">
+            <div class="companies-header">
+                <h2>TRUSTED BY THE BEST</h2>
+                <p>We work with world-class manufacturers to bring you quality parts</p>
             </div>
-            <div class="company-item"><i class="fab fa-nissan company-logo"></i><span class="company-name">NISSAN</span>
-            </div>
-            <div class="company-item"><i class="fab fa-honda company-logo"></i><span class="company-name">HONDA</span>
-            </div>
-            <div class="company-item"><i class="fas fa-car company-logo"></i><span class="company-name">MAZDA</span>
-            </div>
-            <div class="company-item"><i class="fas fa-bolt company-logo"></i><span class="company-name">BMW</span>
-            </div>
-            <!-- Brand Set 2 (Duplicate for Infinite Scroll) -->
-            <div class="company-item"><i class="fab fa-toyota company-logo"></i><span class="company-name">TOYOTA</span>
-            </div>
-            <div class="company-item"><i class="fab fa-nissan company-logo"></i><span class="company-name">NISSAN</span>
-            </div>
-            <div class="company-item"><i class="fab fa-honda company-logo"></i><span class="company-name">HONDA</span>
-            </div>
-            <div class="company-item"><i class="fas fa-car company-logo"></i><span class="company-name">MAZDA</span>
-            </div>
-            <div class="company-item"><i class="fas fa-bolt company-logo"></i><span class="company-name">BMW</span>
+            <div class="companies-viewport">
+                <div class="companies-track">
+                    <!-- Brand Set 1 -->
+                    <div class="company-item"><i class="fab fa-toyota company-logo"></i><span
+                            class="company-name">TOYOTA</span></div>
+                    <div class="company-item"><i class="fab fa-nissan company-logo"></i><span
+                            class="company-name">NISSAN</span></div>
+                    <div class="company-item"><i class="fab fa-honda company-logo"></i><span
+                            class="company-name">HONDA</span></div>
+                    <div class="company-item"><i class="fas fa-car company-logo"></i><span
+                            class="company-name">MAZDA</span></div>
+                    <div class="company-item"><i class="fas fa-bolt company-logo"></i><span
+                            class="company-name">BMW</span></div>
+                    <div class="company-item"><i class="fab fa-apple company-logo"></i><span
+                            class="company-name">APPLE</span></div>
+                    <!-- Brand Set 2 (Duplicate for Infinite Scroll) -->
+                    <div class="company-item"><i class="fab fa-toyota company-logo"></i><span
+                            class="company-name">TOYOTA</span></div>
+                    <div class="company-item"><i class="fab fa-nissan company-logo"></i><span
+                            class="company-name">NISSAN</span></div>
+                    <div class="company-item"><i class="fab fa-honda company-logo"></i><span
+                            class="company-name">HONDA</span></div>
+                    <div class="company-item"><i class="fas fa-car company-logo"></i><span
+                            class="company-name">MAZDA</span></div>
+                    <div class="company-item"><i class="fas fa-bolt company-logo"></i><span
+                            class="company-name">BMW</span></div>
+                    <div class="company-item"><i class="fab fa-apple company-logo"></i><span
+                            class="company-name">APPLE</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -510,12 +679,16 @@
                         <span>Graceful Motion</span>
                     </h2>
                     <p class="footer-desc">
-                        Engineering excellence since 2010. Your trusted partner for premium automotive components.
+                        Engineering excellence since 2010. Your trusted partner for premium automotive components.<br>
+                        <strong>Location:</strong> MSP PLAZA, Kirinyaga Road, Nairobi, Room G14.
                     </p>
                     <div class="footer-socials">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/254712345678" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61564963514908" class="social-link"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/gracefulmotionauto/?utm_source=ig_web_button_share_sheet"
+                            class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254723699157" class="social-link" target="_blank"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -562,16 +735,24 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="scripts/product-data.min.js"></script>
-    <script src="scripts/navigation.min.js"></script>
-    <script src="scripts/categories-menu.min.js"></script>
-    <script src="scripts/product-carousel.min.js"></script>
-    <script src="scripts/hero-carousel.min.js"></script>
-    <script src="scripts/animations.min.js"></script>
-    <script src="scripts/cart.min.js"></script>
-    <script src="scripts/promo-banner.min.js"></script>
-    <script src="scripts/search-autocomplete.min.js"></script>
+    <script src="scripts/product-data.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/categories-menu.js"></script>
+    <script src="scripts/product-carousel.js"></script>
+    <script src="scripts/hero-carousel.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/shuffle-banner.js"></script>
+    <script src="scripts/search-autocomplete.js"></script>
+    <script>
+        // Make featured product cards clickable → go to catalog
+        document.querySelectorAll('.featured-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                window.location.href = 'catalog.html';
+            });
+        });
+    </script>
 </body>
 
 </html>
