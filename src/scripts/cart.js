@@ -341,12 +341,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let total = 0;
         list.innerHTML = cart.map((item, index) => {
             total += item.price * item.quantity;
+            const displayPrice = item.price === 0 ? "Contact for Price" : `KSh ${item.price.toLocaleString()}`;
             return `
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.title}" class="cart-item-img">
                     <div class="cart-item-info">
                         <div class="cart-item-title">${item.title}</div>
-                        <div class="cart-item-price">${item.quantity} x KSh ${item.price.toLocaleString()}</div>
+                        <div class="cart-item-price">${item.quantity} x ${displayPrice}</div>
                         <button class="cart-item-remove" data-index="${index}">Remove</button>
                     </div>
                 </div>
