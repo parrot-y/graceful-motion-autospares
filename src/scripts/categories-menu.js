@@ -112,6 +112,19 @@ class CategorySidebar {
         document.body.appendChild(this.overlay);
         document.body.appendChild(this.panel);
 
+        // Floating WhatsApp Button
+        if (!document.querySelector('.fab-whatsapp')) {
+            const fab = document.createElement('a');
+            fab.className = 'fab-whatsapp';
+            fab.href = 'https://wa.me/254723699157';
+            fab.target = '_blank';
+            fab.rel = 'noopener noreferrer';
+            fab.setAttribute('aria-label', 'Chat on WhatsApp');
+            fab.title = 'Chat on WhatsApp';
+            fab.innerHTML = '<i class="fab fa-whatsapp"></i>';
+            document.body.appendChild(fab);
+        }
+
         // Wire close button
         this.panel.querySelector('.csb-close').addEventListener('click', () => this.close());
 
