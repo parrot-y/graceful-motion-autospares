@@ -759,9 +759,8 @@
 
 @media (max-width: 992px) {
 
-    /* ── Hide contact + action columns on mobile ── */
-    .header-contacts-col,
-    .header-actions-col {
+    /* ── Hide contact column only — keep actions visible (cart, hamburger, filter) ── */
+    .header-contacts-col {
         display: none !important;
     }
 
@@ -770,7 +769,7 @@
         display: none !important;
     }
 
-    /* ── Let banner fill the full remaining header width ── */
+    /* ── Let banner fill the remaining header width ── */
     .header-banner-col {
         flex: 1 1 auto;
     }
