@@ -237,13 +237,38 @@ a {
     color: var(--bg-primary);
 }
 
-/* Reveal Animations */
+/* ── Scroll Reveal Animations ─────────────────────────── */
+
+/* Default state: all reveal elements start invisible */
 .reveal-element {
     opacity: 0;
-    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     will-change: transform, opacity;
 }
 
+/* Direction variants */
+.reveal-from-bottom {
+    transform: translateY(40px);
+}
+
+.reveal-from-top {
+    transform: translateY(-40px);
+}
+
+.reveal-from-left {
+    transform: translateX(-50px);
+}
+
+.reveal-from-right {
+    transform: translateX(50px);
+}
+
+.reveal-zoom-in {
+    transform: scale(0.88);
+}
+
+/* Legacy aliases (keep backward compat) */
 .reveal-fadeInUp {
     transform: translateY(40px);
 }
@@ -260,10 +285,47 @@ a {
     transform: scale(0.95);
 }
 
-.reveal-active {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
+/* Product cards added dynamically — fade up */
+.product-card.reveal-element {
+    transform: translateY(28px);
 }
+
+/* Deal cards */
+.deal-card.reveal-element {
+    transform: translateY(32px);
+}
+
+/* Category cards */
+.category-card.reveal-element {
+    transform: translateY(24px);
+}
+
+/* Activated state — all variants snap to natural position */
+.reveal-active {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* ── Hover lift for any card ─────────────────────────── */
+.product-card,
+.featured-card,
+.deal-card,
+.category-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.featured-card:hover,
+.deal-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+.category-card:hover {
+    transform: translateY(-4px) !important;
+}
+
 
 ::-moz-selection {
     background: var(--accent-color);
