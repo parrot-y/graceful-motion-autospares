@@ -383,14 +383,65 @@
         border-left: none;
         width: 100%;
         max-width: 100%;
-        /* Prevent overflow */
     }
 
     .catalog-container {
         padding: 0;
-        /* Flat on mobile */
+    }
+
+    /* ── Product image wrapper shorter on small phones ── */
+    .product-image-wrapper {
+        height: 220px;
     }
 }
+
+/* ── Mobile: product actions always visible (no hover on touch) ── */
+@media (hover: none),
+(max-width: 992px) {
+    .product-actions {
+        position: static;
+        bottom: auto;
+        display: flex;
+        gap: 8px;
+        padding: 10px 12px;
+        background: #f8f8fa;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Cancel any hover transform on mobile */
+    .product-card:hover {
+        transform: none;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .action-btn {
+        flex: 1;
+        padding: 13px 10px;
+        font-size: 0.78rem;
+        min-height: 48px;
+        /* iOS tap target */
+    }
+
+    /* Make Add to Cart visually heavier — primary action */
+    .btn-cart {
+        background: #1c1c1e;
+        color: #fff;
+        border-radius: 10px;
+    }
+
+    .btn-cart:active {
+        background: #B8860B;
+        transform: scale(0.97);
+    }
+
+    /* View button — secondary */
+    .btn-view {
+        background: rgba(184, 134, 11, 0.1);
+        color: #B8860B;
+        border-radius: 10px;
+    }
+}
+
 
 /* ================================
    Premium Search & Header V3

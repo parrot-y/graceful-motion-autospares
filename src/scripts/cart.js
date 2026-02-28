@@ -51,14 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
             image: imgSrc,
             quantity
         });
+
+        // Visual feedback — works on desktop AND mobile touch
+        if (btn.tagName === 'BUTTON') {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+            btn.style.background = '#27AE60';
+            btn.style.color = '#fff';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.disabled = false;
+            }, 2000);
+        }
     });
 
-    if (cartIconBtn) {
-        cartIconBtn.addEventListener('click', (e) => {
+    // Cart icon click — delegate to ALL cart icon buttons across pages
+    document.addEventListener('click', (e) => {
+        const cartBtn = e.target.closest('.nav-icon-btn-v2[aria-label="Cart"], .cart-btn[aria-label="Cart"]');
+        if (cartBtn) {
             e.preventDefault();
             toggleCartDrawer();
-        });
-    }
+        }
+    });
 
     // Methods
     function addItemToCart(item) {
@@ -74,18 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartBadges();
         updateCartDrawer();
         showToast(`Added to cart: ${item.title}`);
-
-        // Simulate button feedback
-        const btn = document.activeElement;
-        if (btn && (btn.classList.contains('add-to-cart-btn') || btn.classList.contains('add-cart-btn'))) {
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i> Added';
-            btn.classList.add('added');
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.classList.remove('added');
-            }, 2000);
-        }
     }
 
     function saveCart() {
@@ -94,12 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCartBadges() {
         const count = cart.reduce((total, item) => total + item.quantity, 0);
-        cartBadges.forEach(badge => {
-            badge.innerText = count;
+        // Re-query badges every time (supports dynamically loaded pages)
+        const badges = document.querySelectorAll('.cart-badge');
+        badges.forEach(badge => {
+            badge.textContent = count;
             badge.style.display = count > 0 ? 'flex' : 'none';
-            // Animation pop
-            badge.style.transform = 'scale(1.2)';
-            setTimeout(() => badge.style.transform = 'scale(1)', 200);
+            // Pop animation
+            badge.style.transform = 'scale(1.5)';
+            badge.style.background = '#27AE60';
+            setTimeout(() => {
+                badge.style.transform = 'scale(1)';
+                badge.style.background = '';
+            }, 400);
         });
     }
 

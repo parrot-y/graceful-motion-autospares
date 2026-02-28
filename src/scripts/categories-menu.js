@@ -201,10 +201,10 @@ class CategorySidebar {
         </nav>
 
         <div class="csb-footer">
-            <a href="tel:+254700000000" class="csb-footer-link">
+            <a href="tel:+254723699157" class="csb-footer-link">
                 <i class="fas fa-phone"></i> Call Us
             </a>
-            <a href="https://wa.me/254700000000" class="csb-footer-link csb-whatsapp">
+            <a href="https://wa.me/254723699157" class="csb-footer-link csb-whatsapp">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
         </div>`;
