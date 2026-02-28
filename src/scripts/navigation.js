@@ -15,8 +15,11 @@ class Navigation {
 
     init() {
         this.initTheme();
-        // Mobile menu toggle
-        this.mobileToggle?.addEventListener('click', () => this.toggleMobileMenu());
+        // Mobile menu toggle — now delegates to CategorySidebar
+        this.mobileToggle?.addEventListener('click', (e) => {
+            // CategorySidebar in categories-menu.js handles this
+            // Kept as no-op here to avoid double binding
+        });
 
         // Close mobile menu when link is clicked
         this.links.forEach(link => {
@@ -60,10 +63,7 @@ class Navigation {
     }
 
     closeMobileMenu() {
-        this.mobileToggle.classList.remove('active');
-        this.navLinks.classList.remove('active');
-        const icon = this.mobileToggle.querySelector('i');
-        icon.classList.replace('fa-times', 'fa-bars');
+        // Legacy — sidebar now handles mobile
         document.body.style.overflow = '';
     }
 
