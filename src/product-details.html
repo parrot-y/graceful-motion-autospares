@@ -33,13 +33,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets — same as other pages -->
-    <link rel="stylesheet" href="styles/index.css?v=4.2">
-    <link rel="stylesheet" href="styles/components/contact-bar.css?v=4.2">
-    <link rel="stylesheet" href="styles/components/navigation.css?v=4.2">
-    <link rel="stylesheet" href="styles/components/categories-menu.css?v=4.2">
-    <link rel="stylesheet" href="styles/components/footer.css?v=4.2">
-    <link rel="stylesheet" href="styles/pages/catalog.css?v=4.2">
-    <link rel="stylesheet" href="styles/pages/product-details.css?v=4.2">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/pages/catalog.css">
+    <link rel="stylesheet" href="styles/pages/product-details.css">
+    <!-- Proactive Service Worker Cleanup -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>

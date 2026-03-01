@@ -1,54 +1,30 @@
 const CACHE_NAME = 'renovyte-v2';
-const ASSETS_TO_CACHE = [
-    './',
-    './index.html',
-    './catalog.html',
-    './product-details.html',
-    './styles/index.css',
-    './styles/components/navigation.css',
-    './styles/components/footer.css',
-    './styles/components/hero.css',
-    './scripts/navigation.js',
-    './scripts/cart.js',
-    './assets/images/hero/hero_smoke_v2.webp'
-];
+/**
+ * SERVICE WORKER KILL SWITCH
+ * This file replaces the previous caching logic to destroy stale caches
+ * and unregister the service worker from the browser.
+ */
 
-// Install Event
 self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('[Service Worker] Caching all assets');
-                return cache.addAll(ASSETS_TO_CACHE);
-            })
-    );
+    self.skipWaiting();
 });
 
-// Activate Event
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
-                cacheNames.map((cache) => {
-                    if (cache !== CACHE_NAME) {
-                        console.log('[Service Worker] Clearing Old Cache');
-                        return caches.delete(cache);
-                    }
+                cacheNames.map((cacheName) => {
+                    console.log('Destroying old cache:', cacheName);
+                    return caches.delete(cacheName);
                 })
             );
+        }).then(() => {
+            return self.registration.unregister();
+        }).then(() => {
+            console.log('Service Worker unregistered successfully.');
+            return self.clients.matchAll();
+        }).then((clients) => {
+            clients.forEach(client => client.navigate(client.url));
         })
-    );
-});
-
-// Fetch Event
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
     );
 });

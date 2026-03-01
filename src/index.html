@@ -37,20 +37,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/index.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/contact-bar.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/navigation.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/hero.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/top-cat-banner.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/categories-menu.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/promo-banner.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/dark-sections.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/quick-categories.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/hot-deals.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/companies.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/featured-products.css?v=4.1">
-    <link rel="stylesheet" href="styles/components/footer.css?v=4.1">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/components/contact-bar.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/hero.css">
+    <link rel="stylesheet" href="styles/components/top-cat-banner.css">
+    <link rel="stylesheet" href="styles/components/categories-menu.css">
+    <link rel="stylesheet" href="styles/components/promo-banner.css">
+    <link rel="stylesheet" href="styles/components/dark-sections.css">
+    <link rel="stylesheet" href="styles/components/quick-categories.css">
+    <link rel="stylesheet" href="styles/components/hot-deals.css">
+    <link rel="stylesheet" href="styles/components/companies.css">
+    <link rel="stylesheet" href="styles/components/featured-products.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
     <link rel="manifest" href="manifest.json">
+    <!-- Proactive Service Worker Cleanup -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+    </script>
+    <!-- Service Worker Disabled Temporarily -->
+    <!--
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -60,6 +72,7 @@
             });
         }
     </script>
+    -->
 </head>
 
 <body>
