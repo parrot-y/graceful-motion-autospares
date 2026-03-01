@@ -166,37 +166,28 @@
 
 /* Image Wrapper */
 .deal-image-wrapper {
-    height: 220px;
-    background: linear-gradient(135deg, #F8F8FA 0%, #F2F2F7 100%);
+    height: 240px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 10px;
     overflow: hidden;
     position: relative;
 }
 
-.deal-image-wrapper::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to top, rgba(248, 248, 250, 0.5), transparent);
-    pointer-events: none;
-}
+/* Glassy accent at bottom removed for cleaner look matching featured products */
 
 .deal-image {
-    max-width: 85%;
-    max-height: 85%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    mix-blend-mode: multiply;
 }
 
 .deal-card:hover .deal-image {
-    transform: scale(1.08) translateY(-4px);
+    transform: scale(1.1) translateY(-10px);
 }
 
 /* --- Card Content --- */
