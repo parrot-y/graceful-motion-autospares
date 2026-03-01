@@ -1,8 +1,9 @@
-/* Featured Products Section — Unified with catalog product-card */
 .featured-products {
-    padding: 80px 0;
-    background: #FFFFFF;
+    padding: 100px 0;
+    background: #F9F9FB;
+    /* Light backdrop to make white cards pop */
     overflow: hidden;
+    position: relative;
 }
 
 .featured-header {
@@ -17,18 +18,19 @@
     margin-bottom: 48px;
 }
 
-/* ─── Featured Card — Unified with .product-card ─── */
 .featured-card {
-    background: var(--bg-surface, #FFFFFF);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
+    background: #FFFFFF;
+    /* Pure white to match product image backgrounds */
+    border: none;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .featured-card:hover {
@@ -42,23 +44,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F8F8FA;
+    background: transparent;
     overflow: hidden;
-    padding: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 10px;
     position: relative;
 }
 
+/* Radial gradient spotlight removed for ultra-clean look */
+
 .featured-img-wrap img {
-    max-width: 85%;
-    max-height: 85%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* mix-blend-mode: multiply ensures white backgrounds of images disappear */
+    mix-blend-mode: multiply;
+    z-index: 1;
+    position: relative;
 }
 
 .featured-card:hover .featured-img-wrap img {
-    transform: scale(1.08) translateY(-4px);
+    transform: scale(1.1) translateY(-10px);
 }
 
 /* View overlay on hover (mirroring catalog card) */
