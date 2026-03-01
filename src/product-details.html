@@ -54,6 +54,16 @@
             <a href="mailto:gracefulmotionauto@gmail.com" class="hdr-contact-btn email" title="Email Us"><i
                     class="fas fa-envelope"></i></a>
         </div>
+        <!-- Actions Column (Cart & Mobile Menu) -->
+        <div class="header-actions-col">
+            <button class="hdr-action-btn nav-icon-btn-v2 cart-btn" aria-label="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </button>
+            <button class="mobile-hamburger" id="nav-hamburger" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </div>
 
 
@@ -152,12 +162,35 @@
         </div>
     </footer>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="catalog.html" class="bottom-nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Catalog</span>
+        </a>
+        <button class="bottom-nav-item cart-btn" aria-label="Cart">
+            <div class="bottom-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+            <span>Cart</span>
+        </button>
+        <a href="https://wa.me/254723699157" class="bottom-nav-item" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
+
     <!-- ===== SCRIPTS ===== -->
     <script src="scripts/business-config.js"></script>
     <script src="scripts/product-data.js"></script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/categories-menu.js"></script>
-    <script src="scripts/cart.js"></script>
+    <script src="scripts/cart.js?v=4.3"></script>
     <script src="scripts/search-autocomplete.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

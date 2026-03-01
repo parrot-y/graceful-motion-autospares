@@ -129,7 +129,7 @@
 
                     <!-- Right Actions -->
                     <div class="nav-actions-v2">
-                        <button class="nav-icon-btn-v2" aria-label="Cart">
+                        <button class="nav-icon-btn-v2 cart-btn" aria-label="Cart">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-badge">0</span>
                         </button>
@@ -729,6 +729,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="catalog.html" class="bottom-nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Catalog</span>
+        </a>
+        <button class="bottom-nav-item cart-btn" aria-label="Cart">
+            <div class="bottom-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+            <span>Cart</span>
+        </button>
+        <a href="https://wa.me/254723699157" class="bottom-nav-item" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
 
     <script src="scripts/business-config.js"></script>
     <script src="scripts/product-data.js"></script>

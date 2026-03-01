@@ -781,6 +781,92 @@
     }
 }
 
+/* ── Mobile Bottom Navigation ──────────────────── */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 9000;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #8e8e93;
+    background: none;
+    border: none;
+    gap: 4px;
+    padding: 8px 0;
+    flex: 1;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.bottom-nav-item i {
+    font-size: 1.2rem;
+}
+
+.bottom-nav-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.bottom-nav-item.active {
+    color: var(--accent-primary, #B8860B);
+}
+
+.bottom-cart-icon {
+    position: relative;
+}
+
+.bottom-cart-icon .cart-badge {
+    top: -8px;
+    right: -10px;
+}
+
+@media (max-width: 992px) {
+    .mobile-bottom-nav {
+        display: flex;
+    }
+
+    /* Offset footer padding so it doesn't get covered */
+    body {
+        padding-bottom: 70px;
+    }
+
+    /* Reposition FAB WhatsApp if it conflicts */
+    .fab-whatsapp {
+        bottom: 85px;
+    }
+}
+
+/* Fix for Catalog Page Mobile Cart Visibility */
+@media (max-width: 992px) {
+    .header-actions-col {
+        position: relative;
+        right: 0;
+        top: 0;
+    }
+
+    .catalog-sidebar {
+        z-index: 9500;
+    }
+}
+
 /* ── Floating WhatsApp Button ──────────────────── */
 .fab-whatsapp {
     position: fixed;
