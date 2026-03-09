@@ -86,6 +86,19 @@
     transform: scale(1.1);
 }
 
+.company-logo-img {
+    height: 48px;
+    width: auto;
+    max-width: 100px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: all 0.4s ease;
+}
+
+.company-item:hover .company-logo-img {
+    filter: brightness(0) invert(1) scale(1.1);
+}
+
 .company-logo {
     font-size: 3.5rem;
     color: #ffffff;

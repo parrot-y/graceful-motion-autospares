@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="styles/components/navigation.css">
     <link rel="stylesheet" href="styles/components/categories-menu.css">
     <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/companies.css">
     <link rel="stylesheet" href="styles/pages/catalog.css">
     <link rel="stylesheet" href="styles/pages/product-details.css">
     <!-- Proactive Service Worker Cleanup -->
@@ -101,7 +102,7 @@
                 <i class="fas fa-chevron-right"></i>
                 <a href="catalog.html">Shop</a>
                 <i class="fas fa-chevron-right"></i>
-                <span id="breadcrumbCategory">...</span>
+                <a href="catalog.html" id="breadcrumbCategoryLink"><span id="breadcrumbCategory">...</span></a>
                 <i class="fas fa-chevron-right"></i>
                 <span id="breadcrumbProduct" class="active">Loading...</span>
             </nav>
@@ -149,6 +150,82 @@
         </button>
     </div>
 
+    <!-- Brands Section -->
+    <section class="companies-section">
+        <div class="companies-container">
+            <div class="companies-header">
+                <h2>TRUSTED BY THE BEST</h2>
+                <p>WE SOURCE PARTS FOR ALL MAJOR BRANDS</p>
+            </div>
+            <div class="companies-viewport">
+                <div class="companies-track">
+                    <!-- Brand Set 1 -->
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/toyota.svg" alt="Toyota Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">TOYOTA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/nissan.svg" alt="Nissan Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">NISSAN</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/honda.svg" alt="Honda Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">HONDA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/mazda.svg" alt="Mazda Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">MAZDA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/bmw.svg" alt="BMW Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">BMW</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/subaru.svg" alt="Subaru Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">SUBARU</span>
+                    </a>
+                    <!-- Brand Set 2 (Duplicate for Infinite Scroll) -->
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/toyota.svg" alt="Toyota Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">TOYOTA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/nissan.svg" alt="Nissan Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">NISSAN</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/honda.svg" alt="Honda Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">HONDA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/mazda.svg" alt="Mazda Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">MAZDA</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/bmw.svg" alt="BMW Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">BMW</span>
+                    </a>
+                    <a href="catalog.html" class="company-item" style="text-decoration: none; color: inherit;">
+                        <img src="assets/images/brands/subaru.svg" alt="Subaru Logo" class="company-logo-img"
+                            style="height: 48px; width: auto; max-width: 80px; object-fit: contain; margin-bottom: 8px;"><span
+                            class="company-name">SUBARU</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container">
@@ -174,8 +251,8 @@
                         <li><a href="tel:+254723699157"><i class="fas fa-phone fa-xs"></i> +254 723 699 157</a></li>
                         <li><a href="https://wa.me/254723699157" target="_blank"><i class="fab fa-whatsapp fa-xs"></i>
                                 WhatsApp Order</a></li>
-                        <li><a href="mailto:gracefulmotionauto@gmail.com"><i class="fas fa-envelope fa-xs"></i>
-                                gracefulmotionauto@gmail.com</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="https://wa.me/254723699157" target="_blank">Contact Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -253,6 +330,7 @@
             // Update page title & breadcrumb
             document.getElementById('pageTitle').textContent = `${product.name} - Graceful Motion`;
             document.getElementById('breadcrumbCategory').textContent = product.category || 'Parts';
+            document.getElementById('breadcrumbCategoryLink').href = `catalog.html?category=${encodeURIComponent(product.category || 'Parts')}`;
             document.getElementById('breadcrumbProduct').textContent = product.name;
 
             // Star HTML
@@ -270,7 +348,7 @@
                 : `
                 <div class="pd-spec-row"><span class="pd-spec-key">SKU</span><span class="pd-spec-val">GM-${product.id.substring(0, 8).toUpperCase()}</span></div>
                 <div class="pd-spec-row"><span class="pd-spec-key">Category</span><span class="pd-spec-val">${product.category || 'Auto Parts'}</span></div>
-                ${product.make && product.make !== 'Universal' ? `<div class="pd-spec-row"><span class="pd-spec-key">Compatible Make</span><span class="pd-spec-val">${product.make}</span></div>` : ''}
+                ${product.make ? `<div class="pd-spec-row"><span class="pd-spec-key">Compatible Make</span><span class="pd-spec-val">${product.make === 'Universal' || product.make === 'UNIVERSAL' ? 'AVAILABLE FOR ALL CARS' : product.make}</span></div>` : ''}
                 ${product.model && product.model !== 'Universal' ? `<div class="pd-spec-row"><span class="pd-spec-key">Model</span><span class="pd-spec-val">${product.model}</span></div>` : ''}
                 ${product.year ? `<div class="pd-spec-row"><span class="pd-spec-key">Year</span><span class="pd-spec-val">${product.year}</span></div>` : ''}
                 ${product.engine ? `<div class="pd-spec-row"><span class="pd-spec-key">Engine</span><span class="pd-spec-val">${product.engine}</span></div>` : ''}

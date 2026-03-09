@@ -385,82 +385,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchCategory && matchSearch && matchSubcategory;
         });
 
-        // --- PHASE 2: Soft vehicle filters (Make/Model/Year/Engine) ---
-        let finalResults;
-        let isFallback = false;
+        // --- PHASE 2: Disabled vehicle filters ---
+        // The requirement is to show all products within the category regardless of Make/Model/Year/Engine choices.
+        let finalResults = strictFiltered;
 
-        if (vehicleFiltersActive) {
-            const vehicleFiltered = strictFiltered.filter(p => {
-                const matchMake = !filters.make || p.make === 'Universal' ||
-                    normalizeValue('make', p.make) === normalizeValue('make', filters.make);
-                const matchModel = !filters.model || p.model === 'Universal' || p.model === filters.model;
-                const matchYear = !filters.year || p.year === 'All Years' || p.year === filters.year;
-                const matchEngine = !filters.engine || p.engine === 'Universal' ||
-                    (p.engine && normalizeValue('engine', p.engine) === normalizeValue('engine', filters.engine));
-                return matchMake && matchModel && matchYear && matchEngine;
-            });
-
-            if (vehicleFiltered.length > 0) {
-                finalResults = vehicleFiltered;
-            } else {
-                // Fallback: show all strict-category results instead of dead-end
-                finalResults = strictFiltered;
-                isFallback = true;
-            }
-        } else {
-            finalResults = strictFiltered;
-        }
-
-        // --- Compatibility notice banner ---
-        showCompatibilityBanner(vehicleFiltersActive, isFallback);
+        // --- Compatibility notice banner disabled ---
 
         renderProducts(finalResults);
     }
 
     /**
      * Show/hide compatibility notice banner.
-     * Appears when vehicle filters are active — either as an info note,
-     * or as a stronger warning when no exact matches were found (fallback).
+     * (Disabled - clears existing banner if present)
      */
     function showCompatibilityBanner(vehicleFiltersActive, isFallback) {
         let banner = document.getElementById('compatibilityBanner');
-
-        if (!vehicleFiltersActive) {
-            if (banner) banner.remove();
-            return;
-        }
-
-        if (!banner) {
-            banner = document.createElement('div');
-            banner.id = 'compatibilityBanner';
-            // Insert before product grid
-            productGrid.parentNode.insertBefore(banner, productGrid);
-        }
-
-        if (isFallback) {
-            banner.className = 'compat-banner compat-banner--warning';
-            banner.innerHTML = `
-                <i class="fas fa-exclamation-triangle"></i>
-                <div>
-                    <strong>No exact vehicle match found</strong> — showing all products in this category.
-                    <br>Please confirm compatibility with your vehicle via
-                    <a href="${window.BusinessConfig?.whatsappLink() || '#'}" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a> before purchase.
-                </div>
-            `;
-        } else {
-            banner.className = 'compat-banner compat-banner--info';
-            banner.innerHTML = `
-                <i class="fas fa-info-circle"></i>
-                <div>
-                    Confirm compatibility with your vehicle via
-                    <a href="${window.BusinessConfig?.whatsappLink() || '#'}" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a> before purchase.
-                </div>
-            `;
-        }
+        if (banner) banner.remove();
     }
 
     // --- Dropdown Management ---
