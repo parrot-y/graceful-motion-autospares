@@ -9,16 +9,20 @@ class ShuffleBanner {
         this.containerId = config.containerId;
         this.nameId = config.nameId;
         this.imgId = config.imgId;
-        this.slides = config.slides || [
-            { name: 'BODY PARTS', img: 'assets/images/products/isolated/hero_bumper.webp', alt: 'Premium Body Parts' },
-            { name: 'BRAKING SYSTEM', img: 'assets/images/products/isolated/hero_brake.webp', alt: 'Performance Brakes' },
-            { name: 'ENGINE SPARES', img: 'assets/images/products/isolated/hero_turbo.webp', alt: 'Turbocharger' },
-            { name: 'CAR LIGHTING', img: 'assets/images/products/lighting/headlight-1.png', alt: 'Premium Lighting' },
-            { name: 'SUSPENSION', img: 'assets/images/products/suspension-steering/shock-absorber-1.png', alt: 'Suspension Parts' },
-            { name: 'TIRE AND WHEELS', img: 'assets/images/products/tyres-wheels/tyres-2.webp', alt: 'Sport Wheels' }
+
+        // Define display names and their corresponding product data categories
+        this.slideConfigs = [
+            { displayName: 'BODY PARTS', dataCategory: 'Body Parts', prefix: 'GET THE BEST' },
+            { displayName: 'BRAKING SYSTEM', dataCategory: 'Braking System', prefix: 'RELIABLE' },
+            { displayName: 'ENGINE SPARES', dataCategory: 'Engine & Components', prefix: 'POWERFUL' },
+            { displayName: 'CAR LIGHTING', dataCategory: 'Lighting', prefix: 'BRIGHT' },
+            { displayName: 'SUSPENSION', dataCategory: 'Suspension & Bearings', prefix: 'SMOOTH' },
+            { displayName: 'SERVICE KITS', dataCategory: 'Service & Maintenance', prefix: 'PREMIUM' }
         ];
-        this.interval = config.interval || 3500;
-        this.current = 0;
+
+        this.interval = config.interval || 4000;
+        this.currentSlideIndex = 0;
+        this.lastProductIds = {}; // Record last used product ID per category to avoid immediate repeat
 
         this.init();
     }
@@ -27,35 +31,66 @@ class ShuffleBanner {
         this.partNameEl = document.getElementById(this.nameId);
         this.partImgEl = document.getElementById(this.imgId);
         this.bannerInnerEl = document.getElementById(this.containerId);
+        this.prefixEl = this.bannerInnerEl ? this.bannerInnerEl.querySelector('.banner-prefix') : null;
 
         if (!this.partNameEl || !this.partImgEl || !this.bannerInnerEl) {
             console.warn(`ShuffleBanner: Elements not found for ${this.containerId}`);
             return;
         }
 
-        // Initial setup
-        this.update(0);
+        // Wait for product data to be available
+        if (window.RenovyteProducts && window.RenovyteProducts.length > 0) {
+            this.start();
+        } else {
+            document.addEventListener('RenovyteDataLoaded', () => this.start());
+        }
+    }
 
-        // Start Loop
+    start() {
+        this.update(0);
         setInterval(() => this.next(), this.interval);
     }
 
+    getRandomProductForCategory(categoryName) {
+        const filteredProducts = window.RenovyteProducts.filter(p => p.category === categoryName);
+        if (filteredProducts.length === 0) return null;
+
+        const lastId = this.lastProductIds[categoryName];
+        let available = filteredProducts;
+
+        // Try to pick a different one if possible
+        if (filteredProducts.length > 1 && lastId) {
+            available = filteredProducts.filter(p => p.id !== lastId);
+        }
+
+        const selected = available[Math.floor(Math.random() * available.length)];
+        this.lastProductIds[categoryName] = selected.id;
+        return selected;
+    }
+
     update(index) {
-        const slide = this.slides[index];
+        const config = this.slideConfigs[index];
+        const product = this.getRandomProductForCategory(config.dataCategory);
+
+        if (!product) {
+            // Fallback if no products found for this category
+            this.next();
+            return;
+        }
 
         // Fade out
         this.bannerInnerEl.classList.add('banner-fade-out');
 
         setTimeout(() => {
-            this.partNameEl.textContent = slide.name;
+            if (this.prefixEl) this.prefixEl.textContent = config.prefix;
+            this.partNameEl.textContent = config.displayName;
 
-            // Preload the image to prevent "black box" / flicker
+            // Preload
             const tempImg = new Image();
             tempImg.onload = () => {
-                this.partImgEl.src = slide.img;
-                this.partImgEl.alt = slide.alt;
+                this.partImgEl.src = product.image;
+                this.partImgEl.alt = product.name;
 
-                // Fade in ONLY after image is ready
                 requestAnimationFrame(() => {
                     this.bannerInnerEl.classList.remove('banner-fade-out');
                     this.bannerInnerEl.classList.add('banner-fade-in');
@@ -67,18 +102,17 @@ class ShuffleBanner {
             };
 
             tempImg.onerror = () => {
-                // Fallback to avoid getting stuck
-                this.partImgEl.src = slide.img;
+                this.partImgEl.src = product.image;
                 this.bannerInnerEl.classList.remove('banner-fade-out');
             };
 
-            tempImg.src = slide.img;
+            tempImg.src = product.image;
         }, 350);
     }
 
     next() {
-        this.current = (this.current + 1) % this.slides.length;
-        this.update(this.current);
+        this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slideConfigs.length;
+        this.update(this.currentSlideIndex);
     }
 }
 

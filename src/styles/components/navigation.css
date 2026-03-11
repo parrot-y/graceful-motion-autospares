@@ -24,17 +24,46 @@
     background: transparent;
     padding: 10px 30px;
     text-decoration: none;
-    z-index: 5;
+    z-index: 10;
+    position: relative;
+}
+
+/* Mockup 3 Style: High-intensity white glow aura */
+.header-logo-col::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 140px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 40%, transparent 70%);
+    filter: blur(25px);
+    border-radius: 50%;
+    z-index: -1;
+    animation: auraPulse 3s ease-in-out infinite;
+}
+
+@keyframes auraPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
 }
 
 .header-logo-col img {
-    height: 120px;
+    height: 125px;
     width: auto;
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
     mix-blend-mode: multiply;
-    /* Removes white background from logo image */
+    /* Hides white background */
+    filter: drop-shadow(0 8px 25px rgba(255, 255, 255, 0.4));
+    transition: transform 0.4s ease;
 }
 
 /* ---- Banner Column ---- */
@@ -702,11 +731,34 @@
     }
 
     .banner-part-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        /* Slightly smaller for mobile fit */
+    }
+
+    .banner-img-wrap {
+        min-width: 120px;
+        flex: 0 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    /* Adjust ground shadow for mobile */
+    .banner-img-wrap::after {
+        width: 120px;
+        height: 15px;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* Adjust backlight for mobile */
+    .banner-img-wrap::before {
+        inset: -20px;
     }
 
     .banner-prefix {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .banner-specials-tag {
@@ -714,8 +766,8 @@
     }
 
     #bannerPartImg {
-        height: 56px;
-        max-width: 120px;
+        height: 58px;
+        max-width: 100px;
         /* Reset complex transforms for mobile stability */
         transform: none !important;
         filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
@@ -723,6 +775,9 @@
 
     #headerBannerInner {
         padding: 0 16px;
+        justify-content: flex-start;
+        /* Ensure logo and text stay left */
+        gap: 12px;
     }
 
     .header-contacts-col,

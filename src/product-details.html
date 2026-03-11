@@ -138,7 +138,6 @@
         </div>
     </section>
 
-    <!-- ===== MOBILE STICKY ACTION BAR ===== -->
     <div class="pd-sticky-bar" id="pdStickyBar">
         <button class="pd-sticky-btn pd-sticky-cart" id="stickyCartBtn">
             <i class="fas fa-shopping-cart"></i>
@@ -146,8 +145,12 @@
         </button>
         <button class="pd-sticky-btn pd-sticky-wa" id="stickyWhatsApp">
             <i class="fab fa-whatsapp"></i>
-            <span>Order via WhatsApp</span>
+            <span>WhatsApp</span>
         </button>
+        <a href="tel:+254723699157" class="pd-sticky-btn pd-sticky-call" id="stickyCall">
+            <i class="fas fa-phone-alt"></i>
+            <span>Call Now</span>
+        </a>
     </div>
 
     <!-- Brands Section -->
@@ -418,6 +421,25 @@
                 <!-- Description -->
                 <p class="pd-description">${product.description || 'Premium quality part. Direct replacement for OEM specifications.'}</p>
 
+                ${(product.category === 'Service & Maintenance' && product.subcategory === 'Gear Oils') ? `
+                    <div style="margin: 1.5rem 0; padding: 1.25rem; background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0.1) 100%); border-radius: 12px; border-left: 4px solid #e74c3c; box-shadow: 0 4px 15px rgba(0,0,0,0.05); animation: pulse-border 2s infinite;">
+                        <p style="margin: 0; font-size: 15px; color: #2c3e50; line-height: 1.6;">
+                            <i class="fas fa-info-circle" style="color: #e74c3c; margin-right: 8px;"></i>
+                            Need a broader selection of lubricants? 
+                            <a href="catalog.html?category=Gear%20Oils" style="color: #e74c3c; font-weight: 700; text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.3s ease; display: inline-block; margin-top: 4px;" onmouseover="this.style.borderBottom='2px solid #e74c3c'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderBottom='2px solid transparent'; this.style.transform='translateX(0)'">
+                                Explore our complete Gear Oils Collection <i class="fas fa-arrow-right" style="font-size: 12px; margin-left: 4px;"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <style>
+                        @keyframes pulse-border {
+                            0% { border-left-color: #e74c3c; }
+                            50% { border-left-color: #c0392b; }
+                            100% { border-left-color: #e74c3c; }
+                        }
+                    </style>
+                ` : ''}
+
                 <!-- Specs -->
                 <div class="pd-specs-box">
                     <div class="pd-specs-header">
@@ -460,14 +482,17 @@
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="pd-btn-wa" id="orderWhatsApp">
-                        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
                     </button>
+                    <a href="tel:+254723699157" class="pd-btn-call" id="orderCall">
+                        <i class="fas fa-phone-alt"></i> Call to Order
+                    </a>
                 </div>
 
-                <!-- WhatsApp note for mobile -->
+                <!-- WhatsApp/Call note -->
                 <p class="pd-wa-note">
                     <i class="fab fa-whatsapp" style="color:#25D366;"></i>
-                    Prefer WhatsApp? Tap <strong>Order on WhatsApp</strong> to get instant assistance.
+                    Prefer to chat or call? Tap <strong>WhatsApp</strong> or <strong>Call to Order</strong> for instant help.
                 </p>
             </div>
         `;
