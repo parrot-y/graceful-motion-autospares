@@ -17,9 +17,20 @@ class CategorySidebar {
                     'Engine Oils', 'Fuel Filters', 'Gear Oils', 'Oil Filters'
                 ]
             },
+            gearoils: {
+                title: 'Gear Oils & Fluids', icon: 'fa-droplet', color: '#16a085',
+                items: [
+                    'ATF Filter', 'Brake Fluid', 'Cabin Filter', 'Coolant',
+                    'Engine Oil', 'Fuel Filter', 'Gear Oil'
+                ]
+            },
             tyres: {
-                title: 'Tire and Wheels', icon: 'fa-circle-notch', color: '#3498db',
-                items: ['Lock Nuts', 'Rims', 'Tire and Wheels']
+                title: 'Tyres & Wheels', icon: 'fa-circle-notch', color: '#3498db',
+                items: [
+                    'Lock Nuts', 'Rims', 'Tyre (All Weather)', 'Tyre Shiner',
+                    'Wheel Centre Cap', 'Wheel Cleaner', 'Wheel Hubs', 'Wheel Nuts',
+                    'Wheel Sockets', 'Ratchet Socket Sets', 'Wrench Sets'
+                ]
             },
             braking: {
                 title: 'Braking System', icon: 'fa-stop-circle', color: '#e74c3c',
@@ -47,9 +58,9 @@ class CategorySidebar {
                     'Dashboard Clock', 'Dashboard Covers', 'Dashboard Fans', 'Dashcams', 'Diffusers',
                     'Door edge Protectors', 'Driving Camera', 'Fenders', 'Fire Stop', 'Floor Mats',
                     'Head Rest', 'Horns', 'Keyless Receiver Unit', 'License Plates', 'Life Savers',
-                    'Lock Nuts', 'Pioneer/ JBL Door speakers', 'Roof Handles', 'Rooftop Fin Aerial',
+                    'Lock Nuts', 'Pioneer/ JBL Door speakers', 'Portable Air Compressor', 'Roof Handles', 'Rooftop Fin Aerial',
                     'Seat Belts', 'Seat covers', 'Shark Fins', 'Steering Covers',
-                    'Underseat Subwoofers', 'Wheel Caps', 'Wheel Hub Covers', 'Windscreen Shade'
+                    'Underseat Subwoofers', 'Wheel Caps', 'Wheel Hub Covers', 'Windscreen Shade', 'Car Emergency Kit'
                 ]
             },
             body: {
