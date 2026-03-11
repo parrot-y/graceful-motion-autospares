@@ -137,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'electrical': 'Engine & Components',
         'suspension': 'Suspension & Bearings',
         'suspension-steering': 'Suspension & Bearings',
-        'suspension-bearings': 'Suspension & Bearings'
+        'suspension-bearings': 'Suspension & Bearings',
+        'gearoils': 'Gear Oils',
+        'gear-oils': 'Gear Oils'
     };
 
     // Check URL parameters
