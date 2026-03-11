@@ -8,7 +8,7 @@ window.BusinessConfig = {
     phoneDisplay: '+254 723 699 157',
     whatsapp: '254723699157',
     email: 'gracefulmotionauto@gmail.com',
-    businessName: 'Graceful Motion Autospares',
+    businessName: 'Graceful Motion Autotech',
     location: 'MSP PLAZA Room G14, Kirinyaga Road, Nairobi',
 
     /** Validate WhatsApp number: digits only, 10–15 digits */

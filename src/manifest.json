@@ -1,6 +1,6 @@
 {
-    "name": "Graceful Motion Autospares",
-    "short_name": "Autospares",
+    "name": "Graceful Motion Autotech",
+    "short_name": "Autotech",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#1a1a1a",

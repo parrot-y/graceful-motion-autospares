@@ -153,10 +153,10 @@ class CategorySidebar {
         return `
         <div class="csb-header">
             <div class="csb-header-logo">
-                <img src="assets/images/logo.png" alt="Graceful Motion" onerror="this.style.display='none'">
+                <img src="assets/images/logo.png" alt="Graceful Motion Autotech" onerror="this.style.display='none'">
                 <div class="csb-brand-text">
                     <span class="csb-brand-name">GRACEFUL MOTION</span>
-                    <span class="csb-brand-sub">Autospares</span>
+                    <span class="csb-brand-sub">Autotech</span>
                 </div>
             </div>
             <button class="csb-close" aria-label="Close menu">

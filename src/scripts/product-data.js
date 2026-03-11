@@ -1,5 +1,5 @@
 /**
- * Graceful Motion Autospares — Product Database
+ * Graceful Motion Autotech — Product Database
  * Generated from CAR DETAILS FINAL 1.docx
  * Each entry = one product card. Add images per product when ready.
  */
