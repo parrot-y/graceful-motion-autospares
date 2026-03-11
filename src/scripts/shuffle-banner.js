@@ -10,14 +10,44 @@ class ShuffleBanner {
         this.nameId = config.nameId;
         this.imgId = config.imgId;
 
-        // Define display names and their corresponding product data categories
+        // Each slide has: displayName, category for text lookup, prefix, and a curated banner image
         this.slideConfigs = [
-            { displayName: 'BODY PARTS', dataCategory: 'Body Parts', prefix: 'GET THE BEST' },
-            { displayName: 'BRAKING SYSTEM', dataCategory: 'Braking System', prefix: 'RELIABLE' },
-            { displayName: 'ENGINE SPARES', dataCategory: 'Engine & Components', prefix: 'POWERFUL' },
-            { displayName: 'CAR LIGHTING', dataCategory: 'Lighting', prefix: 'BRIGHT' },
-            { displayName: 'SUSPENSION', dataCategory: 'Suspension & Bearings', prefix: 'SMOOTH' },
-            { displayName: 'SERVICE KITS', dataCategory: 'Service & Maintenance', prefix: 'PREMIUM' }
+            {
+                displayName: 'BODY PARTS',
+                dataCategory: 'Body Parts',
+                prefix: 'GET THE BEST',
+                bannerImg: 'assets/images/products/isolated/hero_bumper.png'
+            },
+            {
+                displayName: 'BRAKING SYSTEM',
+                dataCategory: 'Braking System',
+                prefix: 'RELIABLE',
+                bannerImg: 'assets/images/products/isolated/hero_brake.png'
+            },
+            {
+                displayName: 'ENGINE SPARES',
+                dataCategory: 'Engine & Components',
+                prefix: 'POWERFUL',
+                bannerImg: 'assets/images/products/isolated/hero_turbo.png'
+            },
+            {
+                displayName: 'CAR LIGHTING',
+                dataCategory: 'Car Lighting',
+                prefix: 'BRIGHT',
+                bannerImg: 'assets/images/featured/projector-lens.png'
+            },
+            {
+                displayName: 'SUSPENSION',
+                dataCategory: 'Suspension & Bearings',
+                prefix: 'SMOOTH',
+                bannerImg: 'assets/images/featured/stabilizer-link.png'
+            },
+            {
+                displayName: 'SERVICE KITS',
+                dataCategory: 'Service & Maintenance',
+                prefix: 'PREMIUM',
+                bannerImg: 'assets/images/featured/cv-boot.png'
+            }
         ];
 
         this.interval = config.interval || 4000;
@@ -70,12 +100,19 @@ class ShuffleBanner {
 
     update(index) {
         const config = this.slideConfigs[index];
-        const product = this.getRandomProductForCategory(config.dataCategory);
 
-        if (!product) {
-            // Fallback if no products found for this category
-            this.next();
-            return;
+        // Use curated banner image if defined, else fall back to a random product image
+        let imgSrc = config.bannerImg || null;
+        let imgAlt = config.displayName;
+
+        if (!imgSrc) {
+            const product = this.getRandomProductForCategory(config.dataCategory);
+            if (!product) {
+                this.next();
+                return;
+            }
+            imgSrc = product.image;
+            imgAlt = product.name;
         }
 
         // Fade out
@@ -85,11 +122,11 @@ class ShuffleBanner {
             if (this.prefixEl) this.prefixEl.textContent = config.prefix;
             this.partNameEl.textContent = config.displayName;
 
-            // Preload
+            // Preload then swap
             const tempImg = new Image();
             tempImg.onload = () => {
-                this.partImgEl.src = product.image;
-                this.partImgEl.alt = product.name;
+                this.partImgEl.src = imgSrc;
+                this.partImgEl.alt = imgAlt;
 
                 requestAnimationFrame(() => {
                     this.bannerInnerEl.classList.remove('banner-fade-out');
@@ -102,11 +139,11 @@ class ShuffleBanner {
             };
 
             tempImg.onerror = () => {
-                this.partImgEl.src = product.image;
+                this.partImgEl.src = imgSrc;
                 this.bannerInnerEl.classList.remove('banner-fade-out');
             };
 
-            tempImg.src = product.image;
+            tempImg.src = imgSrc;
         }, 350);
     }
 
