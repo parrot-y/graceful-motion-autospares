@@ -12,6 +12,7 @@ class ShuffleBanner {
 
         // Each slide has: displayName, category for text lookup, prefix, and a curated banner image
         this.slideConfigs = [
+            // --- 1. BODY PARTS ---
             {
                 displayName: 'BODY PARTS',
                 dataCategory: 'Body Parts',
@@ -19,11 +20,37 @@ class ShuffleBanner {
                 bannerImg: 'assets/images/products/isolated/hero_bumper.png'
             },
             {
+                displayName: 'BODY PARTS',
+                dataCategory: 'Body Parts',
+                prefix: 'PREMIUM',
+                bannerImg: 'assets/images/featured/bumper-lip.png'
+            },
+            {
+                displayName: 'BODY PARTS',
+                dataCategory: 'Body Parts',
+                prefix: 'OEM QUALITY',
+                bannerImg: 'assets/images/products/body-parts/grille-1.png'
+            },
+            // --- 2. BRAKING SYSTEM ---
+            {
                 displayName: 'BRAKING SYSTEM',
                 dataCategory: 'Braking System',
                 prefix: 'RELIABLE',
                 bannerImg: 'assets/images/products/isolated/hero_brake.png'
             },
+            {
+                displayName: 'BRAKING SYSTEM',
+                dataCategory: 'Braking System',
+                prefix: 'SAFETY FIRST',
+                bannerImg: 'assets/images/featured/brake-shoes.png'
+            },
+            {
+                displayName: 'BRAKING SYSTEM',
+                dataCategory: 'Braking System',
+                prefix: 'DURABLE',
+                bannerImg: 'assets/images/products/braking-system/brake-drum-1.png'
+            },
+            // --- 3. ENGINE SPARES ---
             {
                 displayName: 'ENGINE SPARES',
                 dataCategory: 'Engine & Components',
@@ -31,11 +58,37 @@ class ShuffleBanner {
                 bannerImg: 'assets/images/products/isolated/hero_turbo.png'
             },
             {
+                displayName: 'ENGINE SPARES',
+                dataCategory: 'Engine & Components',
+                prefix: 'PRECISION',
+                bannerImg: 'assets/images/products/engine-components/spark-plug-1.png'
+            },
+            {
+                displayName: 'ENGINE SPARES',
+                dataCategory: 'Engine & Components',
+                prefix: 'RELIANCE',
+                bannerImg: 'assets/images/products/engine-components/timing-belt.png'
+            },
+            // --- 4. CAR LIGHTING ---
+            {
                 displayName: 'CAR LIGHTING',
                 dataCategory: 'Car Lighting',
                 prefix: 'BRIGHT',
                 bannerImg: 'assets/images/featured/projector-lens.png'
             },
+            {
+                displayName: 'CAR LIGHTING',
+                dataCategory: 'Car Lighting',
+                prefix: 'VISIBILITY',
+                bannerImg: 'assets/images/products/lighting/headlight-1.png'
+            },
+            {
+                displayName: 'CAR LIGHTING',
+                dataCategory: 'Car Lighting',
+                prefix: 'MODERN',
+                bannerImg: 'assets/images/products/lighting/tail-light-1.png'
+            },
+            // --- 5. SUSPENSION ---
             {
                 displayName: 'SUSPENSION',
                 dataCategory: 'Suspension & Bearings',
@@ -43,10 +96,35 @@ class ShuffleBanner {
                 bannerImg: 'assets/images/featured/stabilizer-link.png'
             },
             {
+                displayName: 'SUSPENSION',
+                dataCategory: 'Suspension & Bearings',
+                prefix: 'CONTROL',
+                bannerImg: 'assets/images/products/suspension-steering/shock-absorber-1.png'
+            },
+            {
+                displayName: 'SUSPENSION',
+                dataCategory: 'Suspension & Bearings',
+                prefix: 'STABILITY',
+                bannerImg: 'assets/images/products/suspension-steering/shock-mount.png'
+            },
+            // --- 6. SERVICE KITS ---
+            {
                 displayName: 'SERVICE KITS',
                 dataCategory: 'Service & Maintenance',
                 prefix: 'PREMIUM',
                 bannerImg: 'assets/images/featured/cv-boot.png'
+            },
+            {
+                displayName: 'SERVICE KITS',
+                dataCategory: 'Service & Maintenance',
+                prefix: 'COMPLETE',
+                bannerImg: 'assets/images/products/service-parts/Air Filters.jpeg'
+            },
+            {
+                displayName: 'SERVICE KITS',
+                dataCategory: 'Service & Maintenance',
+                prefix: 'PROTECTION',
+                bannerImg: 'assets/images/products/service-parts/Oil Filters.jpeg'
             }
         ];
 

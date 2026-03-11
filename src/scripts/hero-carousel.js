@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId;
     const INTERVAL = 7000; // 7 seconds per slide
 
+    // If only one slide, don't auto-rotate (prevents video interruption)
+    if (slides.length <= 1) {
+        handleVideoState(slides[0], true);
+        return;
+    }
+
     function handleVideoState(slide, shouldPlay) {
         const video = slide.querySelector('video');
         if (!video) return;
